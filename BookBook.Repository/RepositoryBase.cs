@@ -17,6 +17,9 @@ namespace BookBook.Repository
         public void Create(T entity) => repositoryContext.Set<T>().Add(entity);
         public void Update(T entity) => repositoryContext.Set<T>().Update(entity);    
         public void Delete(T entity) => repositoryContext.Set<T>().Remove(entity);
+        public void CreateRange(List<T> entities) => repositoryContext.Set<List<T>>().AddRange(entities);
+        public void UpdateRange(List<T> entities) => repositoryContext.Set<List<T>>().UpdateRange(entities);
+        public void DeleteRange(List<T> entities) => repositoryContext.Set<List<T>>().RemoveRange(entities);
 
     }
 }

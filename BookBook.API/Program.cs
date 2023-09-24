@@ -3,12 +3,12 @@ using static BookBook.API.ServiceExtension;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.ConfigureMySqlContext(builder.Configuration);
+builder.Services.ConfigureRepository();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.ConfigureMySqlContext(builder.Configuration);
 
 var app = builder.Build();
 

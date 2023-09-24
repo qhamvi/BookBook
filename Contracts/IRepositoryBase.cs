@@ -9,5 +9,9 @@ namespace Contracts
         void Create(T entity);
         void Update(T entity);
         void Delete(T entity);
+        void CreateRange(List<T> entities);
+        void UpdateRange(List<T> entities);
+        void DeleteRange(List<T> entities);
+
     }
 }
