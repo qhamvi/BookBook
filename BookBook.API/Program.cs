@@ -1,3 +1,4 @@
+using BookBook.DTOs;
 using NLog;
 using static BookBook.API.ServiceExtension;
 
@@ -9,6 +10,9 @@ LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nl
 builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureMySqlContext(builder.Configuration);
 builder.Services.ConfigureRepository();
+
+builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

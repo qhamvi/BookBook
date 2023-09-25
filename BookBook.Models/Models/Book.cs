@@ -6,7 +6,8 @@ namespace BookBook.Models.Models
     [Table("books")]
     public class Book
     {
-        public Guid BookId {get; set;}
+        [Column("BookId")]
+        public Guid Id {get; set;}
         [Required(ErrorMessage = "BookName is required")]
         public string BookName {get; set;}
         public DateTime CreatedDate {get; set;}
