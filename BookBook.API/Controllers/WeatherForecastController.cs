@@ -17,7 +17,9 @@ public class WeatherForecastController : ControllerBase
     [HttpGet]
     public IEnumerable<string> Get()
     {
-        var queryBook = _repositoryWrapper.Book.FindAll();
-        return new string[] { "value1", "value2" };
+        var queryAuthor = _repositoryWrapper.Author.FindAll();
+        var authors = queryAuthor.ToList();
+        var res = authors.Select(v => v.LastName).ToArray();
+        return res;
     }
 }
