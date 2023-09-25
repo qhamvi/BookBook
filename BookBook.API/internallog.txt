@@ -876,3 +876,1581 @@
 2023-09-25 20:53:57.1555 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
 2023-09-25 20:53:57.1765 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
 2023-09-25 20:53:57.1765 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 21:16:11.2429 Debug Message Template Auto Format enabled
+2023-09-25 21:16:11.4738 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:16:11.4738 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:16:11.4882 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:16:11.4882 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:16:11.4882 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:16:11.4882 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:16:11.4882 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:16:11.4882 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:16:11.4882 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:16:11.5047 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:16:11.5047 Trace ParseRulesElement
+2023-09-25 21:16:11.5630 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 21:16:11.5808 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 21:16:11.5808 Debug --- NLog configuration dump ---
+2023-09-25 21:16:11.5808 Debug Targets:
+2023-09-25 21:16:11.5920 Debug FileTarget(Name=logfile)
+2023-09-25 21:16:11.5920 Debug Rules:
+2023-09-25 21:16:11.5920 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 21:16:11.5920 Debug --- End of NLog configuration dump ---
+2023-09-25 21:16:11.6085 Trace FindReachableObject<System.Object>:
+2023-09-25 21:16:11.6085 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 21:16:11.6085 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 21:16:11.6166 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:16:11.6166 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:16:11.6166 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:16:11.6166 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:16:11.6166 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6166 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:16:11.6166 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6166 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:16:11.6166 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:16:11.6166 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:16:11.6166 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:16:11.6166 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6166 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:16:11.6166 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6166 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:16:11.6323 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 21:16:11.6323 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 21:16:11.6323 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 21:16:11.6480 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 21:16:11.6480 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 21:16:11.6597 Trace Initializing Layout Renderer: ${message}
+2023-09-25 21:16:11.6597 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:16:11.6597 Trace Initializing Layout Renderer: ${level}
+2023-09-25 21:16:11.6597 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:16:11.6597 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 21:16:11.6597 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 21:16:11.6597 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:16:11.6597 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:16:11.6597 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:16:11.6597 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:16:11.6597 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6744 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:16:11.6744 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6744 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:16:11.6744 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:16:11.6744 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 21:16:11.6744 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:16:11.6744 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 21:16:11.6744 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:16:11.6744 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:16:11.6744 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:16:11.6744 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6744 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:16:11.6744 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:16:11.6744 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 21:16:11.6935 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 21:16:11.6935 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:16:11.6935 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:16:11.6935 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:16:11.6935 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 21:16:11.6935 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 21:16:11.6935 Info Configuration initialized.
+2023-09-25 21:16:30.3527 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 21:16:30.3527 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 21:16:30.3527 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 21:16:30.3527 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 21:16:30.3527 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 21:16:30.3527 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 21:16:30.4074 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:16:30.4238 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:16:30.4278 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 21:19:44.2589 Debug Message Template Auto Format enabled
+2023-09-25 21:19:44.4814 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:19:44.4814 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:19:44.4930 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:19:44.4930 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:19:44.4930 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:19:44.4930 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:19:44.5043 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:19:44.5043 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:19:44.5043 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:19:44.5043 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:19:44.5043 Trace ParseRulesElement
+2023-09-25 21:19:44.5626 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 21:19:44.5845 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 21:19:44.5845 Debug --- NLog configuration dump ---
+2023-09-25 21:19:44.5845 Debug Targets:
+2023-09-25 21:19:44.5845 Debug FileTarget(Name=logfile)
+2023-09-25 21:19:44.5845 Debug Rules:
+2023-09-25 21:19:44.6017 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 21:19:44.6017 Debug --- End of NLog configuration dump ---
+2023-09-25 21:19:44.6017 Trace FindReachableObject<System.Object>:
+2023-09-25 21:19:44.6017 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 21:19:44.6171 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 21:19:44.6171 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:19:44.6171 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:19:44.6171 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:19:44.6171 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:19:44.6171 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6171 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:19:44.6171 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6323 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:19:44.6323 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:19:44.6323 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:19:44.6323 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:19:44.6323 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6323 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:19:44.6323 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6323 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:19:44.6323 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 21:19:44.6323 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 21:19:44.6476 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 21:19:44.6476 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 21:19:44.6716 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 21:19:44.6716 Trace Initializing Layout Renderer: ${message}
+2023-09-25 21:19:44.6716 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:19:44.6716 Trace Initializing Layout Renderer: ${level}
+2023-09-25 21:19:44.6779 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:19:44.6779 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 21:19:44.6779 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 21:19:44.6779 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:19:44.6779 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:19:44.6779 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:19:44.6779 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:19:44.6779 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6919 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:19:44.6919 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6919 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:19:44.6919 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:19:44.6919 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 21:19:44.6919 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:19:44.6919 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 21:19:44.6919 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:19:44.6919 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:19:44.6919 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:19:44.6919 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6919 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:19:44.6919 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:19:44.6919 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 21:19:44.7163 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 21:19:44.7163 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:19:44.7163 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:19:44.7163 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:19:44.7163 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 21:19:44.7163 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 21:19:44.7163 Info Configuration initialized.
+2023-09-25 21:20:04.7592 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 21:20:04.7592 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 21:20:04.7592 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 21:20:04.7592 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 21:20:04.7592 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 21:20:04.7592 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 21:20:04.8196 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:20:04.8349 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:20:04.8349 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 21:53:30.5234 Debug Message Template Auto Format enabled
+2023-09-25 21:53:30.8197 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:53:30.8197 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:53:30.8329 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:53:30.8329 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:53:30.8329 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:53:30.8329 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:53:30.8329 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:53:30.8468 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:53:30.8468 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:53:30.8468 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:53:30.8468 Trace ParseRulesElement
+2023-09-25 21:53:30.9203 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 21:53:30.9478 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 21:53:30.9478 Debug --- NLog configuration dump ---
+2023-09-25 21:53:30.9478 Debug Targets:
+2023-09-25 21:53:30.9626 Debug FileTarget(Name=logfile)
+2023-09-25 21:53:30.9626 Debug Rules:
+2023-09-25 21:53:30.9626 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 21:53:30.9626 Debug --- End of NLog configuration dump ---
+2023-09-25 21:53:30.9815 Trace FindReachableObject<System.Object>:
+2023-09-25 21:53:30.9815 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 21:53:30.9815 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 21:53:30.9899 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:53:30.9899 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:53:30.9899 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:53:30.9899 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:53:30.9899 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:30.9899 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:53:30.9899 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:30.9899 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:53:30.9899 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:53:30.9899 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:53:30.9899 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:53:31.0029 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:31.0029 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:53:31.0029 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:31.0029 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:53:31.0029 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 21:53:31.0029 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 21:53:31.0029 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 21:53:31.0454 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 21:53:31.0553 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 21:53:31.0553 Trace Initializing Layout Renderer: ${message}
+2023-09-25 21:53:31.0553 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:53:31.0553 Trace Initializing Layout Renderer: ${level}
+2023-09-25 21:53:31.0553 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:53:31.0553 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 21:53:31.0553 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 21:53:31.0685 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:53:31.0685 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:53:31.0685 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:53:31.0685 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:53:31.0685 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:31.0685 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:53:31.0685 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:31.0685 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:53:31.0685 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:53:31.0685 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 21:53:31.0685 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:53:31.0685 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 21:53:31.0685 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:53:31.0685 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:53:31.0685 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:53:31.0685 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:31.0685 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:53:31.0685 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:53:31.0685 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 21:53:31.0933 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 21:53:31.0933 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:53:31.0933 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:53:31.0933 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:53:31.0933 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 21:53:31.0933 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 21:53:31.1032 Info Configuration initialized.
+2023-09-25 21:54:18.5696 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 21:54:18.5696 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 21:54:18.5696 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 21:54:18.5696 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 21:54:18.6051 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 21:54:18.6051 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 21:54:18.6545 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:54:18.6695 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:54:18.6695 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 21:55:31.2277 Debug Message Template Auto Format enabled
+2023-09-25 21:55:31.4287 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:55:31.4287 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:55:31.4425 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:55:31.4425 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:55:31.4425 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:55:31.4425 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:55:31.4425 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:55:31.4425 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:55:31.4425 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:55:31.4572 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:55:31.4572 Trace ParseRulesElement
+2023-09-25 21:55:31.5182 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 21:55:31.5353 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 21:55:31.5384 Debug --- NLog configuration dump ---
+2023-09-25 21:55:31.5384 Debug Targets:
+2023-09-25 21:55:31.5384 Debug FileTarget(Name=logfile)
+2023-09-25 21:55:31.5384 Debug Rules:
+2023-09-25 21:55:31.5605 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 21:55:31.5605 Debug --- End of NLog configuration dump ---
+2023-09-25 21:55:31.5713 Trace FindReachableObject<System.Object>:
+2023-09-25 21:55:31.5713 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 21:55:31.5713 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 21:55:31.5713 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:55:31.5864 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:55:31.5864 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:55:31.5864 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:55:31.5864 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.5864 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:55:31.5864 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.5864 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:55:31.5864 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:55:31.5864 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:55:31.5864 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:55:31.5864 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.5864 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:55:31.5864 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.5864 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:55:31.5864 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 21:55:31.5864 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 21:55:31.6058 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 21:55:31.6179 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 21:55:31.6179 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 21:55:31.6305 Trace Initializing Layout Renderer: ${message}
+2023-09-25 21:55:31.6305 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:55:31.6305 Trace Initializing Layout Renderer: ${level}
+2023-09-25 21:55:31.6305 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:55:31.6305 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 21:55:31.6305 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 21:55:31.6305 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:55:31.6305 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:55:31.6305 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:55:31.6305 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:55:31.6305 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.6305 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:55:31.6305 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.6305 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:55:31.6504 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:55:31.6504 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 21:55:31.6504 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:55:31.6504 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 21:55:31.6504 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:55:31.6504 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:55:31.6504 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:55:31.6504 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.6504 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:55:31.6504 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:55:31.6504 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 21:55:31.6504 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 21:55:31.6653 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:55:31.6653 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:55:31.6653 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:55:31.6653 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 21:55:31.6653 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 21:55:31.6653 Info Configuration initialized.
+2023-09-25 21:55:53.8857 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 21:55:53.8857 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 21:55:53.8857 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 21:55:53.8857 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 21:55:53.8857 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 21:55:53.8857 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 21:55:53.9427 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:55:53.9427 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:55:53.9622 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 21:56:17.5571 Debug Message Template Auto Format enabled
+2023-09-25 21:56:17.7629 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:56:17.7725 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:56:17.7725 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:56:17.7725 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:56:17.7725 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:56:17.7725 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:56:17.7725 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:56:17.7725 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:56:17.7910 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:56:17.7910 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:56:17.7910 Trace ParseRulesElement
+2023-09-25 21:56:17.8420 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 21:56:17.8585 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 21:56:17.8585 Debug --- NLog configuration dump ---
+2023-09-25 21:56:17.8619 Debug Targets:
+2023-09-25 21:56:17.8619 Debug FileTarget(Name=logfile)
+2023-09-25 21:56:17.8619 Debug Rules:
+2023-09-25 21:56:17.8619 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 21:56:17.8619 Debug --- End of NLog configuration dump ---
+2023-09-25 21:56:17.8825 Trace FindReachableObject<System.Object>:
+2023-09-25 21:56:17.8825 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 21:56:17.8825 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 21:56:17.8825 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:56:17.8825 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:56:17.8825 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:56:17.8944 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:56:17.8944 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.8944 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:56:17.8944 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.8944 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:56:17.8944 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:56:17.8944 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:56:17.8944 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:56:17.8944 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.8944 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:56:17.8944 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.8944 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:56:17.8944 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 21:56:17.8944 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 21:56:17.9114 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 21:56:17.9114 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 21:56:17.9286 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 21:56:17.9286 Trace Initializing Layout Renderer: ${message}
+2023-09-25 21:56:17.9286 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:56:17.9286 Trace Initializing Layout Renderer: ${level}
+2023-09-25 21:56:17.9286 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:56:17.9286 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 21:56:17.9286 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 21:56:17.9286 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:56:17.9286 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:56:17.9286 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:56:17.9419 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:56:17.9419 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.9419 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:56:17.9419 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.9419 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:56:17.9419 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:56:17.9419 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 21:56:17.9419 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:56:17.9419 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 21:56:17.9419 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:56:17.9419 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:56:17.9419 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:56:17.9419 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.9419 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:56:17.9419 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:56:17.9419 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 21:56:17.9620 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 21:56:17.9620 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:56:17.9620 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:56:17.9620 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:56:17.9620 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 21:56:17.9620 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 21:56:17.9620 Info Configuration initialized.
+2023-09-25 21:56:59.0940 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 21:56:59.0940 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 21:56:59.1004 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 21:56:59.1004 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 21:56:59.1004 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 21:56:59.1004 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 21:56:59.1583 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:56:59.1733 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:56:59.1733 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 21:57:24.8470 Debug Message Template Auto Format enabled
+2023-09-25 21:57:25.0349 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:57:25.0434 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:57:25.0434 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:57:25.0434 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:57:25.0564 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:57:25.0564 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:57:25.0564 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:57:25.0564 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:57:25.0564 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:57:25.0564 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:57:25.0564 Trace ParseRulesElement
+2023-09-25 21:57:25.1066 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 21:57:25.1223 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 21:57:25.1223 Debug --- NLog configuration dump ---
+2023-09-25 21:57:25.1223 Debug Targets:
+2023-09-25 21:57:25.1327 Debug FileTarget(Name=logfile)
+2023-09-25 21:57:25.1327 Debug Rules:
+2023-09-25 21:57:25.1327 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 21:57:25.1327 Debug --- End of NLog configuration dump ---
+2023-09-25 21:57:25.1471 Trace FindReachableObject<System.Object>:
+2023-09-25 21:57:25.1471 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 21:57:25.1471 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 21:57:25.1471 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:57:25.1471 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:57:25.1471 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:57:25.1598 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:57:25.1598 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.1598 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:57:25.1598 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.1598 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:57:25.1598 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:57:25.1598 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:57:25.1598 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:57:25.1598 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.1598 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:57:25.1598 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.1598 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:57:25.1598 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 21:57:25.1598 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 21:57:25.1767 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 21:57:25.1767 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 21:57:25.1767 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 21:57:25.1941 Trace Initializing Layout Renderer: ${message}
+2023-09-25 21:57:25.1941 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:57:25.1941 Trace Initializing Layout Renderer: ${level}
+2023-09-25 21:57:25.1941 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:57:25.1941 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 21:57:25.1941 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 21:57:25.1941 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:57:25.1941 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:57:25.1941 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:57:25.1941 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:57:25.1941 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.1941 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:57:25.1941 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.1941 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:57:25.2123 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:57:25.2123 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 21:57:25.2123 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:57:25.2123 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 21:57:25.2123 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:57:25.2123 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:57:25.2123 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:57:25.2123 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.2123 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:57:25.2123 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:57:25.2123 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 21:57:25.2123 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 21:57:25.2257 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:57:25.2257 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:57:25.2257 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:57:25.2257 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 21:57:25.2257 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 21:57:25.2257 Info Configuration initialized.
+2023-09-25 21:58:04.4648 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 21:58:04.4648 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 21:58:04.4648 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 21:58:04.4648 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 21:58:04.4648 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 21:58:04.4648 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 21:58:04.5186 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:58:04.5378 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 21:58:04.5378 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 21:59:23.6785 Debug Message Template Auto Format enabled
+2023-09-25 21:59:23.9095 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:59:23.9095 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:59:23.9095 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:59:23.9095 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:59:23.9326 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:59:23.9326 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:59:23.9326 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:59:23.9326 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:59:23.9326 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:59:23.9326 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 21:59:23.9326 Trace ParseRulesElement
+2023-09-25 21:59:23.9893 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 21:59:23.9893 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 21:59:24.0087 Debug --- NLog configuration dump ---
+2023-09-25 21:59:24.0087 Debug Targets:
+2023-09-25 21:59:24.0087 Debug FileTarget(Name=logfile)
+2023-09-25 21:59:24.0087 Debug Rules:
+2023-09-25 21:59:24.0087 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 21:59:24.0087 Debug --- End of NLog configuration dump ---
+2023-09-25 21:59:24.0314 Trace FindReachableObject<System.Object>:
+2023-09-25 21:59:24.0314 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 21:59:24.0352 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 21:59:24.0352 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:59:24.0352 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:59:24.0352 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:59:24.0352 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:59:24.0352 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.0352 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:59:24.0352 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.0352 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:59:24.0352 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:59:24.0352 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:59:24.0352 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:59:24.0500 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.0500 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:59:24.0500 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.0500 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:59:24.0500 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 21:59:24.0500 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 21:59:24.0500 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 21:59:24.0994 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 21:59:24.0994 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 21:59:24.0994 Trace Initializing Layout Renderer: ${message}
+2023-09-25 21:59:24.0994 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:59:24.0994 Trace Initializing Layout Renderer: ${level}
+2023-09-25 21:59:24.0994 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:59:24.0994 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 21:59:24.0994 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 21:59:24.1202 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:59:24.1202 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 21:59:24.1202 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:59:24.1202 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 21:59:24.1202 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.1202 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 21:59:24.1202 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.1202 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 21:59:24.1202 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:59:24.1202 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 21:59:24.1202 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 21:59:24.1202 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 21:59:24.1313 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 21:59:24.1313 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 21:59:24.1313 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 21:59:24.1313 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.1313 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 21:59:24.1313 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 21:59:24.1313 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 21:59:24.1313 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 21:59:24.1313 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 21:59:24.1313 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 21:59:24.1313 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 21:59:24.1313 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 21:59:24.1313 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 21:59:24.1509 Info Configuration initialized.
+2023-09-25 22:00:06.7943 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:00:06.7943 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:00:06.7943 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:00:06.7943 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:00:06.7943 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:00:06.7943 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:00:06.8530 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:00:06.8530 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:00:06.8726 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:02:33.1717 Debug Message Template Auto Format enabled
+2023-09-25 22:02:33.3725 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:02:33.3725 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:02:33.3863 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:02:33.3863 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:02:33.3948 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:02:33.3948 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:02:33.3948 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:02:33.3948 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:02:33.3948 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:02:33.3948 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:02:33.3948 Trace ParseRulesElement
+2023-09-25 22:02:33.4505 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:02:33.4669 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:02:33.4669 Debug --- NLog configuration dump ---
+2023-09-25 22:02:33.4669 Debug Targets:
+2023-09-25 22:02:33.4771 Debug FileTarget(Name=logfile)
+2023-09-25 22:02:33.4771 Debug Rules:
+2023-09-25 22:02:33.4771 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:02:33.4771 Debug --- End of NLog configuration dump ---
+2023-09-25 22:02:33.4915 Trace FindReachableObject<System.Object>:
+2023-09-25 22:02:33.4915 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:02:33.4915 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:02:33.4915 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:02:33.4915 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:02:33.5030 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:02:33.5030 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:02:33.5030 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5030 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:02:33.5030 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5030 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:02:33.5030 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:02:33.5030 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:02:33.5030 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:02:33.5030 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5030 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:02:33.5030 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5030 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:02:33.5030 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:02:33.5030 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:02:33.5215 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:02:33.5215 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:02:33.5386 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:02:33.5744 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:02:33.5744 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:02:33.5744 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:02:33.5744 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:02:33.5744 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:02:33.5744 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:02:33.5846 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:02:33.5846 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:02:33.5846 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:02:33.5846 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:02:33.5846 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5846 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:02:33.5846 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5846 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:02:33.5846 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:02:33.5846 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:02:33.5846 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:02:33.5846 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:02:33.5846 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:02:33.5846 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:02:33.5846 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:02:33.5846 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5846 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:02:33.5846 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:02:33.5846 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:02:33.6059 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:02:33.6059 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:02:33.6059 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:02:33.6059 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:02:33.6059 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:02:33.6059 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:02:33.6059 Info Configuration initialized.
+2023-09-25 22:03:31.7848 Debug Message Template Auto Format enabled
+2023-09-25 22:03:31.9827 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:03:31.9920 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:03:31.9920 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:03:31.9920 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:03:32.0052 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:03:32.0052 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:03:32.0052 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:03:32.0052 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:03:32.0052 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:03:32.0052 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:03:32.0052 Trace ParseRulesElement
+2023-09-25 22:03:32.0580 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:03:32.0750 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:03:32.0750 Debug --- NLog configuration dump ---
+2023-09-25 22:03:32.0750 Debug Targets:
+2023-09-25 22:03:32.0849 Debug FileTarget(Name=logfile)
+2023-09-25 22:03:32.0849 Debug Rules:
+2023-09-25 22:03:32.0849 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:03:32.0849 Debug --- End of NLog configuration dump ---
+2023-09-25 22:03:32.0991 Trace FindReachableObject<System.Object>:
+2023-09-25 22:03:32.0991 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:03:32.0991 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:03:32.0991 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:03:32.0991 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:03:32.0991 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:03:32.0991 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:03:32.0991 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.0991 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:03:32.1127 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.1127 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:03:32.1127 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:03:32.1127 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:03:32.1127 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:03:32.1127 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.1127 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:03:32.1127 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.1127 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:03:32.1127 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:03:32.1127 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:03:32.1127 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:03:32.1351 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:03:32.1447 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:03:32.1447 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:03:32.1447 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:03:32.1447 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:03:32.1447 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:03:32.1447 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:03:32.1447 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:03:32.1447 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:03:32.1447 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:03:32.1447 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:03:32.1588 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:03:32.1928 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.1928 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:03:32.1928 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.1928 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:03:32.1928 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:03:32.1928 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:03:32.1928 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:03:32.1928 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:03:32.1928 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:03:32.1928 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:03:32.1928 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:03:32.1928 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.1928 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:03:32.1928 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:03:32.2072 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:03:32.2072 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:03:32.2072 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:03:32.2072 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:03:32.2072 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:03:32.2072 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:03:32.2072 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:03:32.2222 Info Configuration initialized.
+2023-09-25 22:04:15.7281 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:04:15.7281 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:04:15.7281 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:04:15.7281 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:04:15.7281 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:04:15.7281 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:04:15.7858 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:04:15.8231 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:04:15.8231 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:05:52.5292 Debug Message Template Auto Format enabled
+2023-09-25 22:05:52.7409 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:05:52.7409 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:05:52.7580 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:05:52.7580 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:05:52.7580 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:05:52.7580 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:05:52.7580 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:05:52.7580 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:05:52.7703 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:05:52.7703 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:05:52.7703 Trace ParseRulesElement
+2023-09-25 22:05:52.8354 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:05:52.8528 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:05:52.8528 Debug --- NLog configuration dump ---
+2023-09-25 22:05:52.8528 Debug Targets:
+2023-09-25 22:05:52.8671 Debug FileTarget(Name=logfile)
+2023-09-25 22:05:52.8671 Debug Rules:
+2023-09-25 22:05:52.8671 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:05:52.8671 Debug --- End of NLog configuration dump ---
+2023-09-25 22:05:52.8842 Trace FindReachableObject<System.Object>:
+2023-09-25 22:05:52.8842 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:05:52.8842 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:05:52.8842 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:05:52.8961 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:05:52.8961 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:05:52.8961 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:05:52.8961 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.8961 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:05:52.8961 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.8961 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:05:52.8961 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:05:52.8961 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:05:52.8961 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:05:52.8961 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.8961 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:05:52.8961 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.8961 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:05:52.8961 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:05:52.8961 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:05:52.9158 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:05:52.9158 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:05:52.9334 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:05:52.9334 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:05:52.9334 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:05:52.9334 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:05:52.9334 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:05:52.9334 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:05:52.9334 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:05:52.9454 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:05:52.9454 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:05:52.9454 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:05:52.9454 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:05:52.9454 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.9454 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:05:52.9454 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.9454 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:05:52.9454 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:05:52.9454 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:05:52.9563 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:05:52.9563 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:05:52.9563 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:05:52.9563 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:05:52.9563 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:05:52.9563 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.9563 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:05:52.9563 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:05:52.9563 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:05:52.9563 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:05:52.9563 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:05:52.9563 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:05:52.9563 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:05:52.9563 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:05:52.9746 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:05:52.9746 Info Configuration initialized.
+2023-09-25 22:06:15.4090 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:06:15.4090 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:06:15.4105 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:06:15.4105 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:06:15.4105 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:06:15.4105 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:06:15.4905 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:06:15.5050 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:06:15.5050 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:08:59.7960 Debug Message Template Auto Format enabled
+2023-09-25 22:09:00.0099 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:09:00.0196 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:09:00.0196 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:09:00.0196 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:09:00.0196 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:09:00.0341 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:09:00.0341 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:09:00.0341 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:09:00.0341 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:09:00.0341 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:09:00.0341 Trace ParseRulesElement
+2023-09-25 22:09:00.0897 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:09:00.1081 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:09:00.1081 Debug --- NLog configuration dump ---
+2023-09-25 22:09:00.1123 Debug Targets:
+2023-09-25 22:09:00.1123 Debug FileTarget(Name=logfile)
+2023-09-25 22:09:00.1123 Debug Rules:
+2023-09-25 22:09:00.1123 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:09:00.1123 Debug --- End of NLog configuration dump ---
+2023-09-25 22:09:00.1378 Trace FindReachableObject<System.Object>:
+2023-09-25 22:09:00.1378 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:09:00.1378 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:09:00.1457 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:09:00.1457 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:09:00.1457 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:09:00.1457 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:09:00.1457 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.1457 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:09:00.1457 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.1457 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:09:00.1457 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:09:00.1457 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:09:00.1457 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:09:00.1457 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.1457 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:09:00.1457 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.1457 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:09:00.1457 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:09:00.1457 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:09:00.1666 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:09:00.1666 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:09:00.1823 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:09:00.1823 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:09:00.1823 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:09:00.1823 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:09:00.1823 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:09:00.1823 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:09:00.1823 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:09:00.1823 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:09:00.1942 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:09:00.1942 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:09:00.1942 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:09:00.1942 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.1942 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:09:00.1942 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.1942 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:09:00.1942 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:09:00.1942 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:09:00.1942 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:09:00.1942 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:09:00.1942 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:09:00.1942 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:09:00.1942 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:09:00.1942 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.2070 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:09:00.2070 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:09:00.2070 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:09:00.2070 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:09:00.2070 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:09:00.2070 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:09:00.2070 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:09:00.2070 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:09:00.2070 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:09:00.2070 Info Configuration initialized.
+2023-09-25 22:09:40.5503 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:09:40.5503 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:09:40.5503 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:09:40.5526 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:09:40.5526 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:09:40.5526 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:09:40.6020 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:09:40.6167 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:09:40.6167 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:12:05.4946 Debug Message Template Auto Format enabled
+2023-09-25 22:12:05.6959 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:12:05.6959 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:12:05.6959 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:12:05.7103 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:12:05.7103 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:12:05.7103 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:12:05.7103 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:12:05.7103 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:12:05.7103 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:12:05.7103 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:12:05.7103 Trace ParseRulesElement
+2023-09-25 22:12:05.7696 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:12:05.7860 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:12:05.7860 Debug --- NLog configuration dump ---
+2023-09-25 22:12:05.7860 Debug Targets:
+2023-09-25 22:12:05.7860 Debug FileTarget(Name=logfile)
+2023-09-25 22:12:05.7860 Debug Rules:
+2023-09-25 22:12:05.8010 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:12:05.8010 Debug --- End of NLog configuration dump ---
+2023-09-25 22:12:05.8010 Trace FindReachableObject<System.Object>:
+2023-09-25 22:12:05.8010 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:12:05.8010 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:12:05.8178 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:12:05.8178 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:12:05.8178 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:12:05.8178 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:12:05.8178 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8178 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:12:05.8178 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8178 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:12:05.8178 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:12:05.8178 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:12:05.8178 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:12:05.8178 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8178 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:12:05.8178 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8178 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:12:05.8178 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:12:05.8178 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:12:05.8385 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:12:05.8385 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:12:05.8543 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:12:05.8543 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:12:05.8543 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:12:05.8543 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:12:05.8543 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:12:05.8543 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:12:05.8543 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:12:05.8659 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:12:05.8659 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:12:05.8659 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:12:05.8659 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:12:05.8659 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8659 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:12:05.8659 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8659 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:12:05.8659 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:12:05.8659 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:12:05.8659 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:12:05.8659 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:12:05.8659 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:12:05.8659 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:12:05.8659 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:12:05.8659 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8659 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:12:05.8659 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:12:05.8659 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:12:05.8880 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:12:05.8880 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:12:05.8880 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:12:05.8880 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:12:05.8880 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:12:05.8880 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:12:05.8880 Info Configuration initialized.
+2023-09-25 22:13:46.4169 Debug Message Template Auto Format enabled
+2023-09-25 22:13:46.6763 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:13:46.6763 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:13:46.6931 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:13:46.6931 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:13:46.6931 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:13:46.6931 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:13:46.6931 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:13:46.6931 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:13:46.7075 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:13:46.7075 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:13:46.7075 Trace ParseRulesElement
+2023-09-25 22:13:46.8006 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:13:46.8186 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:13:46.8186 Debug --- NLog configuration dump ---
+2023-09-25 22:13:46.8186 Debug Targets:
+2023-09-25 22:13:46.8186 Debug FileTarget(Name=logfile)
+2023-09-25 22:13:46.8186 Debug Rules:
+2023-09-25 22:13:46.8348 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:13:46.8348 Debug --- End of NLog configuration dump ---
+2023-09-25 22:13:46.8348 Trace FindReachableObject<System.Object>:
+2023-09-25 22:13:46.8480 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:13:46.8480 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:13:46.8480 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:13:46.8480 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:13:46.8480 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:13:46.8480 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:13:46.8480 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.8480 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:13:46.8619 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.8619 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:13:46.8619 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:13:46.8619 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:13:46.8619 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:13:46.8619 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.8619 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:13:46.8619 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.8619 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:13:46.8619 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:13:46.8619 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:13:46.8782 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:13:46.8782 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:13:46.8971 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:13:46.8971 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:13:46.8971 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:13:46.8971 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:13:46.8971 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:13:46.8971 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:13:46.8971 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:13:46.9117 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:13:46.9117 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:13:46.9117 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:13:46.9117 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:13:46.9117 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.9117 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:13:46.9117 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.9117 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:13:46.9117 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:13:46.9117 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:13:46.9117 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:13:46.9117 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:13:46.9117 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:13:46.9255 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:13:46.9255 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:13:46.9255 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.9255 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:13:46.9255 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:13:46.9255 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:13:46.9255 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:13:46.9255 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:13:46.9255 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:13:46.9255 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:13:46.9409 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:13:46.9409 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:13:46.9409 Info Configuration initialized.
+2023-09-25 22:14:06.4179 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:14:06.4179 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:14:06.4179 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:14:06.4179 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:14:06.4179 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:14:06.4179 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:14:06.4758 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:14:06.4927 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:14:06.4927 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:16:48.1215 Debug Message Template Auto Format enabled
+2023-09-25 22:16:48.3405 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:16:48.3500 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:16:48.3500 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:16:48.3500 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:16:48.3652 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:16:48.3652 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:16:48.3652 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:16:48.3652 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:16:48.3652 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:16:48.3652 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:16:48.3652 Trace ParseRulesElement
+2023-09-25 22:16:48.4371 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:16:48.4565 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:16:48.4565 Debug --- NLog configuration dump ---
+2023-09-25 22:16:48.4565 Debug Targets:
+2023-09-25 22:16:48.4565 Debug FileTarget(Name=logfile)
+2023-09-25 22:16:48.4565 Debug Rules:
+2023-09-25 22:16:48.4760 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:16:48.4760 Debug --- End of NLog configuration dump ---
+2023-09-25 22:16:48.4882 Trace FindReachableObject<System.Object>:
+2023-09-25 22:16:48.4882 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:16:48.4882 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:16:48.4882 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:16:48.4882 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:16:48.4882 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:16:48.5032 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:16:48.5032 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5032 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:16:48.5032 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5032 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:16:48.5032 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:16:48.5032 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:16:48.5032 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:16:48.5032 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5032 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:16:48.5032 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5032 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:16:48.5032 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:16:48.5032 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:16:48.5222 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:16:48.5222 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:16:48.5426 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:16:48.5426 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:16:48.5426 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:16:48.5426 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:16:48.5426 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:16:48.5426 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:16:48.5426 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:16:48.5565 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:16:48.5565 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:16:48.5565 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:16:48.5565 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:16:48.5565 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5565 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:16:48.5565 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5565 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:16:48.5665 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:16:48.5665 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:16:48.5665 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:16:48.5665 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:16:48.5665 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:16:48.5665 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:16:48.5665 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:16:48.5665 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5665 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:16:48.5665 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:16:48.5665 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:16:48.5831 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:16:48.5831 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:16:48.5831 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:16:48.5831 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:16:48.5831 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:16:48.5831 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:16:48.5831 Info Configuration initialized.
+2023-09-25 22:17:09.3631 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:17:09.3631 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:17:09.3631 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:17:09.3631 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:17:09.3631 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:17:09.3631 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:17:09.4150 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:17:09.4301 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:17:09.4301 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:30:41.4240 Debug Message Template Auto Format enabled
+2023-09-25 22:30:41.6693 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:30:41.6826 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:30:41.6826 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:30:41.6826 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:30:41.6985 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:30:41.7328 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:30:41.7328 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:30:41.7328 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:30:41.7328 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:30:41.7395 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:30:41.7395 Trace ParseRulesElement
+2023-09-25 22:30:41.7995 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:30:41.8173 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:30:41.8173 Debug --- NLog configuration dump ---
+2023-09-25 22:30:41.8173 Debug Targets:
+2023-09-25 22:30:41.8316 Debug FileTarget(Name=logfile)
+2023-09-25 22:30:41.8316 Debug Rules:
+2023-09-25 22:30:41.8316 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:30:41.8316 Debug --- End of NLog configuration dump ---
+2023-09-25 22:30:41.8482 Trace FindReachableObject<System.Object>:
+2023-09-25 22:30:41.8482 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:30:41.8482 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:30:41.8482 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:30:41.8482 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:30:41.8482 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:30:41.8624 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:30:41.8624 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.8624 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:30:41.8624 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.8624 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:30:41.8624 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:30:41.8624 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:30:41.8624 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:30:41.8624 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.8624 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:30:41.8624 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.8624 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:30:41.8624 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:30:41.8624 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:30:41.8799 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:30:41.8799 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:30:41.8981 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:30:41.8981 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:30:41.8981 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:30:41.8981 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:30:41.8981 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:30:41.8981 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:30:41.8981 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:30:41.9105 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:30:41.9105 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:30:41.9105 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:30:41.9105 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:30:41.9105 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.9105 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:30:41.9105 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.9105 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:30:41.9105 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:30:41.9105 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:30:41.9105 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:30:41.9105 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:30:41.9105 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:30:41.9105 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:30:41.9105 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:30:41.9105 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.9250 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:30:41.9250 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:30:41.9250 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:30:41.9250 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:30:41.9250 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:30:41.9250 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:30:41.9250 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:30:41.9250 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:30:41.9250 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:30:41.9434 Info Configuration initialized.
+2023-09-25 22:31:09.1060 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:31:09.1060 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:31:09.1060 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:31:09.1441 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:31:09.1441 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:31:09.1441 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:31:09.1955 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:31:09.2113 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:31:09.2113 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:51:00.8666 Debug Message Template Auto Format enabled
+2023-09-25 22:51:01.1227 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:51:01.1330 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:51:01.1330 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:51:01.1330 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:51:01.1485 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:51:01.1485 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:51:01.1485 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:51:01.1485 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:51:01.1485 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:51:01.1485 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:51:01.1485 Trace ParseRulesElement
+2023-09-25 22:51:01.2128 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:51:01.2306 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:51:01.2306 Debug --- NLog configuration dump ---
+2023-09-25 22:51:01.2306 Debug Targets:
+2023-09-25 22:51:01.2422 Debug FileTarget(Name=logfile)
+2023-09-25 22:51:01.2422 Debug Rules:
+2023-09-25 22:51:01.2422 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:51:01.2422 Debug --- End of NLog configuration dump ---
+2023-09-25 22:51:01.2602 Trace FindReachableObject<System.Object>:
+2023-09-25 22:51:01.2602 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:51:01.2602 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:51:01.2602 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:51:01.2719 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:51:01.2719 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:51:01.2719 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:51:01.2719 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.2719 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:51:01.2719 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.2719 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:51:01.2719 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:51:01.2719 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:51:01.2719 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:51:01.2719 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.2719 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:51:01.2719 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.2719 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:51:01.2856 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:51:01.2856 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:51:01.2856 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:51:01.3021 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:51:01.3021 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:51:01.3021 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:51:01.3162 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:51:01.3162 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:51:01.3162 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:51:01.3162 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:51:01.3162 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:51:01.3162 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:51:01.3162 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:51:01.3162 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:51:01.3162 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:51:01.3162 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.3162 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:51:01.3304 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.3304 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:51:01.3304 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:51:01.3304 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:51:01.3304 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:51:01.3304 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:51:01.3304 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:51:01.3304 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:51:01.3304 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:51:01.3304 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.3304 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:51:01.3304 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:51:01.3304 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:51:01.3498 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:51:01.3498 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:51:01.3498 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:51:01.3498 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:51:01.3498 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:51:01.3498 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:51:01.3498 Info Configuration initialized.
+2023-09-25 22:51:33.0113 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:51:33.0113 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:51:33.0186 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:51:33.0186 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:51:33.0186 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:51:33.0186 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:51:33.0857 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:51:33.1039 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:51:33.1039 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:52:24.9118 Debug Message Template Auto Format enabled
+2023-09-25 22:52:25.1478 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:52:25.1478 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:52:25.1636 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:52:25.1636 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:52:25.1636 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:52:25.1636 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:52:25.1636 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:52:25.1755 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:52:25.1755 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:52:25.1755 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:52:25.1755 Trace ParseRulesElement
+2023-09-25 22:52:25.2334 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:52:25.2509 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:52:25.2544 Debug --- NLog configuration dump ---
+2023-09-25 22:52:25.2544 Debug Targets:
+2023-09-25 22:52:25.2544 Debug FileTarget(Name=logfile)
+2023-09-25 22:52:25.2544 Debug Rules:
+2023-09-25 22:52:25.2544 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:52:25.2691 Debug --- End of NLog configuration dump ---
+2023-09-25 22:52:25.2691 Trace FindReachableObject<System.Object>:
+2023-09-25 22:52:25.2691 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:52:25.2691 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:52:25.2880 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:52:25.2880 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:52:25.2880 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:52:25.2880 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:52:25.2880 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.2880 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:52:25.2880 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.2880 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:52:25.2880 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:52:25.2997 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:52:25.2997 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:52:25.2997 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.2997 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:52:25.2997 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.2997 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:52:25.2997 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:52:25.2997 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:52:25.2997 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:52:25.3202 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:52:25.3202 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:52:25.3311 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:52:25.3311 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:52:25.3311 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:52:25.3311 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:52:25.3311 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:52:25.3311 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:52:25.3311 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:52:25.3311 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:52:25.3311 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:52:25.3311 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:52:25.3311 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.3311 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:52:25.3311 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.3472 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:52:25.3472 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:52:25.3472 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:52:25.3472 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:52:25.3472 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:52:25.3472 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:52:25.3472 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:52:25.3472 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:52:25.3472 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.3472 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:52:25.3472 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:52:25.3472 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:52:25.3668 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:52:25.3668 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:52:25.3668 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:52:25.3668 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:52:25.3668 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:52:25.3668 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:52:25.3668 Info Configuration initialized.
+2023-09-25 22:52:36.3458 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:52:36.3469 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:52:36.3469 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:52:36.3469 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:52:36.3469 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:52:36.3469 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:52:36.4069 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:52:36.4225 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:52:36.4268 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:55:12.6425 Debug Message Template Auto Format enabled
+2023-09-25 22:55:12.8528 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:55:12.8625 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:55:12.8625 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:55:12.8625 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:55:12.8625 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:55:12.8625 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:55:12.8790 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:55:12.8790 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:55:12.8790 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:55:12.8790 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:55:12.8790 Trace ParseRulesElement
+2023-09-25 22:55:12.9367 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:55:12.9548 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:55:12.9579 Debug --- NLog configuration dump ---
+2023-09-25 22:55:12.9579 Debug Targets:
+2023-09-25 22:55:12.9579 Debug FileTarget(Name=logfile)
+2023-09-25 22:55:12.9579 Debug Rules:
+2023-09-25 22:55:12.9579 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:55:12.9720 Debug --- End of NLog configuration dump ---
+2023-09-25 22:55:12.9720 Trace FindReachableObject<System.Object>:
+2023-09-25 22:55:12.9720 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:55:12.9720 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:55:12.9895 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:55:12.9895 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:55:12.9895 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:55:12.9895 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:55:12.9895 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:12.9895 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:55:12.9895 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:12.9895 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:55:12.9895 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:55:12.9895 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:55:12.9895 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:55:12.9895 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:13.0030 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:55:13.0030 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:13.0030 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:55:13.0030 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:55:13.0030 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:55:13.0030 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:55:13.0223 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:55:13.0223 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:55:13.0223 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:55:13.0346 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:55:13.0346 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:55:13.0346 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:55:13.0346 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:55:13.0346 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:55:13.0346 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:55:13.0346 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:55:13.0346 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:55:13.0346 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:55:13.0346 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:13.0346 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:55:13.0346 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:13.0346 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:55:13.0527 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:55:13.0527 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:55:13.0527 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:55:13.0527 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:55:13.0527 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:55:13.0527 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:55:13.0527 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:55:13.0527 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:13.0527 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:55:13.0527 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:55:13.0527 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:55:13.0672 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:55:13.0672 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:55:13.0672 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:55:13.0672 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:55:13.0672 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:55:13.0672 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:55:13.0672 Info Configuration initialized.
+2023-09-25 22:55:24.7611 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:55:24.7611 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:55:24.7611 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:55:24.7611 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:55:24.7611 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:55:24.7611 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:55:24.8133 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:55:24.8284 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:55:24.8322 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False
+2023-09-25 22:59:33.4573 Debug Message Template Auto Format enabled
+2023-09-25 22:59:33.6707 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:59:33.6797 Trace Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:59:33.6797 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:59:33.6797 Trace Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:59:33.6938 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:59:33.6938 Trace Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:59:33.6938 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:59:33.6938 Trace Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:59:33.6938 Debug Adding target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:59:33.6938 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-09-25 22:59:33.6938 Trace ParseRulesElement
+2023-09-25 22:59:33.7520 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.4.2092. Product version: 5.2.4+5ed75b125a691ce9f01e64641f1a79f438385847. GlobalAssemblyCache: False
+2023-09-25 22:59:33.7687 Debug Watching file-filter 'nlog.config' in directory: c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API
+2023-09-25 22:59:33.7687 Debug --- NLog configuration dump ---
+2023-09-25 22:59:33.7687 Debug Targets:
+2023-09-25 22:59:33.7687 Debug FileTarget(Name=logfile)
+2023-09-25 22:59:33.7687 Debug Rules:
+2023-09-25 22:59:33.7854 Debug logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]
+2023-09-25 22:59:33.7854 Debug --- End of NLog configuration dump ---
+2023-09-25 22:59:33.7854 Trace FindReachableObject<System.Object>:
+2023-09-25 22:59:33.7854 Trace Scanning LoggingRule 'logNamePattern: (:All) levels: [ Debug Info Warn Error Fatal ] writeTo: [ logfile ]'
+2023-09-25 22:59:33.8018 Trace  Scanning Property Targets 'System.Collections.Generic.List`1[NLog.Targets.Target]' System.Collections.Generic.IList`1[NLog.Targets.Target]
+2023-09-25 22:59:33.8018 Trace  Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:59:33.8018 Trace   Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:59:33.8018 Trace   Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:59:33.8018 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:59:33.8018 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8018 Trace    Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:59:33.8018 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8018 Trace   Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:59:33.8160 Trace   Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:59:33.8160 Trace    Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:59:33.8160 Trace    Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:59:33.8160 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8160 Trace    Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:59:33.8160 Trace    Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8160 Trace    Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:59:33.8160 Trace  Scanning Property ChildRules 'System.Collections.Generic.List`1[NLog.Config.LoggingRule]' System.Collections.Generic.IList`1[NLog.Config.LoggingRule]
+2023-09-25 22:59:33.8160 Trace  Scanning Property Filters 'System.Collections.Generic.List`1[NLog.Filters.Filter]' System.Collections.Generic.IList`1[NLog.Filters.Filter]
+2023-09-25 22:59:33.8160 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=c:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\nlog.config
+2023-09-25 22:59:33.8374 Debug Unused target checking is started... Rule Count: 1, Target Count: 1
+2023-09-25 22:59:33.8374 Debug Unused target checking is completed. Total Rule Count: 1, Total Target Count: 1, Unused Target Count: 0
+2023-09-25 22:59:33.8474 Trace Initializing Layout Renderer: ${message}
+2023-09-25 22:59:33.8474 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:59:33.8474 Trace Initializing Layout Renderer: ${level}
+2023-09-25 22:59:33.8474 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:59:33.8474 Trace Initializing Layout Renderer: ${longdate}
+2023-09-25 22:59:33.8474 Trace Initializing ${longdate} ${level:uppercase=true} ${message}
+2023-09-25 22:59:33.8474 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:59:33.8474 Trace Scanning SimpleLayout '${longdate} ${level:uppercase=true} ${message}'
+2023-09-25 22:59:33.8474 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:59:33.8474 Trace  Scanning LongDateLayoutRenderer 'Layout Renderer: ${longdate}'
+2023-09-25 22:59:33.8474 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8621 Trace  Scanning LevelLayoutRenderer 'Layout Renderer: ${level}'
+2023-09-25 22:59:33.8621 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8621 Trace  Scanning MessageLayoutRenderer 'Layout Renderer: ${message}'
+2023-09-25 22:59:33.8621 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:59:33.8621 Trace Initializing Layout Renderer: ${shortdate}
+2023-09-25 22:59:33.8621 Trace Initializing Layout Renderer: ${literal}
+2023-09-25 22:59:33.8621 Trace Initializing C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt
+2023-09-25 22:59:33.8621 Trace FindReachableObject<NLog.Internal.IRenderable>:
+2023-09-25 22:59:33.8621 Trace Scanning SimpleLayout 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt'
+2023-09-25 22:59:33.8621 Trace  Scanning Property LayoutRenderers 'NLog.LayoutRenderers.LayoutRenderer[]' System.Collections.Generic.IEnumerable`1[NLog.LayoutRenderers.LayoutRenderer]
+2023-09-25 22:59:33.8621 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8621 Trace  Scanning ShortDateLayoutRenderer 'Layout Renderer: ${shortdate}'
+2023-09-25 22:59:33.8621 Trace  Scanning LiteralLayoutRenderer 'Layout Renderer: ${literal}'
+2023-09-25 22:59:33.8621 Trace Initializing FileTarget(Name=logfile)
+2023-09-25 22:59:33.8818 Trace FindReachableObject<NLog.Layouts.Layout>:
+2023-09-25 22:59:33.8818 Trace Scanning FileTarget 'FileTarget(Name=logfile)'
+2023-09-25 22:59:33.8818 Trace  Scanning Property FileName 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\${shortdate}_logfile.txt' NLog.Layouts.Layout
+2023-09-25 22:59:33.8818 Trace  Scanning Property Layout '${longdate} ${level:uppercase=true} ${message}' NLog.Layouts.Layout
+2023-09-25 22:59:33.8818 Trace FileTarget(Name=logfile) has 2 layouts
+2023-09-25 22:59:33.8818 Trace FileTarget(Name=logfile): Using appenderFactory: NLog.Internal.FileAppenders.SingleProcessFileAppender+Factory
+2023-09-25 22:59:33.8818 Info Configuration initialized.
+2023-09-25 22:59:48.0748 Debug Targets configured when LogLevel >= Debug for Logger: LoggerService.LoggerManager
+2023-09-25 22:59:48.0748 Debug Logger LoggerService.LoggerManager [Debug] => logfile
+2023-09-25 22:59:48.0748 Debug Logger LoggerService.LoggerManager [Info] => logfile
+2023-09-25 22:59:48.0748 Debug Logger LoggerService.LoggerManager [Warn] => logfile
+2023-09-25 22:59:48.0748 Debug Logger LoggerService.LoggerManager [Error] => logfile
+2023-09-25 22:59:48.0748 Debug Logger LoggerService.LoggerManager [Fatal] => logfile
+2023-09-25 22:59:48.1290 Debug FileTarget(Name=logfile): Preparing for new file: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:59:48.1446 Debug FileTarget(Name=logfile): Creating file appender: 'C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt'
+2023-09-25 22:59:48.1446 Trace FileTarget(Name=logfile): Opening C:\ViVi\CodeLearn\Net6\BookBook\BookBook.API\logs\2023-09-25_logfile.txt with allowFileSharedWriting=False

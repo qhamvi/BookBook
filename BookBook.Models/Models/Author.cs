@@ -6,7 +6,8 @@ namespace BookBook.Models.Models
     [Table("authors")]
     public class Author
     {
-        public Guid AuthorId {get; set;}
+        [Column("AuthorId")]
+        public Guid Id {get; set;}
 
         [Required(ErrorMessage = "FirstName is required")]
         public string FirstName {get; set;}
