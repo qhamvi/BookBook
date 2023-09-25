@@ -8,5 +8,12 @@ namespace BookBook.Repository
         public AuthorRepository(RepositoryContext _repositoryContext) : base(_repositoryContext)
         {
         }
+
+        public IEnumerable<Author> GetAllAuthors()
+        {
+            return FindAll()
+                    .OrderBy(v => v.FirstName)
+                    .ToList();
+        }
     }
 }

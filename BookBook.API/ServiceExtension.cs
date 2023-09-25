@@ -1,11 +1,17 @@
 using BookBook.Repository;
 using Contracts;
+using LoggerService;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookBook.API
 {
     public static class ServiceExtension
     {
+        public static void ConfigureLoggerService(this IServiceCollection services)
+        {
+            services.AddSingleton<ILoggerManager, LoggerManager>();
+            
+        }
         public static void ConfigureMySqlContext(this IServiceCollection services, IConfiguration configuration)
         {
             var connectionString = configuration["MySqlConnection:ConnectionString"];
