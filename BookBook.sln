@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Cont
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBook.DTOs", "BookBook.DTOs\BookBook.DTOs.csproj", "{898F1C21-8630-4909-961B-CACC7CA397E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{6237C689-BF50-44B0-AAF1-F1A7F4FB2251}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{898F1C21-8630-4909-961B-CACC7CA397E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{898F1C21-8630-4909-961B-CACC7CA397E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{898F1C21-8630-4909-961B-CACC7CA397E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6237C689-BF50-44B0-AAF1-F1A7F4FB2251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6237C689-BF50-44B0-AAF1-F1A7F4FB2251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6237C689-BF50-44B0-AAF1-F1A7F4FB2251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6237C689-BF50-44B0-AAF1-F1A7F4FB2251}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

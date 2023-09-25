@@ -1,8 +1,12 @@
+using NLog;
 using static BookBook.API.ServiceExtension;
 
 var builder = WebApplication.CreateBuilder(args);
 
+LogManager.LoadConfiguration(string.Concat(Directory.GetCurrentDirectory(), "/nlog.config"));
+
 // Add services to the container.
+builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureMySqlContext(builder.Configuration);
 builder.Services.ConfigureRepository();
 builder.Services.AddControllers();
