@@ -17,10 +17,10 @@ namespace BookBook.DTOs.DataTransferObject
 
         [Required(ErrorMessage = "Country is required")]
         [StringLength(50, ErrorMessage = "Country cannot be loner then 50 characters")]
-        public string? Country { get; set; }
+        public string Country { get; set; }
 
         [Required(ErrorMessage = "PhoneNumber is required")]
         [StringLength(10, ErrorMessage = "PhoneNumber cannot be loner then 10 characters")]
-        public string? PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
     }
 }
