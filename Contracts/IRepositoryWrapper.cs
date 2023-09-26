@@ -5,5 +5,6 @@ namespace Contracts
     {
         IBookRepository Book {get;}
         IAuthorRepository Author {get;}
+        void Save();
     }
 }

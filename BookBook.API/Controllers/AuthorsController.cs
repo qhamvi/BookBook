@@ -1,5 +1,7 @@
 using AutoMapper;
 using BookBook.DTOs;
+using BookBook.DTOs.DataTransferObject;
+using BookBook.Models.Models;
 using Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,7 +38,7 @@ namespace BookBook.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "AuthorById")]
         public IActionResult GetAuthorById(Guid id)
         {
             try
@@ -88,6 +90,40 @@ namespace BookBook.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+
+        [HttpPost]
+        public IActionResult CreateAuthor([FromBody] CreateAuthorDto createAuthorDto)
+        {
+            try
+            {
+                if (createAuthorDto is null)
+                {
+                    _logger.LogError("Author object sent from client is null.");
+                    return BadRequest("Author object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid Author object sent from client.");
+                    return BadRequest("Invalid model object");
+                }
+
+                var author = _mapper.Map<Author>(createAuthorDto);
+
+                _repositoryWrapper.Author.CreateAuthor(author);
+                _repositoryWrapper.Save();
+
+                var createdAuthor = _mapper.Map<AuthorDto>(author);
+
+                return CreatedAtRoute("AuthorById", new { id = createdAuthor.Id }, createdAuthor);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside CreateAuthor action: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+
         [HttpGet("test")]
         public IActionResult Get()
         {

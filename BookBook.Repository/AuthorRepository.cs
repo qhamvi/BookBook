@@ -10,6 +10,11 @@ namespace BookBook.Repository
         {
         }
 
+        public void CreateAuthor(Author author)
+        {
+            Create(author);
+        }
+
         public IEnumerable<Author> GetAllAuthors()
         {
             return FindAll()
