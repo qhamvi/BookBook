@@ -8,5 +8,10 @@ namespace BookBook.Repository
         public BookRepository(RepositoryContext _repositoryContext) : base(_repositoryContext)
         {
         }
+
+        public IEnumerable<Book> BooksByAuthor(Guid authorId)
+        {
+            return FindByCondition(v => v.AuthorId.Equals(authorId)).ToList();
+        }
     }
 }

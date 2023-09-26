@@ -9,5 +9,6 @@ namespace Contracts
         Author GetAuthorDetailsWithBook(Guid id);
         void CreateAuthor(Author author);
         void UpdateAuthor(Author author);
+        void DeleteAuthor(Author author);
     }
 }

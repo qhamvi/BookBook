@@ -158,6 +158,34 @@ namespace BookBook.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAuthor(Guid id)
+        {
+
+            try
+            {
+                var author = _repositoryWrapper.Author.GetAuthorById(id);
+                if (author == null)
+                {
+                    _logger.LogError($"Author with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+                if (_repositoryWrapper.Book.BooksByAuthor(id).Any())
+                {
+                    _logger.LogError($"Cannot delete author with id: {id}. It has related books. Please delete those books first");
+                    return BadRequest("Cannot delete author. It has related books. Delete those books first");
+                }
+                _repositoryWrapper.Author.DeleteAuthor(author);
+                _repositoryWrapper.Save();
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside DeleteAuthor action: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
         [HttpGet("test")]
         public IActionResult Get()
         {

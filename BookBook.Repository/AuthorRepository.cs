@@ -15,6 +15,11 @@ namespace BookBook.Repository
             Create(author);
         }
 
+        public void DeleteAuthor(Author author)
+        {
+            Delete(author);
+        }
+
         public IEnumerable<Author> GetAllAuthors()
         {
             return FindAll()
