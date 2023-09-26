@@ -1,5 +1,7 @@
 using AutoMapper;
 using BookBook.DTOs;
+using BookBook.DTOs.DataTransferObject;
+using BookBook.Models.Models;
 using Contracts;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,7 +38,7 @@ namespace BookBook.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "AuthorById")]
         public IActionResult GetAuthorById(Guid id)
         {
             try
@@ -85,6 +87,102 @@ namespace BookBook.API.Controllers
             catch (Exception ex)
             {
                 _logger.LogError($"Something went wrong inside GetAuthorWithDetails action: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult CreateAuthor([FromBody] CreateAuthorDto createAuthorDto)
+        {
+            try
+            {
+                if (createAuthorDto is null)
+                {
+                    _logger.LogError("Author object sent from client is null.");
+                    return BadRequest("Author object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid Author object sent from client.");
+                    return BadRequest("Invalid model object");
+                }
+
+                var author = _mapper.Map<Author>(createAuthorDto);
+
+                _repositoryWrapper.Author.CreateAuthor(author);
+                _repositoryWrapper.Save();
+
+                var createdAuthor = _mapper.Map<AuthorDto>(author);
+
+                return CreatedAtRoute("AuthorById", new { id = createdAuthor.Id }, createdAuthor);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside CreateAuthor action: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+        [HttpPut("{id}")]
+        public IActionResult UpdateAuthor(Guid id, [FromBody] UpdateAuthorDto updateAuthorDto)
+        {
+            try
+            {
+                if (updateAuthorDto is null)
+                {
+                    _logger.LogError("Author object sent from client is null.");
+                    return BadRequest("Author object is null");
+                }
+
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid Author object sent from client.");
+                    return BadRequest("Invalid model object");
+                }
+                var author = _repositoryWrapper.Author.GetAuthorById(id);
+                if (author is null)
+                {
+                    _logger.LogError($"Author with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+
+                _mapper.Map(updateAuthorDto, author);
+
+                _repositoryWrapper.Author.UpdateAuthor(author);
+                _repositoryWrapper.Save();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside UpdateAuthor action: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAuthor(Guid id)
+        {
+
+            try
+            {
+                var author = _repositoryWrapper.Author.GetAuthorById(id);
+                if (author == null)
+                {
+                    _logger.LogError($"Author with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+                if (_repositoryWrapper.Book.BooksByAuthor(id).Any())
+                {
+                    _logger.LogError($"Cannot delete author with id: {id}. It has related books. Please delete those books first");
+                    return BadRequest("Cannot delete author. It has related books. Delete those books first");
+                }
+                _repositoryWrapper.Author.DeleteAuthor(author);
+                _repositoryWrapper.Save();
+
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside DeleteAuthor action: {ex.Message}");
                 return StatusCode(500, ex.Message);
             }
         }

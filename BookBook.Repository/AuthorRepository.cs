@@ -10,6 +10,16 @@ namespace BookBook.Repository
         {
         }
 
+        public void CreateAuthor(Author author)
+        {
+            Create(author);
+        }
+
+        public void DeleteAuthor(Author author)
+        {
+            Delete(author);
+        }
+
         public IEnumerable<Author> GetAllAuthors()
         {
             return FindAll()
@@ -27,6 +37,11 @@ namespace BookBook.Repository
             return FindByCondition(v => v.Id == id)
                     .Include(v => v.Books)
                     .FirstOrDefault();
+        }
+
+        public void UpdateAuthor(Author author)
+        {
+            Update(author);
         }
     }
 }

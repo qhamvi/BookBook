@@ -7,5 +7,8 @@ namespace Contracts
         IEnumerable<Author> GetAllAuthors(); 
         Author GetAuthorById(Guid id);
         Author GetAuthorDetailsWithBook(Guid id);
+        void CreateAuthor(Author author);
+        void UpdateAuthor(Author author);
+        void DeleteAuthor(Author author);
     }
 }
