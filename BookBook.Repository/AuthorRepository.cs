@@ -33,5 +33,10 @@ namespace BookBook.Repository
                     .Include(v => v.Books)
                     .FirstOrDefault();
         }
+
+        public void UpdateAuthor(Author author)
+        {
+            Update(author);
+        }
     }
 }

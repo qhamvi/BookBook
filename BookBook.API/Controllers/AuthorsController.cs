@@ -123,7 +123,41 @@ namespace BookBook.API.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpPut("{id}")]
+        public IActionResult UpdateAuthor(Guid id, [FromBody] UpdateAuthorDto updateAuthorDto)
+        {
+            try
+            {
+                if (updateAuthorDto is null)
+                {
+                    _logger.LogError("Author object sent from client is null.");
+                    return BadRequest("Author object is null");
+                }
 
+                if (!ModelState.IsValid)
+                {
+                    _logger.LogError("Invalid Author object sent from client.");
+                    return BadRequest("Invalid model object");
+                }
+                var author = _repositoryWrapper.Author.GetAuthorById(id);
+                if (author is null)
+                {
+                    _logger.LogError($"Author with id: {id}, hasn't been found in db.");
+                    return NotFound();
+                }
+
+                _mapper.Map(updateAuthorDto, author);
+
+                _repositoryWrapper.Author.UpdateAuthor(author);
+                _repositoryWrapper.Save();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Something went wrong inside UpdateAuthor action: {ex.Message}");
+                return StatusCode(500, ex.Message);
+            }
+        }
         [HttpGet("test")]
         public IActionResult Get()
         {
