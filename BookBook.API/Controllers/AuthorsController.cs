@@ -20,7 +20,15 @@ namespace BookBook.API.Controllers
             _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
         }
+        [HttpGet("paging")]
+        public IActionResult GetAuthorsPaging([FromQuery] AuthorParameters authorParameters)
+        {
+                var authors = _repositoryWrapper.Author.GetAuthorsPaging(authorParameters);
 
+            _logger.LogInfor($"Returned {authors.Count()} authors from database.");
+
+            return Ok(authors);
+        }
         [HttpGet]
         public IActionResult GetAllAuthors()
         {
