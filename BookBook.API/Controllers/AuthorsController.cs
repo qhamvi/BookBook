@@ -1,3 +1,4 @@
+using System.Text.Json;
 using AutoMapper;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
@@ -23,8 +24,18 @@ namespace BookBook.API.Controllers
         [HttpGet("paging")]
         public IActionResult GetAuthorsPaging([FromQuery] AuthorParameters authorParameters)
         {
-                var authors = _repositoryWrapper.Author.GetAuthorsPaging(authorParameters);
-
+            var authors = _repositoryWrapper.Author.GetAuthorsPaging(authorParameters);
+            var response = new
+            {
+                authors.TotalCount,
+                authors.PageSize,
+                authors.CurrentPage,
+                authors.TotalPages,
+                authors.HasNext,
+                authors.HasPrevious
+            };
+            
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(response));
             _logger.LogInfor($"Returned {authors.Count()} authors from database.");
 
             return Ok(authors);
