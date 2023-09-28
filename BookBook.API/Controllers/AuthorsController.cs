@@ -189,11 +189,11 @@ namespace BookBook.API.Controllers
                     _logger.LogError($"Author with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
-                if (_repositoryWrapper.Book.BooksByAuthor(id).Any())
-                {
-                    _logger.LogError($"Cannot delete author with id: {id}. It has related books. Please delete those books first");
-                    return BadRequest("Cannot delete author. It has related books. Delete those books first");
-                }
+                // if (_repositoryWrapper.Book.BooksByAuthor(id).Any())
+                // {
+                //     _logger.LogError($"Cannot delete author with id: {id}. It has related books. Please delete those books first");
+                //     return BadRequest("Cannot delete author. It has related books. Delete those books first");
+                // }
                 _repositoryWrapper.Author.DeleteAuthor(author);
                 _repositoryWrapper.Save();
 

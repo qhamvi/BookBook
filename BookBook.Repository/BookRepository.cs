@@ -9,9 +9,14 @@ namespace BookBook.Repository
         {
         }
 
-        public IEnumerable<Book> BooksByAuthor(Guid authorId)
+        public PagedList<Book> GetBooksByAuthor(Guid authorId, BookParameters bookParameters)
         {
-            return FindByCondition(v => v.AuthorId.Equals(authorId)).ToList();
+            // return FindByCondition(v => v.AuthorId.Equals(authorId)).ToList();
+            return PagedList<Book>.ToPagedList(FindByCondition(v => v.AuthorId.Equals(authorId)),
+                bookParameters.PageNumber,
+                bookParameters.PageSize
+            );
+
         }
     }
 }

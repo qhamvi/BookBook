@@ -1,7 +1,7 @@
 
 namespace BookBook.Models.Models
 {
-    public class AuthorParameters : QueryStringParameters
+    public class BookParameters : QueryStringParameters
     {
         
     }
