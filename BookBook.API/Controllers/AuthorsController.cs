@@ -1,3 +1,4 @@
+using System.Text.Json;
 using AutoMapper;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
@@ -20,7 +21,25 @@ namespace BookBook.API.Controllers
             _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
         }
+        [HttpGet("paging")]
+        public IActionResult GetAuthorsPaging([FromQuery] AuthorParameters authorParameters)
+        {
+            var authors = _repositoryWrapper.Author.GetAuthorsPaging(authorParameters);
+            var response = new
+            {
+                authors.TotalCount,
+                authors.PageSize,
+                authors.CurrentPage,
+                authors.TotalPages,
+                authors.HasNext,
+                authors.HasPrevious
+            };
+            
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(response));
+            _logger.LogInfor($"Returned {authors.Count()} authors from database.");
 
+            return Ok(authors);
+        }
         [HttpGet]
         public IActionResult GetAllAuthors()
         {
@@ -170,11 +189,11 @@ namespace BookBook.API.Controllers
                     _logger.LogError($"Author with id: {id}, hasn't been found in db.");
                     return NotFound();
                 }
-                if (_repositoryWrapper.Book.BooksByAuthor(id).Any())
-                {
-                    _logger.LogError($"Cannot delete author with id: {id}. It has related books. Please delete those books first");
-                    return BadRequest("Cannot delete author. It has related books. Delete those books first");
-                }
+                // if (_repositoryWrapper.Book.BooksByAuthor(id).Any())
+                // {
+                //     _logger.LogError($"Cannot delete author with id: {id}. It has related books. Please delete those books first");
+                //     return BadRequest("Cannot delete author. It has related books. Delete those books first");
+                // }
                 _repositoryWrapper.Author.DeleteAuthor(author);
                 _repositoryWrapper.Save();
 

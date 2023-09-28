@@ -26,6 +26,13 @@ namespace BookBook.Repository
                     .OrderBy(v => v.FirstName)
                     .ToList();
         }
+        public PagedList<Author> GetAuthorsPaging(AuthorParameters authorParameters)
+        {
+            return PagedList<Author>.ToPagedList(FindAll().OrderBy(v => v.LastName),
+                authorParameters.PageNumber,
+                authorParameters.PageSize
+            );
+        }
 
         public Author GetAuthorById(Guid id)
         {
