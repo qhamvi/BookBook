@@ -28,7 +28,11 @@ namespace BookBook.Repository
         }
         public PagedList<Author> GetAuthorsPaging(AuthorParameters authorParameters)
         {
-            return PagedList<Author>.ToPagedList(FindAll().OrderBy(v => v.LastName),
+            var authors = FindByCondition(v => v.DayOfBirth.Year >= authorParameters.MinYearOfBirth &&
+                                                v.DayOfBirth.Year <= authorParameters.MaxYearOfBirth)
+                            .OrderBy(on => on.LastName);
+
+            return PagedList<Author>.ToPagedList(authors,
                 authorParameters.PageNumber,
                 authorParameters.PageSize
             );

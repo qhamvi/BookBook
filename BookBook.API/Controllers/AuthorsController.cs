@@ -21,9 +21,13 @@ namespace BookBook.API.Controllers
             _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
         }
-        [HttpGet("paging")]
+        [HttpGet]
         public IActionResult GetAuthorsPaging([FromQuery] AuthorParameters authorParameters)
         {
+            if(!authorParameters.ValidYearRange)
+            {
+                return BadRequest("Max year of birth cannot be less than min year of birth");
+            }
             var authors = _repositoryWrapper.Author.GetAuthorsPaging(authorParameters);
             var response = new
             {
@@ -40,7 +44,7 @@ namespace BookBook.API.Controllers
 
             return Ok(authors);
         }
-        [HttpGet]
+        [HttpGet("all")]
         public IActionResult GetAllAuthors()
         {
             try
