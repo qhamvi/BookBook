@@ -26,7 +26,7 @@ namespace BookBook.Repository
                     .OrderBy(v => v.FirstName)
                     .ToList();
         }
-        public PagedList<Author> GetAuthorsPaging(AuthorParameters authorParameters)
+        public PagedList<Author> GetAuthorsPagingFiltering(AuthorParameters authorParameters)
         {
             var authors = FindByCondition(v => v.DayOfBirth.Year >= authorParameters.MinYearOfBirth &&
                                                 v.DayOfBirth.Year <= authorParameters.MaxYearOfBirth)

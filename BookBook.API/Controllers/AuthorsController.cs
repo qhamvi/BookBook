@@ -28,7 +28,7 @@ namespace BookBook.API.Controllers
             {
                 return BadRequest("Max year of birth cannot be less than min year of birth");
             }
-            var authors = _repositoryWrapper.Author.GetAuthorsPaging(authorParameters);
+            var authors = _repositoryWrapper.Author.GetAuthorsPagingFiltering(authorParameters);
             var response = new
             {
                 authors.TotalCount,
