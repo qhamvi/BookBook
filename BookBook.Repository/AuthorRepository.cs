@@ -29,13 +29,21 @@ namespace BookBook.Repository
         public PagedList<Author> GetAuthorsPagingFiltering(AuthorParameters authorParameters)
         {
             var authors = FindByCondition(v => v.DayOfBirth.Year >= authorParameters.MinYearOfBirth &&
-                                                v.DayOfBirth.Year <= authorParameters.MaxYearOfBirth)
-                            .OrderBy(on => on.LastName);
+                                                v.DayOfBirth.Year <= authorParameters.MaxYearOfBirth);
+
+            SearchByName(ref authors, authorParameters.Name);
 
             return PagedList<Author>.ToPagedList(authors,
                 authorParameters.PageNumber,
                 authorParameters.PageSize
             );
+        }
+        private void SearchByName(ref IQueryable<Author> authors, string name)
+        {
+            if(!authors.Any() || string.IsNullOrEmpty(name))
+            return;
+            authors = authors.Where(v => v.FirstName.ToLower().Contains(name.Trim().ToLower()) ||
+                v.LastName.ToLower().Contains(name.Trim().ToLower()));
         }
 
         public Author GetAuthorById(Guid id)
