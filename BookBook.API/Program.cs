@@ -1,6 +1,6 @@
 using BookBook.DTOs;
 using NLog;
-using static BookBook.API.ServiceExtension;
+using static BookBook.API.Extensions.ServiceExtension;
 
 var builder = WebApplication.CreateBuilder(args);
 
