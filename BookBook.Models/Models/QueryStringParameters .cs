@@ -17,5 +17,7 @@ namespace BookBook.Models.Models
                 _pageSize = (value > maxPageSize) ? maxPageSize : value;
             }
         }
+        public string OrderBy {get; set;}
+        
     }
 }
