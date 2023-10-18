@@ -23,4 +23,8 @@
     <ProjectReference Include="..\Contracts\Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ContextFactory\" />
+  </ItemGroup>
+
 </Project>
