@@ -17,6 +17,16 @@ namespace BookBook.API.Extensions
                         .AllowAnyHeader());
             });
         }
+        public static void ConfigureIISIntegration(this IServiceCollection services) =>
+            services.Configure<IISOptions>(opts => 
+            {
+                //We do not initialize any of the properties inside the options because we are fine with the default values for now
+                //default
+                // opts.AutomaticAuthentication = true;
+                // opts.AuthenticationDisplayName = null;
+                // opts.ForwardClientCertificate = true;
+            });
+        
         public static void ConfigureLoggerService(this IServiceCollection services)
         {
             services.AddSingleton<ILoggerManager, LoggerManager>();

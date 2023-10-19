@@ -25,14 +25,14 @@ namespace BookBook.Repository
 
         public IEnumerable<Author> GetAllAuthors()
         {
-            return FindAll()
+            return FindAll(false)
                     .OrderBy(v => v.FirstName)
                     .ToList();
         }
         public PagedList<Author> GetAuthorsPagingFiltering(AuthorParameters authorParameters)
         {
             var authors = FindByCondition(v => v.DayOfBirth.Year >= authorParameters.MinYearOfBirth &&
-                                                v.DayOfBirth.Year <= authorParameters.MaxYearOfBirth);
+                                                v.DayOfBirth.Year <= authorParameters.MaxYearOfBirth, false);
 
             SearchByName(ref authors, authorParameters.Search);
             ApplySort(ref authors, authorParameters.OrderBy);
@@ -52,12 +52,12 @@ namespace BookBook.Repository
 
         public Author GetAuthorById(Guid id)
         {
-            return FindByCondition(v => v.Id == id).FirstOrDefault();
+            return FindByCondition(v => v.Id == id, false).FirstOrDefault();
         }
 
         public Author GetAuthorDetailsWithBook(Guid id)
         {
-            return FindByCondition(v => v.Id == id)
+            return FindByCondition(v => v.Id == id, false)
                     .Include(v => v.Books)
                     .FirstOrDefault();
         }
