@@ -1,4 +1,5 @@
 using BookBook.Repository;
+using BookBook.Service;
 using Contracts;
 using LoggerService;
 using Microsoft.EntityFrameworkCore;
@@ -21,7 +22,7 @@ namespace BookBook.API.Extensions
             services.Configure<IISOptions>(opts => 
             {
                 //We do not initialize any of the properties inside the options because we are fine with the default values for now
-                //default
+                 //default
                 // opts.AutomaticAuthentication = true;
                 // opts.AuthenticationDisplayName = null;
                 // opts.ForwardClientCertificate = true;
@@ -38,20 +39,35 @@ namespace BookBook.API.Extensions
             // services.AddDbContext<RepositoryContext>(o => 
             //     o.UseMySql(connectionString, MySqlServerVersion.LatestSupportedServerVersion
             //     ));
-            services.AddDbContext<RepositoryContext>(options =>
-                options.UseMySql(connectionString,
+            services.AddMySql<RepositoryContext>(connectionString,
                 MySqlServerVersion.LatestSupportedServerVersion,
                 mySqlOptions =>
-                        mySqlOptions.EnableRetryOnFailure(
-                            maxRetryCount: 10,
-                            maxRetryDelay: TimeSpan.FromSeconds(100),
-                            errorNumbersToAdd: null)));
+                    mySqlOptions.EnableRetryOnFailure(
+                        maxRetryCount: 10,
+                        maxRetryDelay: TimeSpan.FromSeconds(30),
+                        errorNumbersToAdd: null
+                    )
+            
+            );
+            // services.AddDbContext<RepositoryContext>(options =>
+            //     options.UseMySql(connectionString,
+            //     MySqlServerVersion.LatestSupportedServerVersion,
+            //     mySqlOptions =>
+            //             mySqlOptions.EnableRetryOnFailure(
+            //                 maxRetryCount: 10,
+            //                 maxRetryDelay: TimeSpan.FromSeconds(30),
+            //                 errorNumbersToAdd: null)));
 
         }
         public static void ConfigureRepository(this IServiceCollection services)
         {
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
         }
+        public static void ConfigureRepositoryManager(this IServiceCollection services) 
+        => services.AddScoped<IRepositoryManager, RepositoryManager>();
+
+        public static void ConfigureServiceManager(this IServiceCollection services) 
+        => services.AddScoped<IServiceManager, ServiceManager>();
 
     }
 }

@@ -24,7 +24,7 @@ public class RepositoryContextFactory : IDesignTimeDbContextFactory<RepositoryCo
                                         maxRetryCount: 3,
                                         maxRetryDelay: TimeSpan.FromSeconds(50),
                                         errorNumbersToAdd: null)
-                                    .MigrationsAssembly("BookBook.API")               
+                        .MigrationsAssembly("BookBook.API")               
                 );
         return new RepositoryContext(builder.Options);
     }
