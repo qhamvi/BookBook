@@ -1,6 +1,9 @@
-﻿namespace Contracts;
+﻿using BookBook.Models.Models;
+
+namespace Contracts;
 
 public interface IAuthorRepositoryV2
 {
-
+    IEnumerable<Author> GetAllAuthors(bool trackChanges);
+    
 }

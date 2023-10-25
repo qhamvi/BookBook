@@ -19,6 +19,7 @@
     <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
     <ProjectReference Include="..\BookBook.DTOs\BookBook.DTOs.csproj" />
     <ProjectReference Include="..\BookBook.Service\BookBook.Service.csproj" />
+    <ProjectReference Include="..\BookBook.Presentation\BookBook.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>
