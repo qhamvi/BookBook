@@ -16,15 +16,9 @@ namespace BookBook.Presentation.Controllers
         [HttpGet("all")]
         public IActionResult GetAllAuthors()
         {
-            try
-            {
-                var authors = _serviceManager.AuthorService.GetAllAuthors(trackChanges: false);
-                return Ok(authors);
-            }
-            catch
-            {
-                return StatusCode(500, "Internal server error");
-            }
+            throw new Exception("Quang loi");
+            var authors = _serviceManager.AuthorService.GetAllAuthors(trackChanges: false);
+            return Ok(authors);
         }
     }
 }

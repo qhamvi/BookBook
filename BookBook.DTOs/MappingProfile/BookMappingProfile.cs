@@ -1,7 +1,8 @@
 ﻿using AutoMapper;
+using BookBook.DTOs.DataTransferObject;
 using BookBook.Models.Models;
 
-namespace BookBook.DTOs;
+namespace BookBook.DTOs.MappingProfile;
 
 public class BookMappingProfile : Profile
 {

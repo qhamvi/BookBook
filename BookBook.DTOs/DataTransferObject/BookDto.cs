@@ -1,4 +1,4 @@
-﻿namespace BookBook.DTOs;
+﻿namespace BookBook.DTOs.DataTransferObject;
 
 public class BookDto
 {
