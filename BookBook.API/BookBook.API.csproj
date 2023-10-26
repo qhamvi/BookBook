@@ -22,8 +22,4 @@
     <ProjectReference Include="..\BookBook.Presentation\BookBook.Presentation.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
-
 </Project>

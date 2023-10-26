@@ -1,9 +1,10 @@
-﻿using BookBook.Models.Models;
+﻿using BookBook.DTOs.DataTransferObject;
+using BookBook.Models.Models;
 
 namespace BookBook.Service;
 
 public interface IAuthorService
 {
-    IEnumerable<Author> GetAllAuthors(bool trackChanges);
+    IEnumerable<AuthorDto> GetAllAuthors(bool trackChanges);
 
 }

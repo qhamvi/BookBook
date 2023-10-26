@@ -1,6 +1,7 @@
-using BookBook.DTOs;
+using BookBook.API.Extensions;
+using BookBook.DTOs.MappingProfile;
+using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.Extensions.DependencyInjection;
 using NLog;
 using static BookBook.API.Extensions.ServiceExtension;
 
@@ -28,6 +29,9 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+app.ConfigureExceptionHandler(logger);
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
