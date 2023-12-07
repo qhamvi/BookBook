@@ -9,7 +9,11 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
     {
     }
 
+    public void CreateAuthor(Author author) => Create(author);
+
     public IEnumerable<Author> GetAllAuthors(bool trackChanges) 
             => FindAll(trackChanges).OrderBy(v => v.FirstName + v.LastName).ToList();
-            
+
+    public Author GetAuthor(Guid authorId, bool trackChanges)
+            => FindByCondition(v => v.Id.Equals(authorId), trackChanges).FirstOrDefault();
 }

@@ -20,11 +20,20 @@ builder.Services.ConfigureServiceManager();
 
 builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
 
-builder.Services.AddControllers()
-    .AddApplicationPart(typeof(BookBook.Presentation.AssemblyReference).Assembly);
+builder.Services.AddControllers(config => {
+    config.RespectBrowserAcceptHeader = true;
+    config.ReturnHttpNotAcceptable = true;
+}).AddXmlDataContractSerializerFormatters()
+  .AddCustomCsvFormatter()
+  .AddApplicationPart(typeof(BookBook.Presentation.AssemblyReference).Assembly);
+
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(config =>
+{
+    config.EnableAnnotations();
+});
 
 var app = builder.Build();
 

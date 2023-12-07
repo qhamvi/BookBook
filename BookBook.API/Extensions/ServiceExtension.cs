@@ -69,5 +69,11 @@ namespace BookBook.API.Extensions
         public static void ConfigureServiceManager(this IServiceCollection services) 
         => services.AddScoped<IServiceManager, ServiceManager>();
 
+        public static IMvcBuilder AddCustomCsvFormatter(this IMvcBuilder builder)
+        {
+            return builder.AddMvcOptions(config => 
+                config.OutputFormatters.Add(new CsvOutputFormatter()));
+        }
+
     }
 }
