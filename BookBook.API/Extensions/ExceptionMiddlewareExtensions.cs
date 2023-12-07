@@ -1,4 +1,5 @@
 ﻿using BookBook.Models.ErrorModels;
+using BookBook.Models.Exceptions;
 using Contracts;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
@@ -19,6 +20,12 @@ namespace BookBook.API.Extensions
                     var contextFeature = context.Features.Get<IExceptionHandlerFeature>();
                     if(contextFeature != null)
                     {
+                        context.Response.StatusCode = contextFeature.Error switch
+                        {
+                            NotFoundException => StatusCodes.Status404NotFound,
+                            _ => StatusCodes.Status500InternalServerError
+                        };
+
                         loggerManager.LogError($"Something went wrong: {contextFeature.Error}");
                         await context.Response.WriteAsync(new ErrorDetails()
                         {

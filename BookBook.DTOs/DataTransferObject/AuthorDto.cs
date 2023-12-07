@@ -1,23 +1,16 @@
 ﻿namespace BookBook.DTOs.DataTransferObject;
 
-public class AuthorDto
+public record AuthorDto
 {
-        public AuthorDto(string fullName)
-        {
-            _fullName = fullName;
-        }
-        private string _fullName;
-        public string FullName
-        {
-            get { return _fullName; }
-        }
-        public Guid Id {get; set;}
-        public string? FirstName {get; set;}
-        public string? LastName {get; set;}
-        public string? PhoneNumber {get; set;}
-        public DateTime DayOfBirth {get; set;}
-        public string? Country {get; set;}
+
+        public Guid Id {get; init;}
+        public string? FirstName {get; init;}
+        public string? LastName {get; init;}
+        public string? FullName {get; init;}
+        public string? PhoneNumber {get; init;}
+        public DateTime DayOfBirth {get; init;}
+        public string? Country {get; init;}
         //Additional
-        public IEnumerable<BookDto> Books {get; set;}
+        //public IEnumerable<BookDto> Books {get; set;}
 
 }
