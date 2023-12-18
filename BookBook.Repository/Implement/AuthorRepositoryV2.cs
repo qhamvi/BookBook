@@ -16,4 +16,9 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
 
     public Author GetAuthor(Guid authorId, bool trackChanges)
             => FindByCondition(v => v.Id.Equals(authorId), trackChanges).FirstOrDefault();
+
+    public IEnumerable<Author> GetByIds(IEnumerable<Guid> ids, bool trackChanges)
+    {
+        return FindByCondition(v => ids.Contains(v.Id), trackChanges).ToList();
+    }
 }

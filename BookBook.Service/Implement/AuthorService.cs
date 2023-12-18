@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BookBook.DTOs.DataTransferObject;
+using BookBook.Models;
 using BookBook.Models.Exceptions;
 using BookBook.Models.Models;
 using Contracts;
@@ -28,6 +29,23 @@ public class AuthorService : IAuthorService
         return response;
     }
 
+    public (IEnumerable<AuthorDto> authorDtos, string ids) CreateAuthorCollection(IEnumerable<CreateAuthorDto> authorCollection)
+    {
+        if(authorCollection is null)
+            throw new AuthorCollectionBadRequest();
+        var authorEntities = _mapper.Map<IEnumerable<Author>>(authorCollection);
+        foreach(var author in authorEntities)
+        {
+            _repositoryManager.AuthorRepositoryV2.CreateAuthor(author);
+        }
+        _repositoryManager.Save();
+
+        var authorCollectionToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
+        var ids = string.Join(",", authorCollectionToReturn.Select(v => v.Id));
+
+        return (authorDtos: authorCollectionToReturn, ids: ids);
+    }
+
     public IEnumerable<AuthorDto> GetAllAuthors(bool trackChanges)
     {
             var authors = _repositoryManager.AuthorRepositoryV2.GetAllAuthors(trackChanges);
@@ -44,5 +62,16 @@ public class AuthorService : IAuthorService
 
         var result = _mapper.Map<AuthorDto>(author);
         return result;
+    }
+
+    public IEnumerable<AuthorDto> GetByIds(IEnumerable<Guid> ids, bool trackChanges)
+    {
+        if(ids is null)
+            throw new IdParametersBadRequestException();
+        var authors = _repositoryManager.AuthorRepositoryV2.GetByIds(ids, trackChanges);
+        if(ids.Count() != authors.Count())
+            throw new CollectionByIdsBadRequestException();
+        var response = _mapper.Map<IEnumerable<AuthorDto>>(authors);
+        return response;
     }
 }

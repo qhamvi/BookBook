@@ -1,20 +1,13 @@
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
-using System.Net;
 
 namespace BookBook.Presentation.Controllers
 {
-    public class Response
-    {
-        public int StatusCode { get; set; }
-        public string? StatusDesc {  get; set; }
-        public string? Message {  get; set; }
-    }
-    [ApiController]
+
     [Route("api/authors")]
+    [ApiController]
     public class AuthorsController : ControllerBase
     {
         private IServiceManager _serviceManager;
@@ -43,6 +36,46 @@ namespace BookBook.Presentation.Controllers
             var author = _serviceManager.AuthorService.GetAuthor(authorId, trackChanges: false);
             return Ok(author);
         }
-        
+
+        /// <summary>
+        /// Create a author
+        /// </summary>
+        [HttpPost]
+        [SwaggerOperation(Summary = "Create a author", Description = "Create a author in MySQL database", OperationId = nameof(CreateAuthor))]
+        [ProducesResponseType(typeof(AuthorDto), 200)]
+        public IActionResult CreateAuthor([FromBody] CreateAuthorDto request)
+        {
+            if (request is null)
+                return BadRequest("Create author object is null");
+            var author = _serviceManager.AuthorService.CreateAuthor(request);
+
+            return CreatedAtAction("GetAuthor", new { authorId = author.Id }, author);
+        }
+        /// <summary>
+        /// Get Author Collection
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        [HttpGet("collection/({ids})", Name = "GetAuthorCollection")]
+        [SwaggerOperation(Summary = "Get author collection", Description = "Get author collection in MySQL database", OperationId = nameof(CreateAuthor))]
+        public IActionResult GetAuthorCollection([ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
+        {
+            var authors = _serviceManager.AuthorService.GetByIds(ids, trackChanges: false);
+            return Ok(authors);
+        }
+
+        ///<summary>
+        ///Create a author collection
+        ///</summary>
+        ///<param name=""></param>
+        ///<returns></returns>
+        [HttpPost("collection")]
+        [SwaggerOperation(Summary = "Create collection of author", Description = "Create author collection", OperationId = "")]
+        public IActionResult CreateAuthorCollection([FromBody] IEnumerable<CreateAuthorDto> authorDtos)
+        {
+            var result = _serviceManager.AuthorService.CreateAuthorCollection(authorDtos);
+            return CreatedAtAction("GetAuthorCollection", new {result.ids} , result.authorDtos);
+        }
+
     }
 }
