@@ -67,7 +67,7 @@ namespace BookBook.Presentation.Controllers
         ///<summary>
         ///Create a author collection
         ///</summary>
-        ///<param name=""></param>
+        ///<param name="{authorDtos}"></param>
         ///<returns></returns>
         [HttpPost("collection")]
         [SwaggerOperation(Summary = "Create collection of author", Description = "Create author collection", OperationId = "")]
@@ -75,6 +75,18 @@ namespace BookBook.Presentation.Controllers
         {
             var result = _serviceManager.AuthorService.CreateAuthorCollection(authorDtos);
             return CreatedAtAction("GetAuthorCollection", new {result.ids} , result.authorDtos);
+        }
+
+        ///<summary>
+        ///Delete Author
+        ///</summary>
+        ///<param name="{authorId}"></param>
+        ///<returns></returns>
+        [HttpDelete("{authorId:Guid}")]
+        public IActionResult DeleteAuthor(Guid authorId)
+        {
+            _serviceManager.AuthorService.DeleteAuthor(authorId, trackChanges: false);
+            return NoContent();
         }
 
     }

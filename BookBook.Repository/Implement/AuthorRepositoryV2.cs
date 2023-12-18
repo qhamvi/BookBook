@@ -11,6 +11,11 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
 
     public void CreateAuthor(Author author) => Create(author);
 
+    public void DeleteAuthor(Author author)
+    {
+        Delete(author);
+    }
+
     public IEnumerable<Author> GetAllAuthors(bool trackChanges) 
             => FindAll(trackChanges).OrderBy(v => v.FirstName + v.LastName).ToList();
 

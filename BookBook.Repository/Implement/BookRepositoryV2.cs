@@ -15,13 +15,23 @@ public class BookRepositoryV2 : RepositoryBase<Book>, IBookRepositoryV2
         Create(book);
     }
 
+    public void DeleteBookForAuthor(Book book)
+    {
+        Delete(book);
+    }
+
     public Book GetBookForAuthor(Guid authorId, Guid bookId, bool trackChanges)
     {
         return FindByCondition(v => v.AuthorId == authorId && v.Id == bookId, trackChanges).FirstOrDefault();
     }
 
-    public IEnumerable<Book> GetBooks(Guid authorId, bool trackChanges)
+    public IEnumerable<Book> GetAllBookForAuthor(Guid authorId, bool trackChanges)
     {
         return FindByCondition(v => v.AuthorId == authorId, trackChanges).OrderBy(v => v.BookName).ToList(); 
+    }
+
+    public IEnumerable<Book> GetBooks(bool trackChanges)
+    {
+        return FindAll(trackChanges).OrderBy(v => v.BookName).ToList();
     }
 }

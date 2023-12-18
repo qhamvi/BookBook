@@ -10,5 +10,5 @@ public interface IAuthorService
     AuthorDto CreateAuthor(CreateAuthorDto authorDto);
     IEnumerable<AuthorDto> GetByIds(IEnumerable<Guid> ids, bool trackChanges);
     (IEnumerable<AuthorDto> authorDtos, string ids) CreateAuthorCollection(IEnumerable<CreateAuthorDto> authorCollection);
-
+    void DeleteAuthor(Guid authorId, bool trackChanges);
 }

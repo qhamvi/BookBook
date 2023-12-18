@@ -15,6 +15,24 @@ namespace BookBook.Presentation.Controllers
         {
             _serviceManager = serviceManager;
         }
+        [HttpGet]
+        [SwaggerOperation(Summary = "Get all book", Description = "Get all book in MySQL database", OperationId = nameof(GetBooks))]
+        [ProducesResponseType(typeof(IEnumerable<BookDto>), 200)]
+        public IActionResult GetBooks()
+        {
+            var books = _serviceManager.BookService.GetBooks(trackChanges: false);
+            return Ok(books);
+        }
+
+
+        [HttpGet("of-author/{authorId}")]
+        [SwaggerOperation(Summary = "Get all book of author", Description = "Get all book for Author in MySQL database", OperationId = nameof(GetAllBookForAuthor))]
+        [ProducesResponseType(typeof(IEnumerable<BookDto>), 200)]
+        public IActionResult GetAllBookForAuthor(Guid authorId)
+        {
+            var books = _serviceManager.BookService.GetAllBookForAuthor(authorId, trackChanges: false);
+            return Ok(books);
+        }
 
         [HttpGet("{id:guid}", Name = "GetBookForAuthor")]
         [SwaggerOperation(Summary = "Get Book For Author", Description = "Get Book for Author in MySQL database", OperationId = nameof(GetBookForAuthor))]
@@ -38,6 +56,14 @@ namespace BookBook.Presentation.Controllers
                 authorId,
                 id = response.Id
             }, response);
+        }
+
+        [HttpDelete("{bookId:guid}")]
+        [SwaggerOperation(Summary = "Delete Book for Author", Description = "Delete book for Author in MySQL Database", OperationId = nameof(DeleteBookForAuthor))]
+        public IActionResult DeleteBookForAuthor(Guid authorId, Guid bookId)
+        {
+            _serviceManager.BookService.DeleteBookForAuthor(authorId, bookId, trackChanges: false);
+            return NoContent();
         }
         
     }

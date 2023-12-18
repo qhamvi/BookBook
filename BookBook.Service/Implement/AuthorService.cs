@@ -46,6 +46,16 @@ public class AuthorService : IAuthorService
         return (authorDtos: authorCollectionToReturn, ids: ids);
     }
 
+    public void DeleteAuthor(Guid authorId, bool trackChanges)
+    {
+        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
+        if(author is null) 
+            throw new AuthorNotFoundException(authorId);
+        
+        _repositoryManager.AuthorRepositoryV2.DeleteAuthor(author);
+        _repositoryManager.Save();
+    }
+
     public IEnumerable<AuthorDto> GetAllAuthors(bool trackChanges)
     {
             var authors = _repositoryManager.AuthorRepositoryV2.GetAllAuthors(trackChanges);

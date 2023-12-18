@@ -8,6 +8,6 @@ public interface IAuthorRepositoryV2
     Author GetAuthor(Guid authorId, bool trackChanges);
     void CreateAuthor(Author author);
     IEnumerable<Author> GetByIds(IEnumerable<Guid> ids, bool trackChanges);
-
+    void DeleteAuthor(Author author);
 
 }
