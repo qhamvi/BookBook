@@ -2,6 +2,7 @@ using BookBook.API.Extensions;
 using BookBook.DTOs.MappingProfile;
 using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
+using Microsoft.AspNetCore.Mvc;
 using NLog;
 using static BookBook.API.Extensions.ServiceExtension;
 
@@ -19,6 +20,11 @@ builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 
 builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
+//Enable custom responses from the actions
+builder.Services.Configure<ApiBehaviorOptions>(opts => 
+{
+    opts.SuppressModelStateInvalidFilter = true;
+});
 
 builder.Services.AddControllers(config => {
     config.RespectBrowserAcceptHeader = true;
