@@ -33,6 +33,18 @@ public class BookService : IBookService
         return response;
     }
 
+    public void DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges)
+    {
+        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
+        if(author is null) 
+            throw new AuthorNotFoundException(authorId);
+        var bookOfAuthor = _repositoryManager.BookRepositoryV2.GetBookForAuthor(authorId, bookId, trackChanges);
+        if(bookOfAuthor is null) 
+            throw new BookNotFoundException(bookId);
+        _repositoryManager.BookRepositoryV2.DeleteBookForAuthor(bookOfAuthor);
+        _repositoryManager.Save();
+    }
+
     public BookDto GetBookForAuthor(Guid authorId, Guid id, bool trackChanges)
     {
         var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
@@ -43,8 +55,20 @@ public class BookService : IBookService
         return response;
     }
 
-    public IEnumerable<BookDto> GetBooks(Guid authorId, bool trackChanges)
+    public IEnumerable<BookDto> GetAllBookForAuthor(Guid authorId, bool trackChanges)
     {
-        throw new NotImplementedException();
+        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
+        if(author is null)
+            throw new AuthorNotFoundException(authorId);
+        var books = _repositoryManager.BookRepositoryV2.GetAllBookForAuthor(authorId, trackChanges);
+        var response = books.Select(v => _mapper.Map<BookDto>(v));
+        return response;
+    }
+
+    public IEnumerable<BookDto> GetBooks(bool trackChanges)
+    {
+        var books = _repositoryManager.BookRepositoryV2.GetBooks(trackChanges);
+        var response = books.Select(v => _mapper.Map<BookDto>(v));
+        return response;
     }
 }

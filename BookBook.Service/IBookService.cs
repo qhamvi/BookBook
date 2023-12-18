@@ -5,7 +5,7 @@ namespace BookBook.Service;
 
 public interface IBookService
 {
-    IEnumerable<BookDto> GetBooks(Guid authorId, bool trackChanges);
+    IEnumerable<BookDto> GetAllBookForAuthor(Guid authorId, bool trackChanges);
     BookDto GetBookForAuthor(Guid authorId, Guid id, bool trackChanges);
     /// <summary>
     /// Create a book for Author
@@ -15,5 +15,7 @@ public interface IBookService
     /// <param name="trackChanges"></param>
     /// <returns></returns>
     BookDto CreateBookForAuthor(Guid authorId, CreateBookDto  bookDto, bool trackChanges);
+    void DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges);
+    IEnumerable<BookDto> GetBooks(bool trackChanges);
 
 }
