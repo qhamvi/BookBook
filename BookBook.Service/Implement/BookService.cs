@@ -71,4 +71,18 @@ public class BookService : IBookService
         var response = books.Select(v => _mapper.Map<BookDto>(v));
         return response;
     }
+
+    public void UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges)
+    {
+        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, auTrackChanges);
+        if(author is null)
+            throw new AuthorNotFoundException(authorId);
+        
+        var book = _repositoryManager.BookRepositoryV2.GetBookForAuthor(authorId, bookId, bookTrackChanges);
+        if(book is null)
+            throw new BookNotFoundException(bookId);
+        
+        _mapper.Map(bookDto, book);
+        _repositoryManager.Save();
+    }
 }

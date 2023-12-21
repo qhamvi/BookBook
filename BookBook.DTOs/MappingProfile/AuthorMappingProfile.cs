@@ -13,5 +13,8 @@ public class AuthorMappingProfile : Profile
             // .ForCtorParam(nameof(AuthorDto.FullName), opt => opt.MapFrom(v => string.Join(' ', v.FirstName, v.LastName)));
         CreateMap<CreateAuthorDto, Author>();
         CreateMap<UpdateAuthorDto, Author>();
+        CreateMap<UpdateAuthorWithBooksRequest, Author>();
+        //.ForMember(v => v.Books, v => v.MapFrom(v => v.Books));
+
     }
 }

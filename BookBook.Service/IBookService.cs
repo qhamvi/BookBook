@@ -17,5 +17,6 @@ public interface IBookService
     BookDto CreateBookForAuthor(Guid authorId, CreateBookDto  bookDto, bool trackChanges);
     void DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges);
     IEnumerable<BookDto> GetBooks(bool trackChanges);
+    void UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges);
 
 }

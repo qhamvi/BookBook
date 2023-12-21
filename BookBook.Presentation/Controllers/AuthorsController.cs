@@ -1,3 +1,4 @@
+using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Service;
 using Microsoft.AspNetCore.Mvc;
@@ -86,6 +87,21 @@ namespace BookBook.Presentation.Controllers
         public IActionResult DeleteAuthor(Guid authorId)
         {
             _serviceManager.AuthorService.DeleteAuthor(authorId, trackChanges: false);
+            return NoContent();
+        }
+
+        ///<summary>
+        ///Update author with book collection
+        ///</summary>
+        ///<param name=""></param>
+        ///<returns></returns>
+        [HttpPut("{authorId:Guid}")]
+        public IActionResult UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorWithBooksRequest)
+        {
+            if(authorWithBooksRequest is null)
+                return BadRequest("UpdateAuthorWithBooksRequest object is null");
+            
+            _serviceManager.AuthorService.UpdateAuthor(authorId, authorWithBooksRequest, trackChanges: true);
             return NoContent();
         }
 

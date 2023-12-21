@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Models;
 using BookBook.Models.Exceptions;
@@ -83,5 +84,15 @@ public class AuthorService : IAuthorService
             throw new CollectionByIdsBadRequestException();
         var response = _mapper.Map<IEnumerable<AuthorDto>>(authors);
         return response;
+    }
+
+    public void UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges)
+    {
+        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
+        if(author is null)
+            throw new AuthorNotFoundException(authorId);
+        
+        _mapper.Map(updateAuthorDto, author);
+        _repositoryManager.Save();
     }
 }
