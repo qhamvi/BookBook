@@ -1,4 +1,5 @@
-﻿using BookBook.DTOs.DataTransferObject;
+﻿using BookBook.DTOs;
+using BookBook.DTOs.DataTransferObject;
 using BookBook.Models.Models;
 
 namespace BookBook.Service;
@@ -11,4 +12,5 @@ public interface IAuthorService
     IEnumerable<AuthorDto> GetByIds(IEnumerable<Guid> ids, bool trackChanges);
     (IEnumerable<AuthorDto> authorDtos, string ids) CreateAuthorCollection(IEnumerable<CreateAuthorDto> authorCollection);
     void DeleteAuthor(Guid authorId, bool trackChanges);
+    void UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges);
 }

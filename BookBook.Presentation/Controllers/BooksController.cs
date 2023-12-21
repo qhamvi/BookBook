@@ -65,6 +65,15 @@ namespace BookBook.Presentation.Controllers
             _serviceManager.BookService.DeleteBookForAuthor(authorId, bookId, trackChanges: false);
             return NoContent();
         }
+
+        [HttpPut("{bookId:Guid}")]
+        public IActionResult UpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] UpdateBookDto bookDto)
+        {
+            if(bookDto is null)
+                return BadRequest("BookDto object is null");
+            _serviceManager.BookService.UpdateBookForAuthor(authorId, bookId, bookDto, auTrackChanges: false, bookTrackChanges: true);
+            return NoContent();
+        }
         
     }
 }
