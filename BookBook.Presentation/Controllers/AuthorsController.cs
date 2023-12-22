@@ -46,6 +46,7 @@ namespace BookBook.Presentation.Controllers
         [ProducesResponseType(typeof(AuthorDto), 200)]
         public IActionResult CreateAuthor([FromBody] CreateAuthorDto request)
         {
+           
             if (request is null)
                 return BadRequest("Create author object is null");
             var author = _serviceManager.AuthorService.CreateAuthor(request);

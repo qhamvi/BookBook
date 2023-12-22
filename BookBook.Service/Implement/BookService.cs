@@ -4,6 +4,7 @@ using BookBook.DTOs.DataTransferObject;
 using BookBook.Models.Exceptions;
 using BookBook.Models.Models;
 using Contracts;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace BookBook.Service;
 
@@ -84,5 +85,23 @@ public class BookService : IBookService
         
         _mapper.Map(bookDto, book);
         _repositoryManager.Save();
+    }
+
+    public void PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, JsonPatchDocument<UpdateBookDto> patchBookDto, bool auTrackChanges, bool bookTrackChanges)
+    {
+        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, auTrackChanges);
+        if(author is null)
+            throw new AuthorNotFoundException(authorId);
+        
+        var book = _repositoryManager.BookRepositoryV2.GetBookForAuthor(authorId, bookId, bookTrackChanges);
+        if(book is null)
+            throw new BookNotFoundException(bookId);
+
+        var bookToPatch = _mapper.Map<UpdateBookDto>(book);
+        patchBookDto.ApplyTo(bookToPatch);
+
+        _mapper.Map(bookToPatch, book);
+        _repositoryManager.Save();
+
     }
 }

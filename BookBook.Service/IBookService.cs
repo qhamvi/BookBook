@@ -1,5 +1,6 @@
 ﻿using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace BookBook.Service;
 
@@ -18,5 +19,6 @@ public interface IBookService
     void DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges);
     IEnumerable<BookDto> GetBooks(bool trackChanges);
     void UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges);
+    void PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, JsonPatchDocument<UpdateBookDto> patchBookDto, bool auTrackChanges, bool bookTrackChanges);
 
 }
