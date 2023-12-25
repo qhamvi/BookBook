@@ -10,6 +10,7 @@ public class BookMappingProfile : Profile
     {
         CreateMap<Book, BookDto>();
         CreateMap<CreateBookDto, Book>();
-        CreateMap<UpdateBookDto, Book>();
+        CreateMap<UpdateBookDto, Book>().ReverseMap();
+        // CreateMap<Book, UpdateAuthorDto>();
     }
 }
