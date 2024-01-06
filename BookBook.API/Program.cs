@@ -1,5 +1,6 @@
 using BookBook.API.Extensions;
 using BookBook.DTOs.MappingProfile;
+using BookBook.Presentation;
 using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,8 @@ builder.Services.Configure<ApiBehaviorOptions>(opts =>
 });
 
 builder.Services.AddControllers(config => {
+    config.Filters.Add<GlobalActionFilterExample>();
+    // config.Filters.Add(new GlobalActionFilterExample());
     config.InputFormatters.Insert(0, GetJsonPatchInputFormatter()); // only 
     config.RespectBrowserAcceptHeader = true;
     config.ReturnHttpNotAcceptable = true;
@@ -43,6 +46,9 @@ builder.Services.AddControllers(config => {
   .AddCustomCsvFormatter()
 //   .AddNewtonsoftJson() => replacing System.Text.Json formatters for all JSON content
   .AddApplicationPart(typeof(BookBook.Presentation.AssemblyReference).Assembly);
+
+builder.Services.AddScoped<ActionFilterExample>();
+builder.Services.AddScoped<ControllerFilterExample>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
