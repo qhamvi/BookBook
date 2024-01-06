@@ -25,4 +25,5 @@ namespace BookBook.Repository
         public void DeleteRange(List<T> entities) => repositoryContext.Set<List<T>>().RemoveRange(entities);
 
     }
+    
 }
