@@ -1,5 +1,6 @@
 ﻿using BookBook.Models.Models;
 using Contracts;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookBook.Repository;
 
@@ -20,18 +21,18 @@ public class BookRepositoryV2 : RepositoryBase<Book>, IBookRepositoryV2
         Delete(book);
     }
 
-    public Book GetBookForAuthor(Guid authorId, Guid bookId, bool trackChanges)
+    public async Task<Book> GetBookForAuthorAsync(Guid authorId, Guid bookId, bool trackChanges)
     {
-        return FindByCondition(v => v.AuthorId == authorId && v.Id == bookId, trackChanges).FirstOrDefault();
+        return await FindByCondition(v => v.AuthorId == authorId && v.Id == bookId, trackChanges).FirstOrDefaultAsync();
     }
 
-    public IEnumerable<Book> GetAllBookForAuthor(Guid authorId, bool trackChanges)
+    public async Task<IEnumerable<Book>> GetAllBookForAuthorAsync(Guid authorId, bool trackChanges)
     {
-        return FindByCondition(v => v.AuthorId == authorId, trackChanges).OrderBy(v => v.BookName).ToList(); 
+        return await FindByCondition(v => v.AuthorId == authorId, trackChanges).OrderBy(v => v.BookName).ToListAsync(); 
     }
 
-    public IEnumerable<Book> GetBooks(bool trackChanges)
+    public async Task<IEnumerable<Book>> GetBooksAsync(bool trackChanges)
     {
-        return FindAll(trackChanges).OrderBy(v => v.BookName).ToList();
+        return await FindAll(trackChanges).OrderBy(v => v.BookName).ToListAsync();
     }
 }

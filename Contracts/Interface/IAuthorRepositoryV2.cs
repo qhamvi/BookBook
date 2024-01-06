@@ -4,10 +4,10 @@ namespace Contracts;
 
 public interface IAuthorRepositoryV2
 {
-    IEnumerable<Author> GetAllAuthors(bool trackChanges);
-    Author GetAuthor(Guid authorId, bool trackChanges);
+    Task<IEnumerable<Author>> GetAllAuthorsAsync(bool trackChanges);
+    Task<Author> GetAuthorAsync(Guid authorId, bool trackChanges);
     void CreateAuthor(Author author);
-    IEnumerable<Author> GetByIds(IEnumerable<Guid> ids, bool trackChanges);
+    Task<IEnumerable<Author>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges);
     void DeleteAuthor(Author author);
 
 }

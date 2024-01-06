@@ -20,9 +20,9 @@ namespace BookBook.Presentation.Controllers
         [HttpGet]
         [SwaggerOperation(Summary = "Get all book", Description = "Get all book in MySQL database", OperationId = nameof(GetBooks))]
         [ProducesResponseType(typeof(IEnumerable<BookDto>), 200)]
-        public IActionResult GetBooks()
+        public async Task<IActionResult> GetBooks()
         {
-            var books = _serviceManager.BookService.GetBooks(trackChanges: false);
+            var books = await _serviceManager.BookService.GetBooksAsync(trackChanges: false);
             return Ok(books);
         }
 
@@ -30,25 +30,25 @@ namespace BookBook.Presentation.Controllers
         [HttpGet("of-author/{authorId}")]
         [SwaggerOperation(Summary = "Get all book of author", Description = "Get all book for Author in MySQL database", OperationId = nameof(GetAllBookForAuthor))]
         [ProducesResponseType(typeof(IEnumerable<BookDto>), 200)]
-        public IActionResult GetAllBookForAuthor(Guid authorId)
+        public async Task<IActionResult> GetAllBookForAuthor(Guid authorId)
         {
-            var books = _serviceManager.BookService.GetAllBookForAuthor(authorId, trackChanges: false);
+            var books = await _serviceManager.BookService.GetAllBookForAuthorAsync(authorId, trackChanges: false);
             return Ok(books);
         }
 
         [HttpGet("{id:guid}", Name = "GetBookForAuthor")]
         [SwaggerOperation(Summary = "Get Book For Author", Description = "Get Book for Author in MySQL database", OperationId = nameof(GetBookForAuthor))]
         [ProducesResponseType(typeof(BookDto), 200)]
-        public IActionResult GetBookForAuthor(Guid authorId, Guid id)
+        public async Task<IActionResult> GetBookForAuthor(Guid authorId, Guid id)
         {
-            var book = _serviceManager.BookService.GetBookForAuthor(authorId, id, trackChanges: false);
+            var book = await _serviceManager.BookService.GetBookForAuthor(authorId, id, trackChanges: false);
             return Ok(book);
         }
 
 
         [HttpPost]
         [SwaggerOperation(Summary = "Create Book For Author", Description = "Create Book for Author in MySQL database", OperationId = nameof(CreatebookForAuhtor))]
-        public IActionResult CreatebookForAuhtor(Guid authorId, [FromBody] CreateBookDto book)
+        public async Task<IActionResult> CreatebookForAuhtor(Guid authorId, [FromBody] CreateBookDto book)
         {
             //  if(!ModelState.IsValid)
             // {
@@ -61,7 +61,7 @@ namespace BookBook.Presentation.Controllers
 
             if (book is null)
                 return BadRequest("Create Book object is null");
-            var response = _serviceManager.BookService.CreateBookForAuthor(authorId, book, trackChanges: false);
+            var response = await _serviceManager.BookService.CreateBookForAuthorAsync(authorId, book, trackChanges: false);
             return CreatedAtRoute("GetBookForAuthor", new
             {
                 authorId,

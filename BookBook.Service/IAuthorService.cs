@@ -1,16 +1,15 @@
 ﻿using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
-using BookBook.Models.Models;
 
 namespace BookBook.Service;
 
 public interface IAuthorService
 {
-    IEnumerable<AuthorDto> GetAllAuthors(bool trackChanges);
-    AuthorDto GetAuthor(Guid authorId, bool trackChanges);
-    AuthorDto CreateAuthor(CreateAuthorDto authorDto);
-    IEnumerable<AuthorDto> GetByIds(IEnumerable<Guid> ids, bool trackChanges);
-    (IEnumerable<AuthorDto> authorDtos, string ids) CreateAuthorCollection(IEnumerable<CreateAuthorDto> authorCollection);
-    void DeleteAuthor(Guid authorId, bool trackChanges);
-    void UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges);
+    Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync(bool trackChanges);
+    Task<AuthorDto> GetAuthorAsync(Guid authorId, bool trackChanges);
+    Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto authorDto);
+    Task<IEnumerable<AuthorDto>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges);
+    Task<(IEnumerable<AuthorDto> authorDtos, string ids)> CreateAuthorCollectionAsync(IEnumerable<CreateAuthorDto> authorCollection);
+    Task DeleteAuthor(Guid authorId, bool trackChanges);
+    Task UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges);
 }

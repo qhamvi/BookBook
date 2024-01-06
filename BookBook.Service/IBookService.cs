@@ -6,8 +6,8 @@ namespace BookBook.Service;
 
 public interface IBookService
 {
-    IEnumerable<BookDto> GetAllBookForAuthor(Guid authorId, bool trackChanges);
-    BookDto GetBookForAuthor(Guid authorId, Guid id, bool trackChanges);
+    Task<IEnumerable<BookDto>> GetAllBookForAuthorAsync(Guid authorId, bool trackChanges);
+    Task<BookDto> GetBookForAuthor(Guid authorId, Guid id, bool trackChanges);
     /// <summary>
     /// Create a book for Author
     /// </summary>
@@ -15,9 +15,9 @@ public interface IBookService
     /// <param name="bookDto"></param>
     /// <param name="trackChanges"></param>
     /// <returns></returns>
-    BookDto CreateBookForAuthor(Guid authorId, CreateBookDto  bookDto, bool trackChanges);
+    Task<BookDto> CreateBookForAuthorAsync(Guid authorId, CreateBookDto  bookDto, bool trackChanges);
     void DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges);
-    IEnumerable<BookDto> GetBooks(bool trackChanges);
+    Task<IEnumerable<BookDto>> GetBooksAsync(bool trackChanges);
     void UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges);
     void PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, JsonPatchDocument<UpdateBookDto> patchBookDto, bool auTrackChanges, bool bookTrackChanges);
 

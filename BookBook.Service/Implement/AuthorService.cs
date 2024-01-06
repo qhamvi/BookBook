@@ -20,17 +20,17 @@ public class AuthorService : IAuthorService
         _mapper = mapper;
     }
 
-    public AuthorDto CreateAuthor(CreateAuthorDto authorDto)
+    public async Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto authorDto)
     {
         var author = _mapper.Map<Author>(authorDto);
         _repositoryManager.AuthorRepositoryV2.CreateAuthor(author);
-        _repositoryManager.Save();
+        await _repositoryManager.SaveAsync();
 
         var response = _mapper.Map<AuthorDto>(author);
         return response;
     }
 
-    public (IEnumerable<AuthorDto> authorDtos, string ids) CreateAuthorCollection(IEnumerable<CreateAuthorDto> authorCollection)
+    public async Task<(IEnumerable<AuthorDto> authorDtos, string ids)> CreateAuthorCollectionAsync(IEnumerable<CreateAuthorDto> authorCollection)
     {
         if(authorCollection is null)
             throw new AuthorCollectionBadRequest();
@@ -39,7 +39,7 @@ public class AuthorService : IAuthorService
         {
             _repositoryManager.AuthorRepositoryV2.CreateAuthor(author);
         }
-        _repositoryManager.Save();
+        await _repositoryManager.SaveAsync();
 
         var authorCollectionToReturn = _mapper.Map<IEnumerable<AuthorDto>>(authorEntities);
         var ids = string.Join(",", authorCollectionToReturn.Select(v => v.Id));
@@ -47,26 +47,26 @@ public class AuthorService : IAuthorService
         return (authorDtos: authorCollectionToReturn, ids: ids);
     }
 
-    public void DeleteAuthor(Guid authorId, bool trackChanges)
+    public async Task DeleteAuthor(Guid authorId, bool trackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
+        var author = await _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
         if(author is null) 
             throw new AuthorNotFoundException(authorId);
         
         _repositoryManager.AuthorRepositoryV2.DeleteAuthor(author);
-        _repositoryManager.Save();
+        await _repositoryManager.SaveAsync();
     }
 
-    public IEnumerable<AuthorDto> GetAllAuthors(bool trackChanges)
+    public async Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync(bool trackChanges)
     {
-            var authors = _repositoryManager.AuthorRepositoryV2.GetAllAuthors(trackChanges);
+            var authors = await _repositoryManager.AuthorRepositoryV2.GetAllAuthorsAsync(trackChanges);
             var result = _mapper.Map<IEnumerable<AuthorDto>>(authors);
             return result;
     }
 
-    public AuthorDto GetAuthor(Guid authorId, bool trackChanges)
+    public async Task<AuthorDto> GetAuthorAsync(Guid authorId, bool trackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
+        var author = await _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
         //Check if author is null
         if (author is null)
             throw new AuthorNotFoundException(authorId);
@@ -75,24 +75,24 @@ public class AuthorService : IAuthorService
         return result;
     }
 
-    public IEnumerable<AuthorDto> GetByIds(IEnumerable<Guid> ids, bool trackChanges)
+    public async Task<IEnumerable<AuthorDto>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges)
     {
         if(ids is null)
             throw new IdParametersBadRequestException();
-        var authors = _repositoryManager.AuthorRepositoryV2.GetByIds(ids, trackChanges);
+        var authors = await _repositoryManager.AuthorRepositoryV2.GetByIdsAsync(ids, trackChanges);
         if(ids.Count() != authors.Count())
             throw new CollectionByIdsBadRequestException();
         var response = _mapper.Map<IEnumerable<AuthorDto>>(authors);
         return response;
     }
 
-    public void UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges)
+    public async Task UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthor(authorId, trackChanges);
+        var author = await _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
         if(author is null)
             throw new AuthorNotFoundException(authorId);
         
         _mapper.Map(updateAuthorDto, author);
-        _repositoryManager.Save();
+        await _repositoryManager.SaveAsync();
     }
 }
