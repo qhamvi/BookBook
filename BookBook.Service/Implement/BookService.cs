@@ -3,6 +3,7 @@ using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Models.Exceptions;
 using BookBook.Models.Models;
+using BookBook.Repository;
 using Contracts;
 using Microsoft.AspNetCore.JsonPatch;
 

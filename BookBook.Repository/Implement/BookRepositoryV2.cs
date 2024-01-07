@@ -1,5 +1,4 @@
 ﻿using BookBook.Models.Models;
-using Contracts;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookBook.Repository;
