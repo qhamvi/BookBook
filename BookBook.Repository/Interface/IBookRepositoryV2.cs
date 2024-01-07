@@ -1,6 +1,6 @@
 ﻿using BookBook.Models.Models;
 
-namespace Contracts;
+namespace BookBook.Repository;
 
 public interface IBookRepositoryV2
 {

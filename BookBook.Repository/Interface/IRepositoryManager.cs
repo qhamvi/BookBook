@@ -1,4 +1,4 @@
-﻿namespace Contracts;
+﻿namespace BookBook.Repository;
 
 public interface IRepositoryManager
 {

@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
     <ProjectReference Include="..\BookBook.DTOs\BookBook.DTOs.csproj" />
+    <ProjectReference Include="..\BookBook.Repository\BookBook.Repository.csproj" />
   </ItemGroup>
 
   <ItemGroup>

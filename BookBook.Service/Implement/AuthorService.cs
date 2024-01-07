@@ -4,6 +4,7 @@ using BookBook.DTOs.DataTransferObject;
 using BookBook.Models;
 using BookBook.Models.Exceptions;
 using BookBook.Models.Models;
+using BookBook.Repository;
 using Contracts;
 
 namespace BookBook.Service;

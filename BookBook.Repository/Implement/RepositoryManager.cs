@@ -1,6 +1,4 @@
-﻿using Contracts;
-
-namespace BookBook.Repository;
+﻿namespace BookBook.Repository;
 
 public class RepositoryManager : IRepositoryManager
 {
