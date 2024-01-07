@@ -22,45 +22,37 @@ public class BookService : IBookService
 
     public async Task<BookDto> CreateBookForAuthorAsync(Guid authorId, CreateBookDto bookDto, bool trackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
-        if(author is null)
-            throw new AuthorNotFoundException(authorId);
+        await CheckAuthorIfItExisted(authorId, trackChanges);
 
         var book = _mapper.Map<Book>(bookDto);
         _repositoryManager.BookRepositoryV2.CreateBookForAuthor(authorId, book);
-        _repositoryManager.SaveAsync();
+        await _repositoryManager.SaveAsync();
 
         var response = _mapper.Map<BookDto>(book);
         return response;
     }
 
-    public async void DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges)
+    public async Task DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
-        if(author is null) 
-            throw new AuthorNotFoundException(authorId);
-        var bookOfAuthor = await _repositoryManager.BookRepositoryV2.GetBookForAuthorAsync(authorId, bookId, trackChanges);
-        if(bookOfAuthor is null) 
-            throw new BookNotFoundException(bookId);
-        _repositoryManager.BookRepositoryV2.DeleteBookForAuthor(bookOfAuthor);
-        _repositoryManager.SaveAsync();
+        await CheckAuthorIfItExisted(authorId, trackChanges);
+
+        var book = await GetBookIfItExisted(authorId, bookId, trackChanges);
+
+        _repositoryManager.BookRepositoryV2.DeleteBookForAuthor(book);
+        await _repositoryManager.SaveAsync();
     }
 
     public async Task<BookDto> GetBookForAuthor(Guid authorId, Guid id, bool trackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
-        if(author is null)
-            throw new AuthorNotFoundException(authorId);
-        var book = _repositoryManager.BookRepositoryV2.GetBookForAuthorAsync(authorId, id, trackChanges);
+        await CheckAuthorIfItExisted(authorId, trackChanges);
+        var book = await GetBookIfItExisted(authorId, id, trackChanges);
         var response = _mapper.Map<BookDto>(book);
         return response;
     }
 
     public async Task<IEnumerable<BookDto>> GetAllBookForAuthorAsync(Guid authorId, bool trackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
-        if(author is null)
-            throw new AuthorNotFoundException(authorId);
+        await CheckAuthorIfItExisted(authorId, trackChanges);
         var books = await _repositoryManager.BookRepositoryV2.GetAllBookForAuthorAsync(authorId, trackChanges);
         var response = books.Select(v => _mapper.Map<BookDto>(v));
         return response;
@@ -73,35 +65,40 @@ public class BookService : IBookService
         return response;
     }
 
-    public void UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges)
+    public async Task UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, auTrackChanges);
-        if(author is null)
-            throw new AuthorNotFoundException(authorId);
-        
-        var book = _repositoryManager.BookRepositoryV2.GetBookForAuthorAsync(authorId, bookId, bookTrackChanges);
-        if(book is null)
-            throw new BookNotFoundException(bookId);
-        
+        await CheckAuthorIfItExisted(authorId, auTrackChanges);
+        var book = await GetBookIfItExisted(authorId, bookId, bookTrackChanges);
+
+
         _mapper.Map(bookDto, book);
-        _repositoryManager.SaveAsync();
+        await _repositoryManager.SaveAsync();
     }
 
-    public void PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, JsonPatchDocument<UpdateBookDto> patchBookDto, bool auTrackChanges, bool bookTrackChanges)
+    public async Task PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, JsonPatchDocument<UpdateBookDto> patchBookDto, bool auTrackChanges, bool bookTrackChanges)
     {
-        var author = _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, auTrackChanges);
-        if(author is null)
-            throw new AuthorNotFoundException(authorId);
-        
-        var book = _repositoryManager.BookRepositoryV2.GetBookForAuthorAsync(authorId, bookId, bookTrackChanges);
-        if(book is null)
-            throw new BookNotFoundException(bookId);
+        await CheckAuthorIfItExisted(authorId, auTrackChanges);
+
+        var book = await GetBookIfItExisted(authorId, bookId, bookTrackChanges);
 
         var bookToPatch = _mapper.Map<UpdateBookDto>(book);
         patchBookDto.ApplyTo(bookToPatch);
 
         _mapper.Map(bookToPatch, book);
-        _repositoryManager.SaveAsync();
+        await _repositoryManager.SaveAsync();
 
+    }
+    private async Task CheckAuthorIfItExisted(Guid authorId, bool trackChanges)
+    {
+        var author = await _repositoryManager.AuthorRepositoryV2.GetAuthorAsync(authorId, trackChanges);
+        if (author is null)
+            throw new AuthorNotFoundException(authorId);
+    }
+    private async Task<Book> GetBookIfItExisted(Guid authorId, Guid bookId, bool trackChanges)
+    {
+        var book = await _repositoryManager.BookRepositoryV2.GetBookForAuthorAsync(authorId, bookId, trackChanges);
+        if (book is null)
+            throw new BookNotFoundException(bookId);
+        return book;
     }
 }

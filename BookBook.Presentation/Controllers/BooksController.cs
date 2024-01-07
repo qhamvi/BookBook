@@ -1,6 +1,5 @@
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
-using BookBook.Models.Models;
 using BookBook.Service;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -47,20 +46,11 @@ namespace BookBook.Presentation.Controllers
 
 
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [SwaggerOperation(Summary = "Create Book For Author", Description = "Create Book for Author in MySQL database", OperationId = nameof(CreatebookForAuhtor))]
         public async Task<IActionResult> CreatebookForAuhtor(Guid authorId, [FromBody] CreateBookDto book)
         {
-            //  if(!ModelState.IsValid)
-            // {
-            //     return UnprocessableEntity(ModelState);
-            // }
-            // book.Price = book.Price - 10;
-            // ModelState.ClearValidationState(nameof(CreateBookDto));
-            // if(!TryValidateModel(book, nameof(CreateBookDto)))
-            //     return UnprocessableEntity(ModelState);
-
-            if (book is null)
-                return BadRequest("Create Book object is null");
+           
             var response = await _serviceManager.BookService.CreateBookForAuthorAsync(authorId, book, trackChanges: false);
             return CreatedAtRoute("GetBookForAuthor", new
             {
@@ -71,30 +61,28 @@ namespace BookBook.Presentation.Controllers
 
         [HttpDelete("{bookId:guid}")]
         [SwaggerOperation(Summary = "Delete Book for Author", Description = "Delete book for Author in MySQL Database", OperationId = nameof(DeleteBookForAuthor))]
-        public IActionResult DeleteBookForAuthor(Guid authorId, Guid bookId)
+        public async Task<IActionResult> DeleteBookForAuthor(Guid authorId, Guid bookId)
         {
-            _serviceManager.BookService.DeleteBookForAuthor(authorId, bookId, trackChanges: false);
+            await _serviceManager.BookService.DeleteBookForAuthor(authorId, bookId, trackChanges: false);
             return NoContent();
         }
 
         [HttpPut("{bookId:Guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [SwaggerOperation(Summary = "Update Book for Author", Description = "Update book for Author in MySQL Database", OperationId = nameof(UpdateBookForAuthor))]
-        public IActionResult UpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] UpdateBookDto bookDto)
-        {
-            if (bookDto is null)
-                return BadRequest("BookDto object is null");
-            _serviceManager.BookService.UpdateBookForAuthor(authorId, bookId, bookDto, auTrackChanges: false, bookTrackChanges: true);
+        public async Task<IActionResult> UpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] UpdateBookDto bookDto)
+        {           
+            await _serviceManager.BookService.UpdateBookForAuthor(authorId, bookId, bookDto, auTrackChanges: false, bookTrackChanges: true);
             return NoContent();
         }
 
         [HttpPatch("{bookId:Guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [SwaggerOperation(Summary = "Update partially Book for Author", Description = "Update partially book for Author in MySQL Database", OperationId = nameof(PartiallyUpdateBookForAuthor))]
 
-        public IActionResult PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] JsonPatchDocument<UpdateBookDto> patchBookDto)
+        public async Task<IActionResult> PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] JsonPatchDocument<UpdateBookDto> patchBookDto)
         {
-            if (patchBookDto is null)
-                return BadRequest("patchBookDto object is null");
-            _serviceManager.BookService.PartiallyUpdateBookForAuthor(authorId, bookId, patchBookDto, auTrackChanges: false, bookTrackChanges: true);
+            await _serviceManager.BookService.PartiallyUpdateBookForAuthor(authorId, bookId, patchBookDto, auTrackChanges: false, bookTrackChanges: true);
             return NoContent();
         }
 

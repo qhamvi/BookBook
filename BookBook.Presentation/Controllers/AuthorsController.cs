@@ -42,15 +42,12 @@ namespace BookBook.Presentation.Controllers
         /// Create a author
         /// </summary>
         [HttpPost]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
         [SwaggerOperation(Summary = "Create a author", Description = "Create a author in MySQL database", OperationId = nameof(CreateAuthor))]
         [ProducesResponseType(typeof(AuthorDto), 200)]
-        public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorDto request)
+        public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorDto authorDto)
         {
-           
-            if (request is null)
-                return BadRequest("Create author object is null");
-            var author = await _serviceManager.AuthorService.CreateAuthorAsync(request);
-
+            var author = await _serviceManager.AuthorService.CreateAuthorAsync(authorDto);
             return CreatedAtAction("GetAuthorAsync", new { authorId = author.Id }, author);
         }
         /// <summary>
@@ -85,9 +82,9 @@ namespace BookBook.Presentation.Controllers
         ///<param name="{authorId}"></param>
         ///<returns></returns>
         [HttpDelete("{authorId:Guid}")]
-        public IActionResult DeleteAuthor(Guid authorId)
+        public async Task<IActionResult> DeleteAuthor(Guid authorId)
         {
-            _serviceManager.AuthorService.DeleteAuthor(authorId, trackChanges: false);
+            await _serviceManager.AuthorService.DeleteAuthor(authorId, trackChanges: false);
             return NoContent();
         }
 
@@ -97,12 +94,10 @@ namespace BookBook.Presentation.Controllers
         ///<param name=""></param>
         ///<returns></returns>
         [HttpPut("{authorId:Guid}")]
-        public IActionResult UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorWithBooksRequest)
-        {
-            if(authorWithBooksRequest is null)
-                return BadRequest("UpdateAuthorWithBooksRequest object is null");
-            
-            _serviceManager.AuthorService.UpdateAuthor(authorId, authorWithBooksRequest, trackChanges: true);
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorDto)
+        {            
+            await _serviceManager.AuthorService.UpdateAuthor(authorId, authorDto, trackChanges: true);
             return NoContent();
         }
 
