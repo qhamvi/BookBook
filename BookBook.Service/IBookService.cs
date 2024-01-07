@@ -16,9 +16,9 @@ public interface IBookService
     /// <param name="trackChanges"></param>
     /// <returns></returns>
     Task<BookDto> CreateBookForAuthorAsync(Guid authorId, CreateBookDto  bookDto, bool trackChanges);
-    void DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges);
+    Task DeleteBookForAuthor(Guid authorId, Guid bookId, bool trackChanges);
     Task<IEnumerable<BookDto>> GetBooksAsync(bool trackChanges);
-    void UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges);
-    void PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, JsonPatchDocument<UpdateBookDto> patchBookDto, bool auTrackChanges, bool bookTrackChanges);
+    Task UpdateBookForAuthor(Guid authorId, Guid bookId, UpdateBookDto bookDto, bool auTrackChanges, bool bookTrackChanges);
+    Task PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, JsonPatchDocument<UpdateBookDto> patchBookDto, bool auTrackChanges, bool bookTrackChanges);
 
 }
