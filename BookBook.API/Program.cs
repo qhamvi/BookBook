@@ -49,7 +49,7 @@ builder.Services.AddControllers(config => {
 
 builder.Services.AddScoped<ActionFilterExample>();
 builder.Services.AddScoped<ControllerFilterExample>();
-
+builder.Services.AddScoped<ValidationFilterAttribute>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

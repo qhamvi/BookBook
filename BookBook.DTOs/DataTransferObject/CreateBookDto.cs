@@ -6,6 +6,7 @@ public record CreateBookDto : IValidatableObject
 {
 
     // [PhoneNumberInputValid(validInputs: "Book valid 1, Book valid 2, Book valid 3", ErrorMessage = $"Please enter a valid book name from the following list: Book valid 1, Book valid 2, Book valid 3")]
+    [Required]
     public string BookName { get; set; }
     public DateTime CreatedDate { get; set; }
     [Range(10, int.MaxValue)]
