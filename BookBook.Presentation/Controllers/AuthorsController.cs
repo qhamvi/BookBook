@@ -82,9 +82,9 @@ namespace BookBook.Presentation.Controllers
         ///<param name="{authorId}"></param>
         ///<returns></returns>
         [HttpDelete("{authorId:Guid}")]
-        public IActionResult DeleteAuthor(Guid authorId)
+        public async Task<IActionResult> DeleteAuthor(Guid authorId)
         {
-            _serviceManager.AuthorService.DeleteAuthor(authorId, trackChanges: false);
+            await _serviceManager.AuthorService.DeleteAuthor(authorId, trackChanges: false);
             return NoContent();
         }
 
@@ -95,9 +95,9 @@ namespace BookBook.Presentation.Controllers
         ///<returns></returns>
         [HttpPut("{authorId:Guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        public IActionResult UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorDto)
+        public async Task<IActionResult> UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorDto)
         {            
-            _serviceManager.AuthorService.UpdateAuthor(authorId, authorDto, trackChanges: true);
+            await _serviceManager.AuthorService.UpdateAuthor(authorId, authorDto, trackChanges: true);
             return NoContent();
         }
 

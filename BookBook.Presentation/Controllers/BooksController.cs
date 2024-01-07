@@ -61,18 +61,18 @@ namespace BookBook.Presentation.Controllers
 
         [HttpDelete("{bookId:guid}")]
         [SwaggerOperation(Summary = "Delete Book for Author", Description = "Delete book for Author in MySQL Database", OperationId = nameof(DeleteBookForAuthor))]
-        public IActionResult DeleteBookForAuthor(Guid authorId, Guid bookId)
+        public async Task<IActionResult> DeleteBookForAuthor(Guid authorId, Guid bookId)
         {
-            _serviceManager.BookService.DeleteBookForAuthor(authorId, bookId, trackChanges: false);
+            await _serviceManager.BookService.DeleteBookForAuthor(authorId, bookId, trackChanges: false);
             return NoContent();
         }
 
         [HttpPut("{bookId:Guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [SwaggerOperation(Summary = "Update Book for Author", Description = "Update book for Author in MySQL Database", OperationId = nameof(UpdateBookForAuthor))]
-        public IActionResult UpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] UpdateBookDto bookDto)
+        public async Task<IActionResult> UpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] UpdateBookDto bookDto)
         {           
-            _serviceManager.BookService.UpdateBookForAuthor(authorId, bookId, bookDto, auTrackChanges: false, bookTrackChanges: true);
+            await _serviceManager.BookService.UpdateBookForAuthor(authorId, bookId, bookDto, auTrackChanges: false, bookTrackChanges: true);
             return NoContent();
         }
 
@@ -80,9 +80,9 @@ namespace BookBook.Presentation.Controllers
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         [SwaggerOperation(Summary = "Update partially Book for Author", Description = "Update partially book for Author in MySQL Database", OperationId = nameof(PartiallyUpdateBookForAuthor))]
 
-        public IActionResult PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] JsonPatchDocument<UpdateBookDto> patchBookDto)
+        public async Task<IActionResult> PartiallyUpdateBookForAuthor(Guid authorId, Guid bookId, [FromBody] JsonPatchDocument<UpdateBookDto> patchBookDto)
         {
-            _serviceManager.BookService.PartiallyUpdateBookForAuthor(authorId, bookId, patchBookDto, auTrackChanges: false, bookTrackChanges: true);
+            await _serviceManager.BookService.PartiallyUpdateBookForAuthor(authorId, bookId, patchBookDto, auTrackChanges: false, bookTrackChanges: true);
             return NoContent();
         }
 
