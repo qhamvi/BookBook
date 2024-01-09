@@ -55,9 +55,9 @@ public class AuthorService : IAuthorService
         await _repositoryManager.SaveAsync();
     }
 
-    public async Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync(bool trackChanges)
+    public async Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges)
     {
-        var authors = await _repositoryManager.AuthorRepositoryV2.GetAllAuthorsAsync(trackChanges);
+        var authors = await _repositoryManager.AuthorRepositoryV2.GetAllAuthorsAsync(param, trackChanges);
         var result = _mapper.Map<IEnumerable<AuthorDto>>(authors);
         return result;
     }

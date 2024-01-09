@@ -1,4 +1,5 @@
-﻿using BookBook.Models.Models;
+﻿using BookBook.DTOs;
+using BookBook.Models.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookBook.Repository;
@@ -16,9 +17,11 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
         Delete(author);
     }
 
-    public async Task<IEnumerable<Author>> GetAllAuthorsAsync(bool trackChanges) 
+    public async Task<IEnumerable<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges) 
             => await FindAll(trackChanges)
                     .OrderBy(v => v.FirstName + v.LastName)
+                    .Skip((param.PageNumber - 1) * param.PageSize)
+                    .Take(param.PageSize)
                     .ToListAsync();
 
     public async Task<Author> GetAuthorAsync(Guid authorId, bool trackChanges)

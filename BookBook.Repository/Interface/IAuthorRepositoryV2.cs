@@ -1,10 +1,11 @@
-﻿using BookBook.Models.Models;
+﻿using BookBook.DTOs;
+using BookBook.Models.Models;
 
 namespace BookBook.Repository;
 
 public interface IAuthorRepositoryV2
 {
-    Task<IEnumerable<Author>> GetAllAuthorsAsync(bool trackChanges);
+    Task<IEnumerable<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges);
     Task<Author> GetAuthorAsync(Guid authorId, bool trackChanges);
     void CreateAuthor(Author author);
     Task<IEnumerable<Author>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges);

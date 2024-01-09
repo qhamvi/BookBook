@@ -3,29 +3,28 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBook.API", "BookBook.API\BookBook.API.csproj", "{4C0A8858-AB9F-4DB3-9C6C-C763AB1A71A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookBook.API", "BookBook.API\BookBook.API.csproj", "{4C0A8858-AB9F-4DB3-9C6C-C763AB1A71A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBook.Models", "BookBook.Models\BookBook.Models.csproj", "{B27F870A-BFEB-4A9C-AC09-0BCC287A3D73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookBook.Models", "BookBook.Models\BookBook.Models.csproj", "{B27F870A-BFEB-4A9C-AC09-0BCC287A3D73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBook.Repository", "BookBook.Repository\BookBook.Repository.csproj", "{A0AAFAD2-A7C2-4FA4-B59B-CDADD1B4BFF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookBook.Repository", "BookBook.Repository\BookBook.Repository.csproj", "{A0AAFAD2-A7C2-4FA4-B59B-CDADD1B4BFF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{878694E2-90A2-4FC5-AD1D-FB15AF38B64F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contracts", "Contracts\Contracts.csproj", "{878694E2-90A2-4FC5-AD1D-FB15AF38B64F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBook.DTOs", "BookBook.DTOs\BookBook.DTOs.csproj", "{898F1C21-8630-4909-961B-CACC7CA397E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookBook.DTOs", "BookBook.DTOs\BookBook.DTOs.csproj", "{898F1C21-8630-4909-961B-CACC7CA397E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{6237C689-BF50-44B0-AAF1-F1A7F4FB2251}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoggerService", "LoggerService\LoggerService.csproj", "{6237C689-BF50-44B0-AAF1-F1A7F4FB2251}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBook.Service", "BookBook.Service\BookBook.Service.csproj", "{42E5B7CE-3BA7-4FEC-AF8E-FD270D365A07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookBook.Service", "BookBook.Service\BookBook.Service.csproj", "{42E5B7CE-3BA7-4FEC-AF8E-FD270D365A07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookBook.Presentation", "BookBook.Presentation\BookBook.Presentation.csproj", "{87866C61-B025-43AD-BA27-DDD58F1A181F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookBook.Presentation", "BookBook.Presentation\BookBook.Presentation.csproj", "{87866C61-B025-43AD-BA27-DDD58F1A181F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{FA65D586-133D-4C65-91FB-EF2A7717E45E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4C0A8858-AB9F-4DB3-9C6C-C763AB1A71A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -60,5 +59,12 @@ Global
 		{87866C61-B025-43AD-BA27-DDD58F1A181F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87866C61-B025-43AD-BA27-DDD58F1A181F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87866C61-B025-43AD-BA27-DDD58F1A181F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA65D586-133D-4C65-91FB-EF2A7717E45E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA65D586-133D-4C65-91FB-EF2A7717E45E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA65D586-133D-4C65-91FB-EF2A7717E45E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA65D586-133D-4C65-91FB-EF2A7717E45E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

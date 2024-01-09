@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookBook.Models\BookBook.Models.csproj" />
+    <ProjectReference Include="..\Shared\Shared.csproj" />
   </ItemGroup>
 
 </Project>
