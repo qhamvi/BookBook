@@ -20,9 +20,13 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
 
     public async Task<PagedList<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges) 
     {
-        var authors = FindAll(trackChanges).OrderBy(v => v.FirstName + v.LastName);
-        
-        return PagedList<Author>.ToPagedList(authors, param.PageNumber, param.PageSize);
+        var authors = await FindAll(trackChanges).OrderBy(v => v.FirstName + v.LastName)
+                                            .Skip((param.PageNumber - 1) * param.PageSize)
+                                            .Take(param.PageSize)
+                                            .ToListAsync();
+        var count = await FindAll(trackChanges).CountAsync();
+        return new PagedList<Author>(authors, count, param.PageNumber, param.PageSize);
+        //return PagedList<Author>.ToPagedList(authors, count, param.PageNumber, param.PageSize);
     }
 
     public async Task<Author> GetAuthorAsync(Guid authorId, bool trackChanges)
