@@ -3,7 +3,8 @@ using System.Text;
 using BookBook.Models.Models;
 using Contracts;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Dynamic.Core;//for OrderBy query
+using System.Linq.Dynamic.Core;
+using Shared.RequestFeatures;//for OrderBy query
 
 namespace BookBook.Repository
 {

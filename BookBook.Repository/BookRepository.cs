@@ -1,5 +1,6 @@
 using BookBook.Models.Models;
 using Contracts;
+using Shared.RequestFeatures;
 
 namespace BookBook.Repository
 {

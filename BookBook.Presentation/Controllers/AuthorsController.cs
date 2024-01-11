@@ -1,3 +1,4 @@
+using System.Text.Json;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Models.Models;
@@ -23,8 +24,9 @@ namespace BookBook.Presentation.Controllers
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAllAuthors([FromQuery] AuthorListRequest param)
         {
-            var authors = await _serviceManager.AuthorService.GetAllAuthorsAsync(param ,trackChanges: false);
-            return Ok(authors);
+            var pagedResult = await _serviceManager.AuthorService.GetAllAuthorsAsync(param ,trackChanges: false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.MetaData));
+            return Ok(pagedResult.Result);
         }
 
         /// <summary>

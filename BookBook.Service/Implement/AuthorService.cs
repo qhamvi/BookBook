@@ -6,6 +6,7 @@ using BookBook.Models.Exceptions;
 using BookBook.Models.Models;
 using BookBook.Repository;
 using Contracts;
+using Shared.RequestFeatures;
 
 namespace BookBook.Service;
 
@@ -55,11 +56,15 @@ public class AuthorService : IAuthorService
         await _repositoryManager.SaveAsync();
     }
 
-    public async Task<IEnumerable<AuthorDto>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges)
+    public async Task<AuthorListResponse> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges)
     {
-        var authors = await _repositoryManager.AuthorRepositoryV2.GetAllAuthorsAsync(param, trackChanges);
-        var result = _mapper.Map<IEnumerable<AuthorDto>>(authors);
-        return result;
+        var pagedAuthor = await _repositoryManager.AuthorRepositoryV2.GetAllAuthorsAsync(param, trackChanges);
+        var result = _mapper.Map<IEnumerable<AuthorDto>>(pagedAuthor);
+
+        return new AuthorListResponse() {
+            Result = result,
+            MetaData = pagedAuthor.MetaData
+        };
     }
 
     public async Task<AuthorDto> GetAuthorAsync(Guid authorId, bool trackChanges)
@@ -85,6 +90,7 @@ public class AuthorService : IAuthorService
         var author = await GetAuthorIfItExisted(authorId, trackChanges);
 
         _mapper.Map(updateAuthorDto, author);
+        
         await _repositoryManager.SaveAsync();
     }
     private async Task<Author> GetAuthorIfItExisted(Guid authorId, bool trackChanges)
