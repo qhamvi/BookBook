@@ -1,5 +1,7 @@
-﻿using BookBook.Models.Models;
+﻿using BookBook.DTOs;
+using BookBook.Models.Models;
 using Microsoft.EntityFrameworkCore;
+using Shared.RequestFeatures;
 
 namespace BookBook.Repository;
 
@@ -16,10 +18,16 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
         Delete(author);
     }
 
-    public async Task<IEnumerable<Author>> GetAllAuthorsAsync(bool trackChanges) 
-            => await FindAll(trackChanges)
-                    .OrderBy(v => v.FirstName + v.LastName)
-                    .ToListAsync();
+    public async Task<PagedList<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges) 
+    {
+        var authors = await FindAll(trackChanges).OrderBy(v => v.FirstName + v.LastName)
+                                            .Skip((param.PageNumber - 1) * param.PageSize)
+                                            .Take(param.PageSize)
+                                            .ToListAsync();
+        var count = await FindAll(trackChanges).CountAsync();
+        return new PagedList<Author>(authors, count, param.PageNumber, param.PageSize);
+        //return PagedList<Author>.ToPagedList(authors, count, param.PageNumber, param.PageSize);
+    }
 
     public async Task<Author> GetAuthorAsync(Guid authorId, bool trackChanges)
             => await FindByCondition(v => v.Id.Equals(authorId), trackChanges).FirstOrDefaultAsync();

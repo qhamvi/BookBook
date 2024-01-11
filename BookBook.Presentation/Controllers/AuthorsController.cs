@@ -1,5 +1,7 @@
+using System.Text.Json;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
+using BookBook.Models.Models;
 using BookBook.Service;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -20,10 +22,11 @@ namespace BookBook.Presentation.Controllers
         [SwaggerOperation(Summary = "Get All Authors", Description = "Get all author in MySQL database", OperationId = nameof(GetAllAuthors))]
         [HttpGet("all")]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
-        public async Task<IActionResult> GetAllAuthors()
+        public async Task<IActionResult> GetAllAuthors([FromQuery] AuthorListRequest param)
         {
-            var authors = await _serviceManager.AuthorService.GetAllAuthorsAsync(trackChanges: false);
-            return Ok(authors);
+            var pagedResult = await _serviceManager.AuthorService.GetAllAuthorsAsync(param ,trackChanges: false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.MetaData));
+            return Ok(pagedResult.Result);
         }
 
         /// <summary>
