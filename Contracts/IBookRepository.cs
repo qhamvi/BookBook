@@ -5,6 +5,6 @@ namespace Contracts
 {
     public interface IBookRepository : IRepositoryBase<Book>
     {
-        PagedList<Book> GetBooksByAuthor(Guid authorId, BookParameters bookParameters);
+        PaginatedList<Book> GetBooksByAuthor(Guid authorId, BookParameters bookParameters);
     }
 }

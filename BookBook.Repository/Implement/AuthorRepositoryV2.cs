@@ -18,14 +18,14 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
         Delete(author);
     }
 
-    public async Task<PagedList<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges) 
+    public async Task<PaginatedList<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges) 
     {
         var authors = await FindAll(trackChanges).OrderBy(v => v.FirstName + v.LastName)
                                             .Skip((param.PageNumber - 1) * param.PageSize)
                                             .Take(param.PageSize)
                                             .ToListAsync();
         var count = await FindAll(trackChanges).CountAsync();
-        return new PagedList<Author>(authors, count, param.PageNumber, param.PageSize);
+        return new PaginatedList<Author>(authors, count, param.PageNumber, param.PageSize);
         //return PagedList<Author>.ToPagedList(authors, count, param.PageNumber, param.PageSize);
     }
 
