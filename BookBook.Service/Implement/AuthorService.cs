@@ -58,6 +58,8 @@ public class AuthorService : IAuthorService
 
     public async Task<AuthorListResponse> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges)
     {
+        if(!param.ValidYearRange)
+            throw new MaxAgeRangeBadRequestException();
         var pagedAuthor = await _repositoryManager.AuthorRepositoryV2.GetAllAuthorsAsync(param, trackChanges);
         var result = _mapper.Map<IEnumerable<AuthorDto>>(pagedAuthor);
 
