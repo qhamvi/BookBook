@@ -20,8 +20,8 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
 
     public async Task<PaginatedList<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges) 
     {
-        var authors = await FindByCondition(v => param.MinYearOfBirth >= v.DayOfBirth.Year &&  
-                                                                        v.DayOfBirth.Year <= param.MaxYearOfBirth, false)
+        var authors = await FindAll(trackChanges).FilterAuthors(param.MinYearOfBirth, param.MaxYearOfBirth)
+                                            .Search(param.Search)
                                             .OrderBy(v => v.FirstName + v.LastName)
                                             .Skip((param.PageNumber - 1) * param.PageSize)
                                             .Take(param.PageSize)
