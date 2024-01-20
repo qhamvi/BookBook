@@ -10,10 +10,10 @@ namespace BookBook.Repository
         {
         }
 
-        public PaginatedList<Book> GetBooksByAuthor(Guid authorId, BookParameters bookParameters)
+        public async Task<PaginatedList<Book>> GetBooksByAuthor(Guid authorId, BookParameters bookParameters)
         {
             // return FindByCondition(v => v.AuthorId.Equals(authorId)).ToList();
-            return PaginatedList<Book>.ToPagedList(FindByCondition(v => v.AuthorId.Equals(authorId), false),
+            return await PaginatedList<Book>.ToPagedList(FindByCondition(v => v.AuthorId.Equals(authorId), false),
                 bookParameters.PageNumber,
                 bookParameters.PageSize
             );

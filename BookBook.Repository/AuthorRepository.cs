@@ -30,7 +30,7 @@ namespace BookBook.Repository
                     .OrderBy(v => v.FirstName)
                     .ToList();
         }
-        public PaginatedList<Author> GetAuthorsPagingFiltering(AuthorParameters authorParameters)
+        public async Task<PaginatedList<Author>> GetAuthorsPagingFiltering(AuthorParameters authorParameters)
         {
             var authors = FindByCondition(v => v.DayOfBirth.Year >= authorParameters.MinYearOfBirth &&
                                                 v.DayOfBirth.Year <= authorParameters.MaxYearOfBirth, false);
@@ -38,7 +38,7 @@ namespace BookBook.Repository
             SearchByName(ref authors, authorParameters.Search);
             ApplySort(ref authors, authorParameters.OrderBy);
 
-            return PaginatedList<Author>.ToPagedList(authors,
+            return await PaginatedList<Author>.ToPagedList(authors,
                 authorParameters.PageNumber,
                 authorParameters.PageSize
             );
