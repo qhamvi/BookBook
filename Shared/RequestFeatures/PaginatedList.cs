@@ -1,4 +1,5 @@
-﻿namespace Shared.RequestFeatures
+﻿using Microsoft.EntityFrameworkCore;
+namespace Shared.RequestFeatures
 {
     public class PaginatedList<T> : List<T>
     {
@@ -14,12 +15,12 @@
             };
             AddRange(items);
         }
-        public static PaginatedList<T> ToPagedList(IEnumerable<T> source, int pageNumber, int pageSize)
+        public static async Task<PaginatedList<T>> ToPagedList(IQueryable<T> source, int pageNumber, int pageSize)
         {
-            var count = source.Count();
-            var items = source
+            var count = await source.CountAsync();
+            var items = await source
                 .Skip((pageNumber - 1) * pageSize)
-                .Take(pageSize).ToList();
+                .Take(pageSize).ToListAsync();
             return new PaginatedList<T>(items, count, pageNumber, pageSize);
         }
 

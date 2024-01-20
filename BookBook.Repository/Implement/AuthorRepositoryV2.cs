@@ -20,19 +20,20 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
 
     public async Task<PaginatedList<Author>> GetAllAuthorsAsync(AuthorListRequest param, bool trackChanges) 
     {
-        var authors = await FindAll(trackChanges).FilterAuthors(param.MinYearOfBirth, param.MaxYearOfBirth)
+        var authors = FindAll(trackChanges).FilterAuthors(param.MinYearOfBirth, param.MaxYearOfBirth)
                                             .Search(param.Search)
-                                            .OrderBy(v => v.FirstName + v.LastName)
-                                            .Skip((param.PageNumber - 1) * param.PageSize)
-                                            .Take(param.PageSize)
-                                            .ToListAsync();
+                                            .OrderCustomBy(param.OrderBy, param.IsDesc);
+                                            //.Skip((param.PageNumber - 1) * param.PageSize)
+                                            //.Take(param.PageSize)
+                                            //.ToListAsync();
         // var authors = await FindAll(trackChanges).OrderBy(v => v.FirstName + v.LastName)
         //                                     .Skip((param.PageNumber - 1) * param.PageSize)
         //                                     .Take(param.PageSize)
         //                                     .ToListAsync();
-        var count = await FindAll(trackChanges).CountAsync();
-        return new PaginatedList<Author>(authors, count, param.PageNumber, param.PageSize);
-        //return PagedList<Author>.ToPagedList(authors, count, param.PageNumber, param.PageSize);
+        //var count = await FindAll(trackChanges).CountAsync();
+        //return new PaginatedList<Author>(authors, count, param.PageNumber, param.PageSize);
+        var y = await PaginatedList<Author>.ToPagedList(authors, param.PageNumber, param.PageSize);
+        return y;
     }
 
     public async Task<Author> GetAuthorAsync(Guid authorId, bool trackChanges)

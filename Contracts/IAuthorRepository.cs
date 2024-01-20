@@ -6,7 +6,7 @@ namespace Contracts
     public interface IAuthorRepository : IRepositoryBase<Author>
     {
         IEnumerable<Author> GetAllAuthors(); 
-        PaginatedList<Author> GetAuthorsPagingFiltering(AuthorParameters authorParameters);
+        Task<PaginatedList<Author>> GetAuthorsPagingFiltering(AuthorParameters authorParameters);
         Author GetAuthorById(Guid id);
         Author GetAuthorDetailsWithBook(Guid id);
         void CreateAuthor(Author author);
