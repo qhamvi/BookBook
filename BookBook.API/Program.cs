@@ -1,12 +1,15 @@
 using BookBook.API.Extensions;
+using BookBook.DTOs.DataTransferObject;
 using BookBook.DTOs.MappingProfile;
 using BookBook.Presentation;
+using BookBook.Service;
 using Contracts;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Options;
 using NLog;
+using Shared;
 using static BookBook.API.Extensions.ServiceExtension;
 
 // NewtonsoftJsonInputFormatter GetJsonPatchInputFormatter() => 
@@ -50,6 +53,7 @@ builder.Services.AddControllers(config => {
 builder.Services.AddScoped<ActionFilterExample>();
 builder.Services.AddScoped<ControllerFilterExample>();
 builder.Services.AddScoped<ValidationFilterAttribute>();
+builder.Services.AddScoped<IDataShape<AuthorDto>, DataShapper<AuthorDto>>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

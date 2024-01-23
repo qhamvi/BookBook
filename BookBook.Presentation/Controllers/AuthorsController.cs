@@ -19,6 +19,16 @@ namespace BookBook.Presentation.Controllers
             _serviceManager = serviceManager;
         }
 
+        [SwaggerOperation(Summary = "Get Author List", Description = "Get Author List in MySQL database", OperationId = nameof(GetAuthorList))]
+        [HttpGet()]
+        [ProducesResponseType(typeof(List<AuthorDto>), 200)]
+        public async Task<IActionResult> GetAuthorList([FromQuery] AuthorListRequest param)
+        {
+            var pagedResult = await _serviceManager.AuthorService.GetAuthorListAsync(param ,trackChanges: false);
+            Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
+            return Ok(pagedResult.authors);
+        }
+
         [SwaggerOperation(Summary = "Get All Authors", Description = "Get all author in MySQL database", OperationId = nameof(GetAllAuthors))]
         [HttpGet("all")]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]

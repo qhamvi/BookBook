@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Dynamic;
+using AutoMapper;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Models;
@@ -6,6 +7,7 @@ using BookBook.Models.Exceptions;
 using BookBook.Models.Models;
 using BookBook.Repository;
 using Contracts;
+using Shared;
 using Shared.RequestFeatures;
 
 namespace BookBook.Service;
@@ -15,11 +17,13 @@ public class AuthorService : IAuthorService
     private readonly IRepositoryManager _repositoryManager;
     private readonly ILoggerManager _loggerManager;
     private readonly IMapper _mapper;
-    public AuthorService(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapper)
+    private readonly IDataShape<AuthorDto> _dataShapper;
+    public AuthorService(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapper, IDataShape<AuthorDto> dataShapper)
     {
         _repositoryManager = repositoryManager;
         _loggerManager = loggerManager;
         _mapper = mapper;
+        _dataShapper = dataShapper;
     }
 
     public async Task<AuthorDto> CreateAuthorAsync(CreateAuthorDto authorDto)
@@ -74,6 +78,17 @@ public class AuthorService : IAuthorService
         var author = await GetAuthorIfItExisted(authorId, trackChanges);
         var result = _mapper.Map<AuthorDto>(author);
         return result;
+    }
+
+    public async Task<(IEnumerable<ExpandoObject> authors, MetaData metaData)> GetAuthorListAsync(AuthorListRequest param, bool trackChanges)
+    {
+        if(!param.ValidYearRange)
+            throw new MaxAgeRangeBadRequestException();
+        var pagedAuthor = await _repositoryManager.AuthorRepositoryV2.GetAllAuthorsAsync(param, trackChanges);
+        var result = _mapper.Map<IEnumerable<AuthorDto>>(pagedAuthor);
+
+        var shapedData = _dataShapper.ShapeData(result, param.Fields);
+        return (authors: shapedData, metaData: pagedAuthor.MetaData);
     }
 
     public async Task<IEnumerable<AuthorDto>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges)

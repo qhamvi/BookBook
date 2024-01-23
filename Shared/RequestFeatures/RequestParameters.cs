@@ -18,5 +18,7 @@ namespace Shared.RequestFeatures
         }
         public string? OrderBy {get; set;}
         public bool IsDesc {get; set;}
+        public string? Fields {get; set;}
+        
     }
 }
