@@ -17,8 +17,8 @@ public class AuthorService : IAuthorService
     private readonly IRepositoryManager _repositoryManager;
     private readonly ILoggerManager _loggerManager;
     private readonly IMapper _mapper;
-    private readonly IDataShape<AuthorDto> _dataShapper;
-    public AuthorService(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapper, IDataShape<AuthorDto> dataShapper)
+    private readonly IDataShapper<AuthorDto> _dataShapper;
+    public AuthorService(IRepositoryManager repositoryManager, ILoggerManager loggerManager, IMapper mapper, IDataShapper<AuthorDto> dataShapper)
     {
         _repositoryManager = repositoryManager;
         _loggerManager = loggerManager;
@@ -80,7 +80,7 @@ public class AuthorService : IAuthorService
         return result;
     }
 
-    public async Task<(IEnumerable<ExpandoObject> authors, MetaData metaData)> GetAuthorListAsync(AuthorListRequest param, bool trackChanges)
+    public async Task<(IEnumerable<Entity> authors, MetaData metaData)> GetAuthorListAsync(AuthorListRequest param, bool trackChanges)
     {
         if(!param.ValidYearRange)
             throw new MaxAgeRangeBadRequestException();
