@@ -4,7 +4,7 @@ using Shared;
 
 namespace BookBook.Service;
 
-public class DataShapper<T> : IDataShape<T> where T : class
+public class DataShapper<T> : IDataShapper<T> where T : class
 {
     public PropertyInfo[] Properties { get; set; }
     public DataShapper()
@@ -12,22 +12,22 @@ public class DataShapper<T> : IDataShape<T> where T : class
         Properties = typeof(T).GetProperties(BindingFlags.Public | BindingFlags.Instance);
     }
 
-    public IEnumerable<ExpandoObject> ShapeData(IEnumerable<T> entities, string fieldsString)
+    public IEnumerable<Entity> ShapeData(IEnumerable<T> entities, string fieldsString)
     {
         var requiredProperties = GetRequiredProperties(fieldsString);
         return FetchData(entities, requiredProperties);
     }
 
-    public ExpandoObject ShapeData(T entity, string fieldsString)
+    public Entity ShapeData(T entity, string fieldsString)
     {
         var requiredProperties = GetRequiredProperties(fieldsString);
         return FetchDataForEntity(entity, requiredProperties);
     }
     #region  Private
 
-    private ExpandoObject FetchDataForEntity(T entity, IEnumerable<PropertyInfo> requiredProperties)
+    private Entity FetchDataForEntity(T entity, IEnumerable<PropertyInfo> requiredProperties)
     {
-        var shapedObject = new ExpandoObject();
+        var shapedObject = new Entity();
         foreach (var property in requiredProperties)
         {
             var objectPropertyValue = property.GetValue(entity);
@@ -35,9 +35,9 @@ public class DataShapper<T> : IDataShape<T> where T : class
         }
         return shapedObject;
     }
-    private IEnumerable<ExpandoObject> FetchData(IEnumerable<T> entities, IEnumerable<PropertyInfo> requiredProperties)
+    private IEnumerable<Entity> FetchData(IEnumerable<T> entities, IEnumerable<PropertyInfo> requiredProperties)
     {
-        var shapedData = new List<ExpandoObject>();
+        var shapedData = new List<Entity>();
         foreach (var entity in entities)
         {
             var shapedObject = FetchDataForEntity(entity, requiredProperties);

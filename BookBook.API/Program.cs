@@ -53,7 +53,7 @@ builder.Services.AddControllers(config => {
 builder.Services.AddScoped<ActionFilterExample>();
 builder.Services.AddScoped<ControllerFilterExample>();
 builder.Services.AddScoped<ValidationFilterAttribute>();
-builder.Services.AddScoped<IDataShape<AuthorDto>, DataShapper<AuthorDto>>();
+builder.Services.AddScoped<IDataShapper<AuthorDto>, DataShapper<AuthorDto>>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
