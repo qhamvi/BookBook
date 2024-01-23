@@ -32,8 +32,7 @@ public class AuthorRepositoryV2 : RepositoryBase<Author>, IAuthorRepositoryV2
         //                                     .ToListAsync();
         //var count = await FindAll(trackChanges).CountAsync();
         //return new PaginatedList<Author>(authors, count, param.PageNumber, param.PageSize);
-        var y = await PaginatedList<Author>.ToPagedList(authors, param.PageNumber, param.PageSize);
-        return y;
+        return await PaginatedList<Author>.ToPagedList(authors, param.PageNumber, param.PageSize);
     }
 
     public async Task<Author> GetAuthorAsync(Guid authorId, bool trackChanges)
