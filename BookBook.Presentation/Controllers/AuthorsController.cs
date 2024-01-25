@@ -1,7 +1,6 @@
 using System.Text.Json;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
-using BookBook.Models.Models;
 using BookBook.Service;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
@@ -11,6 +10,7 @@ namespace BookBook.Presentation.Controllers
 
     [Route("api/authors")]
     [ApiController]
+    [ResponseCache(CacheProfileName = "120SecondsDuration")]
     public class AuthorsController : ControllerBase
     {
         private IServiceManager _serviceManager;
@@ -24,7 +24,7 @@ namespace BookBook.Presentation.Controllers
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAuthorList([FromQuery] AuthorListRequest param)
         {
-            var pagedResult = await _serviceManager.AuthorService.GetAuthorListAsync(param ,trackChanges: false);
+            var pagedResult = await _serviceManager.AuthorService.GetAuthorListAsync(param, trackChanges: false);
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.metaData));
             return Ok(pagedResult.authors);
         }
@@ -34,7 +34,7 @@ namespace BookBook.Presentation.Controllers
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAllAuthors([FromQuery] AuthorListRequest param)
         {
-            var pagedResult = await _serviceManager.AuthorService.GetAllAuthorsAsync(param ,trackChanges: false);
+            var pagedResult = await _serviceManager.AuthorService.GetAllAuthorsAsync(param, trackChanges: false);
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(pagedResult.MetaData));
             return Ok(pagedResult.Result);
         }
@@ -87,7 +87,7 @@ namespace BookBook.Presentation.Controllers
         public async Task<IActionResult> CreateAuthorCollection([FromBody] IEnumerable<CreateAuthorDto> authorDtos)
         {
             var result = await _serviceManager.AuthorService.CreateAuthorCollectionAsync(authorDtos);
-            return CreatedAtAction("GetAuthorCollection", new {result.ids} , result.authorDtos);
+            return CreatedAtAction("GetAuthorCollection", new { result.ids }, result.authorDtos);
         }
 
         ///<summary>
@@ -110,7 +110,7 @@ namespace BookBook.Presentation.Controllers
         [HttpPut("{authorId:Guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorDto)
-        {            
+        {
             await _serviceManager.AuthorService.UpdateAuthor(authorId, authorDto, trackChanges: true);
             return NoContent();
         }
