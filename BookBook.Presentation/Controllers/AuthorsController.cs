@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace BookBook.Presentation.Controllers
 {
 
-    [Route("api/authors")]
+    [Route("authors")]
     [ApiController]
     [ResponseCache(CacheProfileName = "120SecondsDuration")]
     public class AuthorsController : ControllerBase
