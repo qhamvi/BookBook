@@ -46,6 +46,10 @@ builder.Services.AddControllers(config => {
     config.InputFormatters.Insert(0, GetJsonPatchInputFormatter()); // only 
     config.RespectBrowserAcceptHeader = true;
     config.ReturnHttpNotAcceptable = true;
+    config.CacheProfiles.Add("120SecondsDuration", new CacheProfile {
+        Duration = 120
+        //more properties
+    });
 }).AddXmlDataContractSerializerFormatters()
   .AddCustomCsvFormatter()
 //   .AddNewtonsoftJson() => replacing System.Text.Json formatters for all JSON content
