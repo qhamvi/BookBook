@@ -11,6 +11,10 @@ namespace BookBook.API.Extensions
 {
     public static class ServiceExtension
     {
+        /// <summary>
+        /// Configure CORS
+        /// </summary>
+        /// <param name="services"></param>
         public static void ConfigureCors(this IServiceCollection services)
         {
             services.AddCors(opts =>
@@ -78,6 +82,10 @@ namespace BookBook.API.Extensions
             return builder.AddMvcOptions(config =>
                 config.OutputFormatters.Add(new CsvOutputFormatter()));
         }
+        /// <summary>
+        /// Adding Json Patch Input
+        /// </summary>
+        /// <returns></returns>
         public static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter()
         {
             var builder = new ServiceCollection()
@@ -92,6 +100,14 @@ namespace BookBook.API.Extensions
                 .InputFormatters
                 .OfType<NewtonsoftJsonPatchInputFormatter>()
                 .First();
+        }
+        /// <summary>
+        /// Adding Cache-Store
+        /// </summary>
+        /// <param name="services"></param>
+        public static void ConfigureResponseCaching(this IServiceCollection services)
+        {
+            services.AddResponseCaching();
         }
 
     }

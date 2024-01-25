@@ -31,6 +31,7 @@ builder.Services.ConfigureMySqlContext(builder.Configuration);
 builder.Services.ConfigureRepository();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
+builder.Services.ConfigureResponseCaching();
 
 builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
 //Enable custom responses from the actions
@@ -85,6 +86,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
     ForwardedHeaders = ForwardedHeaders.All
 });
 app.UseCors("CorsPolicy");
+app.UseResponseCaching();
 app.UseAuthorization();
 
 app.MapControllers();

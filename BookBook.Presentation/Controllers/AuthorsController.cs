@@ -45,6 +45,7 @@ namespace BookBook.Presentation.Controllers
         [HttpGet("{authorId:Guid}")]
         [SwaggerOperation(Summary = "Get Author By AuthorId", Description = "Get author by authorId in MySQL database", OperationId = nameof(GetAuthor))]
         [ProducesResponseType(typeof(AuthorDto), 200)]
+        [ResponseCache(Duration = 60)]
         public async Task<IActionResult> GetAuthor(Guid authorId)
         {
             var author = await _serviceManager.AuthorService.GetAuthorAsync(authorId, trackChanges: false);
