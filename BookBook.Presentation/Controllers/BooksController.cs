@@ -8,7 +8,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace BookBook.Presentation.Controllers
 {
     [ApiController]
-    [Route("api/books")]
+    [Route("books")]
     public class BooksController : ControllerBase
     {
         private IServiceManager _serviceManager;

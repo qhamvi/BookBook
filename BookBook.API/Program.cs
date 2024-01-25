@@ -1,3 +1,4 @@
+using BookBook.API;
 using BookBook.API.Extensions;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.DTOs.MappingProfile;
@@ -41,6 +42,7 @@ builder.Services.Configure<ApiBehaviorOptions>(opts =>
 });
 
 builder.Services.AddControllers(config => {
+    
     config.Filters.Add<GlobalActionFilterExample>();
     // config.Filters.Add(new GlobalActionFilterExample());
     config.InputFormatters.Insert(0, GetJsonPatchInputFormatter()); // only 
@@ -48,7 +50,7 @@ builder.Services.AddControllers(config => {
     config.ReturnHttpNotAcceptable = true;
     config.CacheProfiles.Add("120SecondsDuration", new CacheProfile {
         Duration = 120
-        //more properties
+        //more 
     });
 }).AddXmlDataContractSerializerFormatters()
   .AddCustomCsvFormatter()
@@ -72,7 +74,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 var logger = app.Services.GetRequiredService<ILoggerManager>();
 app.ConfigureExceptionHandler(logger);
-
+app.UseMiddleware<GlobalRoutePrefixMiddleware>("/api");
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -92,7 +94,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 app.UseCors("CorsPolicy");
 app.UseResponseCaching();
 app.UseAuthorization();
-
 app.MapControllers();
-
+app.UsePathBase(new PathString("/api"));
+app.UseRouting();
 app.Run();

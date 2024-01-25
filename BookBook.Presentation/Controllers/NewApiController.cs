@@ -8,7 +8,7 @@ namespace BookBook.Presentation.Controllers
 {
     [ServiceFilter(typeof(ControllerFilterExample), Order = 2)]
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class NewApiController : ControllerBase
     {
         [HttpGet]
