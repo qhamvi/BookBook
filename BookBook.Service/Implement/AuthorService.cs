@@ -102,7 +102,15 @@ public class AuthorService : IAuthorService
         return response;
     }
 
-    public async Task UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges)
+    public async Task UpdateAuthorWithBook(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges)
+    {
+        var author = await GetAuthorIfItExisted(authorId, trackChanges);
+
+        _mapper.Map(updateAuthorDto, author);
+        
+        await _repositoryManager.SaveAsync();
+    }
+        public async Task UpdateAuthor(Guid authorId, UpdateAuthorDto updateAuthorDto, bool trackChanges)
     {
         var author = await GetAuthorIfItExisted(authorId, trackChanges);
 

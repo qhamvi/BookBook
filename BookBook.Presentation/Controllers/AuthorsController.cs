@@ -2,6 +2,7 @@ using System.Text.Json;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Service;
+using Marvin.Cache.Headers;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -10,7 +11,7 @@ namespace BookBook.Presentation.Controllers
 
     [Route("api/authors")]
     [ApiController]
-    [ResponseCache(CacheProfileName = "120SecondsDuration")]
+    //[ResponseCache(CacheProfileName = "120SecondsDuration")]
     public class AuthorsController : ControllerBase
     {
         private IServiceManager _serviceManager;
@@ -45,7 +46,9 @@ namespace BookBook.Presentation.Controllers
         [HttpGet("{authorId:Guid}")]
         [SwaggerOperation(Summary = "Get Author By AuthorId", Description = "Get author by authorId in MySQL database", OperationId = nameof(GetAuthor))]
         [ProducesResponseType(typeof(AuthorDto), 200)]
-        [ResponseCache(Duration = 60)]
+        //[ResponseCache(Duration = 60)]
+        [HttpCacheExpiration(CacheLocation = CacheLocation.Public, MaxAge = 60)]
+        [HttpCacheValidation(MustRevalidate = false)]
         public async Task<IActionResult> GetAuthor(Guid authorId)
         {
             var author = await _serviceManager.AuthorService.GetAuthorAsync(authorId, trackChanges: false);
@@ -107,9 +110,22 @@ namespace BookBook.Presentation.Controllers
         ///</summary>
         ///<param name=""></param>
         ///<returns></returns>
+        [HttpPut("book/{authorId:Guid}")]
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> UpdateAuthorWithBookRequest(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorDto)
+        {
+            await _serviceManager.AuthorService.UpdateAuthorWithBook(authorId, authorDto, trackChanges: true);
+            return NoContent();
+        }
+
+        ///<summary>
+        ///Update author with book collection
+        ///</summary>
+        ///<param name=""></param>
+        ///<returns></returns>
         [HttpPut("{authorId:Guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        public async Task<IActionResult> UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorWithBooksRequest authorDto)
+        public async Task<IActionResult> UpdateAuthor(Guid authorId, [FromBody] UpdateAuthorDto authorDto)
         {
             await _serviceManager.AuthorService.UpdateAuthor(authorId, authorDto, trackChanges: true);
             return NoContent();

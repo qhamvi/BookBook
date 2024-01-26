@@ -15,5 +15,6 @@ public interface IAuthorService
     Task<IEnumerable<AuthorDto>> GetByIdsAsync(IEnumerable<Guid> ids, bool trackChanges);
     Task<(IEnumerable<AuthorDto> authorDtos, string ids)> CreateAuthorCollectionAsync(IEnumerable<CreateAuthorDto> authorCollection);
     Task DeleteAuthor(Guid authorId, bool trackChanges);
-    Task UpdateAuthor(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges);
+    Task UpdateAuthorWithBook(Guid authorId, UpdateAuthorWithBooksRequest updateAuthorDto, bool trackChanges);
+    Task UpdateAuthor(Guid authorId, UpdateAuthorDto updateAuthorDto, bool trackChanges);
 }
