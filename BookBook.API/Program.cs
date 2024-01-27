@@ -33,6 +33,8 @@ builder.Services.ConfigureRepository();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureResponseCaching();
+builder.Services.ConfigurettpCacheHeader();
+
 
 builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
 //Enable custom responses from the actions
@@ -93,6 +95,7 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
 });
 app.UseCors("CorsPolicy");
 app.UseResponseCaching();
+app.UseHttpCacheHeaders();
 app.UseAuthorization();
 app.MapControllers();
 app.UsePathBase(new PathString("/api"));

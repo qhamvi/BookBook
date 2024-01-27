@@ -109,6 +109,23 @@ namespace BookBook.API.Extensions
         {
             services.AddResponseCaching();
         }
+        /// <summary>
+        /// Add HttpCacheHeader
+        /// </summary>
+        /// <param name="services"></param>
+        public static void ConfigurettpCacheHeader(this IServiceCollection services)
+        {
+            services.AddHttpCacheHeaders( (expiretionOpt) => 
+            {
+                expiretionOpt.MaxAge = 60;
+                expiretionOpt.CacheLocation = Marvin.Cache.Headers.CacheLocation.Private;
+            }, 
+            (validationOpt) => 
+            {
+                validationOpt.MustRevalidate = true;
+            }           
+            );
+        }
 
     }
 }
