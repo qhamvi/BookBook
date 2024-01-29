@@ -1,8 +1,10 @@
 using AspNetCoreRateLimit;
+using BookBook.Models;
 using BookBook.Repository;
 using BookBook.Service;
 using Contracts;
 using LoggerService;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
@@ -116,15 +118,15 @@ namespace BookBook.API.Extensions
         /// <param name="services"></param>
         public static void ConfigurettpCacheHeader(this IServiceCollection services)
         {
-            services.AddHttpCacheHeaders( (expiretionOpt) => 
+            services.AddHttpCacheHeaders((expiretionOpt) =>
             {
                 expiretionOpt.MaxAge = 60;
                 expiretionOpt.CacheLocation = Marvin.Cache.Headers.CacheLocation.Private;
-            }, 
-            (validationOpt) => 
+            },
+            (validationOpt) =>
             {
                 validationOpt.MustRevalidate = true;
-            }           
+            }
             );
         }
         public static void ConfigurationRateLimitingOptions(this IServiceCollection services)
@@ -138,7 +140,7 @@ namespace BookBook.API.Extensions
                     Period = "5m"
                 }
             };
-            services.Configure<IpRateLimitOptions>(opts => 
+            services.Configure<IpRateLimitOptions>(opts =>
             {
                 opts.GeneralRules = rateLimitRules;
             });
@@ -146,6 +148,20 @@ namespace BookBook.API.Extensions
             services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
             services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
+        }
+        public static void ConfigureIdentity(this IServiceCollection services)
+        {
+            var builder = services.AddIdentity<User, IdentityRole>(opts =>
+            {
+                opts.Password.RequireDigit = true;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireNonAlphanumeric = true;
+                opts.Password.RequiredLength = 8;
+                opts.User.RequireUniqueEmail = true;
+            })
+            .AddEntityFrameworkStores<RepositoryContext>()
+            .AddDefaultTokenProviders();
         }
 
     }
