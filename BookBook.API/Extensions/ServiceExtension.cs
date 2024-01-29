@@ -1,3 +1,4 @@
+using AspNetCoreRateLimit;
 using BookBook.Repository;
 using BookBook.Service;
 using Contracts;
@@ -125,6 +126,26 @@ namespace BookBook.API.Extensions
                 validationOpt.MustRevalidate = true;
             }           
             );
+        }
+        public static void ConfigurationRateLimitingOptions(this IServiceCollection services)
+        {
+            var rateLimitRules = new List<RateLimitRule>
+            {
+                new RateLimitRule
+                {
+                    Endpoint = "*",
+                    Limit = 3,
+                    Period = "5m"
+                }
+            };
+            services.Configure<IpRateLimitOptions>(opts => 
+            {
+                opts.GeneralRules = rateLimitRules;
+            });
+            services.AddSingleton<IRateLimitCounterStore, MemoryCacheRateLimitCounterStore>();
+            services.AddSingleton<IIpPolicyStore, MemoryCacheIpPolicyStore>();
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            services.AddSingleton<IProcessingStrategy, AsyncKeyLockProcessingStrategy>();
         }
 
     }
