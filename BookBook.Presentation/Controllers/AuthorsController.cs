@@ -3,6 +3,7 @@ using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Service;
 using Marvin.Cache.Headers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
@@ -22,6 +23,7 @@ namespace BookBook.Presentation.Controllers
 
         [SwaggerOperation(Summary = "Get Author List", Description = "Get Author List in MySQL database", OperationId = nameof(GetAuthorList))]
         [HttpGet()]
+        [Authorize]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAuthorList([FromQuery] AuthorListRequest param)
         {
