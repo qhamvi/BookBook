@@ -40,6 +40,7 @@ builder.Services.ConfigurationRateLimitingOptions();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJWT(builder.Configuration);
 
 builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
 //Enable custom responses from the actions
