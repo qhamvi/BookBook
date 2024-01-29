@@ -3,6 +3,7 @@ using System;
 using BookBook.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookBook.Repository.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20240129082713_Creating_Identity_Tables")]
+    partial class Creating_Identity_Tables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,18 +102,18 @@ namespace BookBook.Repository.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e68a479f-4f4b-4936-a6b5-f5d405b6ff37"),
+                            Id = new Guid("cbba2ce2-0567-4feb-9c1d-e5660d012e57"),
                             AuthorId = new Guid("3d490a70-94ce-4d15-9494-5248280c2ce3"),
                             BookName = "Sach so 1",
-                            CreatedDate = new DateTime(2024, 1, 29, 8, 52, 35, 938, DateTimeKind.Utc).AddTicks(8685),
+                            CreatedDate = new DateTime(2024, 1, 29, 8, 27, 13, 433, DateTimeKind.Utc).AddTicks(9978),
                             Price = 50000
                         },
                         new
                         {
-                            Id = new Guid("a615db92-0ae1-41e0-b677-2df43ad0f7b1"),
+                            Id = new Guid("b814931f-6b7e-4a20-8721-981af8b76bfe"),
                             AuthorId = new Guid("c9d4c053-49b6-410c-bc78-2d54a9991870"),
                             BookName = "Sach so 1",
-                            CreatedDate = new DateTime(2024, 1, 29, 8, 52, 35, 938, DateTimeKind.Utc).AddTicks(8815),
+                            CreatedDate = new DateTime(2024, 1, 29, 8, 27, 13, 434, DateTimeKind.Utc).AddTicks(13),
                             Price = 50000
                         });
                 });
@@ -211,22 +214,6 @@ namespace BookBook.Repository.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "11822021-23da-40f4-91bf-cbb934884a6b",
-                            ConcurrencyStamp = "de8b8817-73f9-45d1-b13a-67f1978c7e6e",
-                            Name = "Adminstrator",
-                            NormalizedName = "ADMINSTRATOR"
-                        },
-                        new
-                        {
-                            Id = "9800e73b-1cb2-4bd7-abe2-39d80fefaee9",
-                            ConcurrencyStamp = "990b51f6-4549-4c8c-9e27-977da167dba1",
-                            Name = "Staff",
-                            NormalizedName = "STAFF"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

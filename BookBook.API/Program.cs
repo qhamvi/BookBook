@@ -38,6 +38,8 @@ builder.Services.ConfigurettpCacheHeader();
 builder.Services.AddMemoryCache();
 builder.Services.ConfigurationRateLimitingOptions();
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddAuthentication();
+builder.Services.ConfigureIdentity();
 
 builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
 //Enable custom responses from the actions
@@ -100,6 +102,7 @@ app.UseIpRateLimiting();
 app.UseCors("CorsPolicy");
 app.UseResponseCaching();
 app.UseHttpCacheHeaders();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.UsePathBase(new PathString("/api"));
