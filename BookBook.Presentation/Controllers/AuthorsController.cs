@@ -33,7 +33,7 @@ namespace BookBook.Presentation.Controllers
 
         [SwaggerOperation(Summary = "Get All Authors", Description = "Get all author in MySQL database", OperationId = nameof(GetAllAuthors))]
         [HttpGet("all")]
-        [Authorize]
+        [Authorize(Roles = "Adminstrator")]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAllAuthors([FromQuery] AuthorListRequest param)
         {

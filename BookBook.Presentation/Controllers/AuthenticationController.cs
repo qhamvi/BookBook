@@ -20,7 +20,6 @@ namespace BookBook.Presentation.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-
         [HttpPost("login")]
         [SwaggerOperation(Summary = "Login", Description = "Login", OperationId = nameof(Login))]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
