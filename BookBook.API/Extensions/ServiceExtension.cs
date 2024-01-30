@@ -1,14 +1,17 @@
+using System.Text;
 using AspNetCoreRateLimit;
 using BookBook.Models;
 using BookBook.Repository;
 using BookBook.Service;
 using Contracts;
 using LoggerService;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BookBook.API.Extensions
 {
@@ -136,8 +139,8 @@ namespace BookBook.API.Extensions
                 new RateLimitRule
                 {
                     Endpoint = "*",
-                    Limit = 3,
-                    Period = "5m"
+                    Limit = 100,
+                    Period = "10m"
                 }
             };
             services.Configure<IpRateLimitOptions>(opts =>
@@ -162,6 +165,30 @@ namespace BookBook.API.Extensions
             })
             .AddEntityFrameworkStores<RepositoryContext>()
             .AddDefaultTokenProviders();
+        }
+        public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
+        {
+            var jwtSetting = configuration.GetSection("JwtSettings");
+            var secretKey = Environment.GetEnvironmentVariable("SECRET");
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            })
+            .AddJwtBearer(opts => 
+            {
+                opts.TokenValidationParameters = new TokenValidationParameters {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+
+                    ValidIssuer = jwtSetting["ValidIssuer"],
+                    ValidAudience = jwtSetting["ValidAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                };
+            });
         }
 
     }

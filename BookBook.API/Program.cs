@@ -40,6 +40,7 @@ builder.Services.ConfigurationRateLimitingOptions();
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddAuthentication();
 builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJWT(builder.Configuration);
 
 builder.Services.AddAutoMapper(typeof(AuthorMappingProfile), typeof(BookMappingProfile));
 //Enable custom responses from the actions
@@ -103,8 +104,14 @@ app.UseCors("CorsPolicy");
 app.UseResponseCaching();
 app.UseHttpCacheHeaders();
 app.UseAuthentication();
-app.UseAuthorization();
-app.MapControllers();
+//app.MapControllers();
 app.UsePathBase(new PathString("/api"));
 app.UseRouting();
+//When authorizing a resource that is routed using endpoint routing, this call must appear between the calls to app.UseRouting() and app.UseEndpoints(...) for the middleware to function correctly.
+app.UseAuthorization();
+app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllers();
+        // Other endpoints...
+    }); // === app.MapControllers();
 app.Run();
