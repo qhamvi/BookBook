@@ -23,7 +23,6 @@ namespace BookBook.Presentation.Controllers
 
         [SwaggerOperation(Summary = "Get Author List", Description = "Get Author List in MySQL database", OperationId = nameof(GetAuthorList))]
         [HttpGet()]
-        [Authorize]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAuthorList([FromQuery] AuthorListRequest param)
         {
@@ -34,6 +33,7 @@ namespace BookBook.Presentation.Controllers
 
         [SwaggerOperation(Summary = "Get All Authors", Description = "Get all author in MySQL database", OperationId = nameof(GetAllAuthors))]
         [HttpGet("all")]
+        [Authorize]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAllAuthors([FromQuery] AuthorListRequest param)
         {

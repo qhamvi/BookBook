@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BookBook.DTOs.DataTransferObject
 {
-    public class CreateUserRequest
+    public record CreateUserRequest
     {
         public string? FirstName { get; init; }
         public string? LastName { get; init; }

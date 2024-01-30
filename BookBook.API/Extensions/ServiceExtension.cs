@@ -139,8 +139,8 @@ namespace BookBook.API.Extensions
                 new RateLimitRule
                 {
                     Endpoint = "*",
-                    Limit = 3,
-                    Period = "5m"
+                    Limit = 100,
+                    Period = "10m"
                 }
             };
             services.Configure<IpRateLimitOptions>(opts =>
