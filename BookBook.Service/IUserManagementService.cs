@@ -7,6 +7,7 @@ namespace BookBook.Service
     public interface IUserManagementService
     {
         Task<IdentityResult> CreateUserAsync(CreateUserRequest request);
-        Task<string?> LoginAsync(LoginRequest request);
+        Task<LoginResponse?> LoginAsync(LoginRequest request);
+        
     }
 }

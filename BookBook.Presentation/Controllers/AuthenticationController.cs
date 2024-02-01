@@ -28,7 +28,7 @@ namespace BookBook.Presentation.Controllers
             if (result is null)
                 return Unauthorized();
 
-            return Ok(new {Token = result});
+            return Ok(result);
         }
     }
 }
