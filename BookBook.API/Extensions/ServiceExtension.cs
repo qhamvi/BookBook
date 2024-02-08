@@ -1,6 +1,7 @@
 using System.Text;
 using AspNetCoreRateLimit;
 using BookBook.Models;
+using BookBook.Models.ConfigurationModels;
 using BookBook.Repository;
 using BookBook.Service;
 using Contracts;
@@ -168,7 +169,9 @@ namespace BookBook.API.Extensions
         }
         public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
         {
-            var jwtSetting = configuration.GetSection("JwtSettings");
+            var jwtSetting = new JwtConfiguration();
+            configuration.Bind(jwtSetting.Section, jwtSetting);
+            //    var jwtSetting = configuration.GetSection("JwtSettings");
             var secretKey = Environment.GetEnvironmentVariable("SECRET");
 
             services.AddAuthentication(opt =>
@@ -176,16 +179,19 @@ namespace BookBook.API.Extensions
                 opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                 opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
             })
-            .AddJwtBearer(opts => 
+            .AddJwtBearer(opts =>
             {
-                opts.TokenValidationParameters = new TokenValidationParameters {
+                opts.TokenValidationParameters = new TokenValidationParameters
+                {
                     ValidateIssuer = true,
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
 
-                    ValidIssuer = jwtSetting["ValidIssuer"],
-                    ValidAudience = jwtSetting["ValidAudience"],
+                    ValidIssuer = jwtSetting.ValidIssuer,
+                    ValidAudience = jwtSetting.ValidAudience,
+                    // ValidIssuer = jwtSetting["ValidIssuer"],
+                    // ValidAudience = jwtSetting["ValidAudience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
                 };
             });
