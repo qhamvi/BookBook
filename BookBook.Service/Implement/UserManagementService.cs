@@ -6,16 +6,17 @@ using AutoMapper;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Models;
+using BookBook.Models.ConfigurationModels;
 using Contracts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
-
 namespace BookBook.Service.Implement
 {
     public class UserManagementService : IUserManagementService
     {
+        private readonly JwtConfiguration _jwtConfiguration;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
@@ -27,6 +28,8 @@ namespace BookBook.Service.Implement
             _mapper = mapper;
             _userManager = userManager;
             _configuration = configuration;
+            _jwtConfiguration = new JwtConfiguration();
+            _configuration.Bind(_jwtConfiguration.Section, _jwtConfiguration);
         }
 
         public async Task<IdentityResult> CreateUserAsync(CreateUserRequest request)
@@ -50,14 +53,14 @@ namespace BookBook.Service.Implement
             var response = await CreateToken(user, populatedExp: true);
             return response;
         }
-        
+
         public async Task<LoginResponse?> RefreshTokenAsync(TokenDto request)
         {
             var principal = GetPrincipalFromExpiredToken(request.AccessToken);
             var user = await _userManager.FindByNameAsync(principal.Identity.Name);
-            if (user == null || user.RefreshToken != request.RefreshToken ||  user.RefreshTokenExpireTime <= DateTime.Now)
+            if (user == null || user.RefreshToken != request.RefreshToken || user.RefreshTokenExpireTime <= DateTime.Now)
                 throw new RefreshTokenBadRequest();
-            
+
             return await CreateToken(user, populatedExp: false);
         }
         #region Private
@@ -108,13 +111,16 @@ namespace BookBook.Service.Implement
         }
         private JwtSecurityToken GenerateTokenOptions(SigningCredentials signingCredentials, List<Claim> claims)
         {
-            var jwtSettings = _configuration.GetSection("JwtSettings");
+            //var jwtSettings = _configuration.GetSection("JwtSettings");
             var tokenOptions = new JwtSecurityToken
             (
-                issuer: jwtSettings["ValidIssuer"],
-                audience: jwtSettings["ValidAudience"],
+                // issuer: jwtSettings["ValidIssuer"],
+                // audience: jwtSettings["ValidAudience"],
+                issuer: _jwtConfiguration.ValidIssuer,
+                audience: _jwtConfiguration.ValidAudience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["Expires"])),
+                // expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["Expires"])),
+                expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtConfiguration.Expires)),
                 signingCredentials: signingCredentials
             );
             return tokenOptions;
@@ -131,7 +137,7 @@ namespace BookBook.Service.Implement
         }
         private ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
         {
-            var jwtSettings = _configuration.GetSection("JwtSettings");
+            //var jwtSettings = _configuration.GetSection("JwtSettings");
             var tokenValidationParameters = new TokenValidationParameters
             {
                 ValidateAudience = true,
@@ -139,8 +145,10 @@ namespace BookBook.Service.Implement
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Environment.GetEnvironmentVariable("SECRET"))),
                 ValidateLifetime = true,
-                ValidIssuer = jwtSettings["validIssuer"],
-                ValidAudience = jwtSettings["validAudience"]
+                // ValidIssuer = jwtSettings["validIssuer"],
+                // ValidAudience = jwtSettings["validAudience"]
+                ValidIssuer = _jwtConfiguration.ValidIssuer,
+                ValidAudience = _jwtConfiguration.ValidAudience
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken;
