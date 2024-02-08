@@ -8,6 +8,7 @@ namespace BookBook.Service
     {
         Task<IdentityResult> CreateUserAsync(CreateUserRequest request);
         Task<LoginResponse?> LoginAsync(LoginRequest request);
-        
+        Task<LoginResponse?> RefreshTokenAsync(TokenDto request);
+
     }
 }

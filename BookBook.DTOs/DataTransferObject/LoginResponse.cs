@@ -1,7 +1,6 @@
 ﻿namespace BookBook.DTOs;
 
-public record LoginResponse
+public record LoginResponse : TokenDto
 {
-    public string? AccessToken {get; init;}
-    public string? RefreshToKen {get; init;}
+
 }

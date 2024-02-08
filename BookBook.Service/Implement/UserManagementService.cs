@@ -39,7 +39,7 @@ namespace BookBook.Service.Implement
         }
         public async Task<LoginResponse?> LoginAsync(LoginRequest request)
         {
-                        //Check valid
+            //Check valid
             var user = await _userManager.FindByNameAsync(request.UserName);
             bool result = (user != null && await _userManager.CheckPasswordAsync(user, request.Password));
             if (result is false)
@@ -49,6 +49,16 @@ namespace BookBook.Service.Implement
             }
             var response = await CreateToken(user, populatedExp: true);
             return response;
+        }
+        
+        public async Task<LoginResponse?> RefreshTokenAsync(TokenDto request)
+        {
+            var principal = GetPrincipalFromExpiredToken(request.AccessToken);
+            var user = await _userManager.FindByNameAsync(principal.Identity.Name);
+            if (user == null || user.RefreshToken != request.RefreshToken ||  user.RefreshTokenExpireTime <= DateTime.Now)
+                throw new RefreshTokenBadRequest();
+            
+            return await CreateToken(user, populatedExp: false);
         }
         #region Private
         private async Task<LoginResponse?> CreateToken(User user, bool populatedExp)
@@ -61,7 +71,7 @@ namespace BookBook.Service.Implement
             //Generate RefreshToKen
             var refreshToken = GenerateRefreshToken();
             user.RefreshToken = refreshToken;
-            if(populatedExp is true)
+            if (populatedExp is true)
             {
                 user.RefreshTokenExpireTime = DateTime.Now.AddDays(7);
             }
@@ -70,7 +80,7 @@ namespace BookBook.Service.Implement
             return new LoginResponse
             {
                 AccessToken = accessToken,
-                RefreshToKen = refreshToken
+                RefreshToken = refreshToken
             };
 
         }
