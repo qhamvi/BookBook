@@ -1,3 +1,4 @@
+using System.Linq.Dynamic.Core.Tokenizer;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Service;
@@ -28,7 +29,14 @@ namespace BookBook.Presentation.Controllers
             if (result is null)
                 return Unauthorized();
 
-            return Ok(new {Token = result});
+            return Ok(result);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<IActionResult> RefreshToken([FromBody] TokenDto request)
+        {
+            var response = await _serviceManager.UserManagement.RefreshTokenAsync(request);
+            return Ok(response);
         }
     }
 }
