@@ -198,7 +198,9 @@ namespace BookBook.API.Extensions
         }
         public static void AddJwtConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<JwtConfiguration>(configuration.GetSection("JwtSettings"));
+            // services.Configure<JwtConfiguration>(configuration.GetSection("JwtSettings"));
+            services.Configure<JwtConfiguration>("JwtSettings", configuration.GetSection("JwtSettings"));
+            services.Configure<JwtConfiguration>("JwtSettingsV2", configuration.GetSection("JwtSettingsV2"));
         }
 
     }
