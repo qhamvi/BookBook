@@ -10,6 +10,7 @@ using BookBook.Models.ConfigurationModels;
 using Contracts;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 
 namespace BookBook.Service.Implement
@@ -17,19 +18,28 @@ namespace BookBook.Service.Implement
     public class UserManagementService : IUserManagementService
     {
         private readonly JwtConfiguration _jwtConfiguration;
+        private readonly JwtConfiguration _jwtOptionPattern;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
         private readonly IConfiguration _configuration;
+        // Compare : Binding configuration vs Option Pattern
+        private readonly IOptions<JwtConfiguration> _options;
         public UserManagementService(ILoggerManager loggerManager, IMapper mapper, UserManager<User> userManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            // Compare : Binding configuration vs Option Pattern
+            IOptions<JwtConfiguration> options)
         {
             _logger = loggerManager;
             _mapper = mapper;
             _userManager = userManager;
             _configuration = configuration;
+
             _jwtConfiguration = new JwtConfiguration();
             _configuration.Bind(_jwtConfiguration.Section, _jwtConfiguration);
+            // Compare : Binding configuration vs Option Pattern
+            _options = options;
+            _jwtOptionPattern = _options.Value;
         }
 
         public async Task<IdentityResult> CreateUserAsync(CreateUserRequest request)
@@ -116,8 +126,16 @@ namespace BookBook.Service.Implement
             (
                 // issuer: jwtSettings["ValidIssuer"],
                 // audience: jwtSettings["ValidAudience"],
+
+                //Binding configuration
                 issuer: _jwtConfiguration.ValidIssuer,
                 audience: _jwtConfiguration.ValidAudience,
+
+                //Option pattern
+                // issuer: _jwtOptionPattern.ValidIssuer,
+                // audience: _jwtOptionPattern.ValidAudience,
+
+
                 claims: claims,
                 // expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["Expires"])),
                 expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtConfiguration.Expires)),
@@ -147,8 +165,15 @@ namespace BookBook.Service.Implement
                 ValidateLifetime = true,
                 // ValidIssuer = jwtSettings["validIssuer"],
                 // ValidAudience = jwtSettings["validAudience"]
-                ValidIssuer = _jwtConfiguration.ValidIssuer,
-                ValidAudience = _jwtConfiguration.ValidAudience
+
+                // Binding Configuration
+                // ValidIssuer = _jwtConfiguration.ValidIssuer,
+                // ValidAudience = _jwtConfiguration.ValidAudience
+
+                //Option Pattern
+                ValidIssuer = _jwtOptionPattern.ValidIssuer,
+                ValidAudience = _jwtOptionPattern.ValidAudience
+
             };
             var tokenHandler = new JwtSecurityTokenHandler();
             SecurityToken securityToken;
