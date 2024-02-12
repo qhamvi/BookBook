@@ -17,29 +17,35 @@ namespace BookBook.Service.Implement
 {
     public class UserManagementService : IUserManagementService
     {
-        private readonly JwtConfiguration _jwtConfiguration;
+        //private readonly JwtConfiguration _jwtConfiguration;
         private readonly JwtConfiguration _jwtOptionPattern;
         private readonly ILoggerManager _logger;
         private readonly IMapper _mapper;
         private readonly UserManager<User> _userManager;
-        private readonly IConfiguration _configuration;
+        //private readonly IConfiguration _configuration;
         // Compare : Binding configuration vs Option Pattern
-        private readonly IOptions<JwtConfiguration> _options;
+        //private readonly IOptions<JwtConfiguration> _options;
+        //private readonly IOptionsSnapshot<JwtConfiguration> _options;
+        private readonly IOptionsMonitor<JwtConfiguration> _options;
         public UserManagementService(ILoggerManager loggerManager, IMapper mapper, UserManager<User> userManager,
-            IConfiguration configuration,
+            //IConfiguration configuration,
             // Compare : Binding configuration vs Option Pattern
-            IOptions<JwtConfiguration> options)
+            //IOptions<JwtConfiguration> options,
+            //IOptionsSnapshot<JwtConfiguration> options,
+            IOptionsMonitor<JwtConfiguration> options
+            )
         {
             _logger = loggerManager;
             _mapper = mapper;
             _userManager = userManager;
-            _configuration = configuration;
+            //_configuration = configuration;
 
-            _jwtConfiguration = new JwtConfiguration();
-            _configuration.Bind(_jwtConfiguration.Section, _jwtConfiguration);
+            //_jwtConfiguration = new JwtConfiguration();
+            //_configuration.Bind(_jwtConfiguration.Section, _jwtConfiguration);
             // Compare : Binding configuration vs Option Pattern
             _options = options;
-            _jwtOptionPattern = _options.Value;
+            // _jwtOptionPattern = _options.CurrentValue; // = Value for IOptions and IOptionsSnapshot
+            _jwtOptionPattern = _options.Get("JwtSettingsV2");
         }
 
         public async Task<IdentityResult> CreateUserAsync(CreateUserRequest request)
@@ -128,17 +134,17 @@ namespace BookBook.Service.Implement
                 // audience: jwtSettings["ValidAudience"],
 
                 //Binding configuration
-                issuer: _jwtConfiguration.ValidIssuer,
-                audience: _jwtConfiguration.ValidAudience,
+                // issuer: _jwtConfiguration.ValidIssuer,
+                // audience: _jwtConfiguration.ValidAudience,
 
                 //Option pattern
-                // issuer: _jwtOptionPattern.ValidIssuer,
-                // audience: _jwtOptionPattern.ValidAudience,
+                issuer: _jwtOptionPattern.ValidIssuer,
+                audience: _jwtOptionPattern.ValidAudience,
 
 
                 claims: claims,
                 // expires: DateTime.Now.AddMinutes(Convert.ToDouble(jwtSettings["Expires"])),
-                expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtConfiguration.Expires)),
+                expires: DateTime.Now.AddMinutes(Convert.ToDouble(_jwtOptionPattern.Expires)),
                 signingCredentials: signingCredentials
             );
             return tokenOptions;
