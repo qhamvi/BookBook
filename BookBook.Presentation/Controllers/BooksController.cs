@@ -9,6 +9,7 @@ namespace BookBook.Presentation.Controllers
 {
     [ApiController]
     [Route("books")]
+    [ApiExplorerSettings(GroupName = "v1")]
     public class BooksController : ControllerBase
     {
         private IServiceManager _serviceManager;

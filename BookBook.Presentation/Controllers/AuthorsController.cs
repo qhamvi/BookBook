@@ -1,4 +1,7 @@
+using System;
+using System.Collections.Generic;
 using System.Text.Json;
+using System.Threading.Tasks;
 using BookBook.DTOs;
 using BookBook.DTOs.DataTransferObject;
 using BookBook.Service;
@@ -12,6 +15,7 @@ namespace BookBook.Presentation.Controllers
 
     [Route("authors")]
     [ApiController]
+    [ApiExplorerSettings(GroupName = "v2")]
     //[ResponseCache(CacheProfileName = "120SecondsDuration")]
     public class AuthorsController : ControllerBase
     {
@@ -21,7 +25,11 @@ namespace BookBook.Presentation.Controllers
             _serviceManager = serviceManager;
         }
 
-        [SwaggerOperation(Summary = "Get Author List", Description = "Get Author List in MySQL database", OperationId = nameof(GetAuthorList))]
+        /// <summary>
+        /// Get author list
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
         [HttpGet()]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
         public async Task<IActionResult> GetAuthorList([FromQuery] AuthorListRequest param)
@@ -31,7 +39,11 @@ namespace BookBook.Presentation.Controllers
             return Ok(pagedResult.authors);
         }
 
-        [SwaggerOperation(Summary = "Get All Authors", Description = "Get all author in MySQL database", OperationId = nameof(GetAllAuthors))]
+        /// <summary>
+        /// Get all author
+        /// </summary>
+        /// <param name="param"></param>
+        /// <returns></returns>
         [HttpGet("all")]
         [Authorize(Roles = "Adminstrator")]
         [ProducesResponseType(typeof(List<AuthorDto>), 200)]
@@ -43,10 +55,11 @@ namespace BookBook.Presentation.Controllers
         }
 
         /// <summary>
-        /// Get author By authorId
+        /// Get a author by authorId
         /// </summary>
+        /// <param name="authorId"></param>
+        /// <returns></returns>
         [HttpGet("{authorId:Guid}")]
-        [SwaggerOperation(Summary = "Get Author By AuthorId", Description = "Get author by authorId in MySQL database", OperationId = nameof(GetAuthor))]
         [ProducesResponseType(typeof(AuthorDto), 200)]
         //[ResponseCache(Duration = 60)]
         [HttpCacheExpiration(CacheLocation = CacheLocation.Public, MaxAge = 60)]
@@ -60,22 +73,28 @@ namespace BookBook.Presentation.Controllers
         /// <summary>
         /// Create a author
         /// </summary>
+        /// <param name="authorDto"></param>
+        /// <returns></returns>
+        /// <returns>A newly created company</returns>
+        /// <response code="201">Returns the newly created item</response>
+        /// <response code="400">If the item is null</response>
+        /// <response code="422">If the model is invalid</response>
         [HttpPost]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
-        [SwaggerOperation(Summary = "Create a author", Description = "Create a author in MySQL database", OperationId = nameof(CreateAuthor))]
-        [ProducesResponseType(typeof(AuthorDto), 200)]
+        [ProducesResponseType(typeof(AuthorDto), 201)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(422)]
         public async Task<IActionResult> CreateAuthor([FromBody] CreateAuthorDto authorDto)
         {
             var author = await _serviceManager.AuthorService.CreateAuthorAsync(authorDto);
             return CreatedAtAction("GetAuthorAsync", new { authorId = author.Id }, author);
         }
         /// <summary>
-        /// Get Author Collection
+        /// Get Author Collection by Id List
         /// </summary>
         /// <param name="ids"></param>
         /// <returns></returns>
         [HttpGet("collection/({ids})", Name = "GetAuthorCollection")]
-        [SwaggerOperation(Summary = "Get author collection", Description = "Get author collection in MySQL database", OperationId = nameof(CreateAuthor))]
         public async Task<IActionResult> GetAuthorCollection([ModelBinder(BinderType = typeof(ArrayModelBinder))] IEnumerable<Guid> ids)
         {
             var authors = await _serviceManager.AuthorService.GetByIdsAsync(ids, trackChanges: false);
@@ -83,12 +102,11 @@ namespace BookBook.Presentation.Controllers
         }
 
         ///<summary>
-        ///Create a author collection
+        ///Create author collection
         ///</summary>
-        ///<param name="{authorDtos}"></param>
+        ///<param name="authorDtos"></param>
         ///<returns></returns>
         [HttpPost("collection")]
-        [SwaggerOperation(Summary = "Create collection of author", Description = "Create author collection", OperationId = "")]
         public async Task<IActionResult> CreateAuthorCollection([FromBody] IEnumerable<CreateAuthorDto> authorDtos)
         {
             var result = await _serviceManager.AuthorService.CreateAuthorCollectionAsync(authorDtos);
@@ -98,7 +116,7 @@ namespace BookBook.Presentation.Controllers
         ///<summary>
         ///Delete Author
         ///</summary>
-        ///<param name="{authorId}"></param>
+        ///<param name="authorId"></param>
         ///<returns></returns>
         [HttpDelete("{authorId:Guid}")]
         public async Task<IActionResult> DeleteAuthor(Guid authorId)
@@ -110,7 +128,8 @@ namespace BookBook.Presentation.Controllers
         ///<summary>
         ///Update author with book collection
         ///</summary>
-        ///<param name=""></param>
+        /// <param name="authorId"></param>
+        /// <param name="authorDto"></param>
         ///<returns></returns>
         [HttpPut("book/{authorId:Guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
@@ -123,7 +142,8 @@ namespace BookBook.Presentation.Controllers
         ///<summary>
         ///Update author with book collection
         ///</summary>
-        ///<param name=""></param>
+        /// <param name="authorId"></param>
+        /// <param name="authorDto"></param>
         ///<returns></returns>
         [HttpPut("{authorId:Guid}")]
         [ServiceFilter(typeof(ValidationFilterAttribute))]

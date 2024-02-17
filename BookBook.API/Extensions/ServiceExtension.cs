@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace BookBook.API.Extensions
 {
@@ -171,6 +172,7 @@ namespace BookBook.API.Extensions
         {
             var jwtSetting = new JwtConfiguration();
             configuration.Bind(jwtSetting.Section, jwtSetting);
+            configuration.Bind("JwtSettingsV2", jwtSetting);
             //    var jwtSetting = configuration.GetSection("JwtSettings");
             var secretKey = Environment.GetEnvironmentVariable("SECRET");
 
@@ -201,6 +203,62 @@ namespace BookBook.API.Extensions
             // services.Configure<JwtConfiguration>(configuration.GetSection("JwtSettings"));
             services.Configure<JwtConfiguration>("JwtSettings", configuration.GetSection("JwtSettings"));
             services.Configure<JwtConfiguration>("JwtSettingsV2", configuration.GetSection("JwtSettingsV2"));
+        }
+
+        public static void ConfigureSwagger(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(config =>
+            {
+                config.SwaggerDoc("v1", new OpenApiInfo 
+                { 
+                    Title = "Book Book API", 
+                    Version = "v1" ,
+                    Description = " Book API by qhamvi",
+                    TermsOfService = new Uri("https://example.com/terms"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Vi Pham",
+                        Email = "qhamvi@gmail.com",
+                        Url = new Uri("https://www.linkedin.com/in/qhamvi/")
+                    },
+                    License = new OpenApiLicense
+                    {
+                        Name = "ViVi test",
+                        Url = new Uri("https://example.com/license")
+                    }});
+              
+                var xmlFile = $"{typeof(Presentation.AssemblyReference).Assembly.GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile) ;
+                config.IncludeXmlComments(xmlPath);
+
+                config.SwaggerDoc("v2", new OpenApiInfo { Title = "Book Book API 2", Version = "v2" });
+                config.EnableAnnotations();
+
+                config.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Place to add JWT with Bearer",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+                config.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            },
+                            Name = "Bearer",
+                        },
+                        new List<string>()
+                    }
+                });
+
+            });
         }
 
     }
