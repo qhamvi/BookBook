@@ -21,6 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookBook.Presentation", "Bo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{FA65D586-133D-4C65-91FB-EF2A7717E45E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Publish", "Publish", "{4D76D737-C1E5-4426-8272-708902EDC68B}"
+	ProjectSection(SolutionItems) = preProject
+		web.config = web.config
+		appsettings.Development.json = appsettings.Development.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
