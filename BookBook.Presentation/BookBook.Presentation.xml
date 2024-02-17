@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookBook.Presentation</name>
+    </assembly>
+    <members>
+        <member name="M:BookBook.Presentation.Controllers.AuthenticationController.Login(BookBook.DTOs.LoginRequest)">
+            <summary>
+            Login user 
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.GetAuthorList(BookBook.DTOs.AuthorListRequest)">
+            <summary>
+            Get author list
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.GetAllAuthors(BookBook.DTOs.AuthorListRequest)">
+            <summary>
+            Get all author
+            </summary>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.GetAuthor(System.Guid)">
+            <summary>
+            Get a author by authorId
+            </summary>
+            <param name="authorId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.CreateAuthor(BookBook.DTOs.DataTransferObject.CreateAuthorDto)">
+            <summary>
+            Create a author
+            </summary>
+            <param name="authorDto"></param>
+            <returns></returns>
+            <returns>A newly created company</returns>
+            <response code="201">Returns the newly created item</response>
+            <response code="400">If the item is null</response>
+            <response code="422">If the model is invalid</response>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.GetAuthorCollection(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Get Author Collection by Id List
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.CreateAuthorCollection(System.Collections.Generic.IEnumerable{BookBook.DTOs.DataTransferObject.CreateAuthorDto})">
+            <summary>
+            Create author collection
+            </summary>
+            <param name="authorDtos"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.DeleteAuthor(System.Guid)">
+            <summary>
+            Delete Author
+            </summary>
+            <param name="authorId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.UpdateAuthorWithBookRequest(System.Guid,BookBook.DTOs.UpdateAuthorWithBooksRequest)">
+            <summary>
+            Update author with book collection
+            </summary>
+             <param name="authorId"></param>
+             <param name="authorDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.AuthorsController.UpdateAuthor(System.Guid,BookBook.DTOs.DataTransferObject.UpdateAuthorDto)">
+            <summary>
+            Update author with book collection
+            </summary>
+             <param name="authorId"></param>
+             <param name="authorDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BookBook.Presentation.Controllers.UserManagementController.CreateUser(BookBook.DTOs.DataTransferObject.CreateUserRequest)">
+            <summary>
+            Create user 
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
